@@ -1,0 +1,139 @@
+---
+import { FLAGSHIP_PROJECTS } from '../data/portfolioData';
+---
+
+<div class="space-y-6">
+  
+  <!-- Section Title Header -->
+  <div class="border-b border-[var(--border-color)] pb-4">
+    <div class="flex items-center space-x-2 text-xs font-mono text-emerald-500 font-bold mb-1">
+      <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+      <span>PRODUCTION PLATFORMS & SYSTEM CASE STUDIES</span>
+    </div>
+    <h2 class="text-3xl font-extrabold text-[var(--text-primary)] font-mono">
+      FLAGSHIP PRODUCTION PROJECTS
+    </h2>
+    <p class="text-sm text-[var(--text-muted)] font-mono mt-1">
+      In-depth architectural analysis, impact metrics, technical challenges, and code patterns for mission-critical enterprise platforms.
+    </p>
+  </div>
+
+  <!-- Deep Dive Project Cards List -->
+  <div class="space-y-6">
+    {FLAGSHIP_PROJECTS.map((project, index) => (
+      <div class="terminal-card p-6 lg:p-8 space-y-6 relative group border border-[var(--border-color)]">
+        
+        <!-- Header Row -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[var(--border-color)]">
+          <div>
+            <div class="flex items-center space-x-3">
+              <span class="text-xs font-mono font-bold text-emerald-500 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30">
+                0{index + 1}. {project.category.toUpperCase()}
+              </span>
+              <span class="text-xs font-mono text-[var(--text-muted)]">SYSTEM ID: {project.id.toUpperCase()}</span>
+            </div>
+            <h3 class="text-2xl font-bold text-[var(--text-primary)] font-mono mt-2 group-hover:text-cyan-400 transition-colors">
+              {project.title}
+            </h3>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-extrabold bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+              {project.badgeText}
+            </span>
+          </div>
+        </div>
+
+        <!-- Full Description & Metrics -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          <!-- Narrative & Accomplishments (7 Cols) -->
+          <div class="lg:col-span-7 space-y-4">
+            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+              {project.fullDescription}
+            </p>
+
+            <div class="space-y-2">
+              <h4 class="text-xs font-mono font-bold text-emerald-500 uppercase tracking-wide">
+                Key Architectural Accomplishments:
+              </h4>
+              <ul class="space-y-2 font-mono text-xs text-[var(--text-secondary)]">
+                {project.architectureHighlights.map((highlight) => (
+                  <li class="flex items-start space-x-2">
+                    <span class="text-emerald-500 font-bold mt-0.5">▸</span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Impact Metrics Grid (5 Cols) -->
+          <div class="lg:col-span-5 flex flex-col justify-between space-y-4">
+            <div class="p-4 rounded-xl glass-panel border border-[var(--border-color)] space-y-3">
+              <h4 class="text-xs font-mono font-bold text-[var(--text-primary)] border-b border-[var(--border-color)] pb-2 flex justify-between">
+                <span>VERIFIED IMPACT METRICS</span>
+                <span class="text-emerald-500">PROD DATA</span>
+              </h4>
+
+              <div class="grid grid-cols-2 gap-3 font-mono">
+                {project.impactMetrics.map((m) => (
+                  <div class="p-2.5 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+                    <span class="text-[10px] text-[var(--text-muted)] block">{m.label.toUpperCase()}</span>
+                    <span class="text-base font-extrabold text-[var(--text-primary)]">{m.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- Tech Stack Tags -->
+            <div>
+              <div class="text-[11px] font-mono text-[var(--text-muted)] mb-2 uppercase">TECHNOLOGY ENGINES:</div>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                {project.tags.map((t) => (
+                  <span class="px-2.5 py-1 rounded bg-[var(--bg-main)] text-[var(--text-primary)] border border-[var(--border-color)] font-semibold">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    ))}
+  </div>
+
+  <!-- Commercial Run-times, Hardware HAL & Government Utilities Box -->
+  <div class="terminal-card p-6 lg:p-8 space-y-4 border border-[var(--border-color)]">
+    <div class="flex justify-between items-center pb-4 border-b border-[var(--border-color)] font-mono">
+      <div class="flex items-center space-x-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+        <h3 class="text-xl font-bold text-[var(--text-primary)]">Commercial Run-times, Hardware HAL & Government Utilities</h3>
+      </div>
+      <span class="text-xs text-[var(--text-muted)]">SPECIALIZED SDKs</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+      <div class="p-4 rounded-lg bg-[var(--bg-main)] border border-[var(--border-color)] space-y-2">
+        <span class="text-emerald-500 font-bold text-sm block">BioRegister SDK (HAL)</span>
+        <p class="text-[var(--text-muted)] text-[11px]">Hardware abstraction layer for Android finger scanners and optical sensors used in government biometric voter verification.</p>
+        <span class="inline-block text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400">C++ Native NDK</span>
+      </div>
+
+      <div class="p-4 rounded-lg bg-[var(--bg-main)] border border-[var(--border-color)] space-y-2">
+        <span class="text-cyan-400 font-bold text-sm block">Point-of-Sale Terminal HAL</span>
+        <p class="text-[var(--text-muted)] text-[11px]">Serial port & Bluetooth printer protocol stack enabling seamless thermal receipt printing across 45+ POS devices.</p>
+        <span class="inline-block text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400">Dart FFI & C</span>
+      </div>
+
+      <div class="p-4 rounded-lg bg-[var(--bg-main)] border border-[var(--border-color)] space-y-2">
+        <span class="text-indigo-400 font-bold text-sm block">Utility Bill Pay Enclave</span>
+        <p class="text-[var(--text-muted)] text-[11px]">Encrypted batch bill payment dispatcher handling national electricity and gas utility invoice settlements.</p>
+        <span class="inline-block text-[10px] px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400">Kotlin Coroutines</span>
+      </div>
+    </div>
+  </div>
+
+</div>

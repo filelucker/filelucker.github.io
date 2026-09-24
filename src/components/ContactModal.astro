@@ -1,0 +1,177 @@
+---
+---
+
+<div id="contact-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+  
+  <div class="relative w-full max-w-xl glass-panel rounded-2xl border border-[var(--border-color)] shadow-2xl overflow-hidden animate-fadeIn my-8">
+    
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between px-6 py-4 bg-[var(--bg-card)] border-b border-[var(--border-color)] font-mono">
+      <div class="flex items-center space-x-2">
+        <span class="w-3 h-3 rounded-full bg-emerald-500 pulse-dot"></span>
+        <h3 class="font-bold text-sm sm:text-base text-[var(--text-primary)]">
+          Initiate Direct Consultation
+        </h3>
+      </div>
+
+      <button 
+        id="close-contact-modal" 
+        class="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)] transition-colors cursor-pointer"
+        aria-label="Close modal"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Form Viewport -->
+    <div class="p-6 space-y-4 font-mono text-xs bg-[var(--bg-main)]">
+      
+      <p class="text-[var(--text-secondary)] leading-relaxed">
+        Send a direct message to <strong class="text-[var(--text-primary)]">Md Moniruzzaman</strong> regarding fintech architecture, mobile security audits, offline-first systems, or leadership consulting.
+      </p>
+
+      <form id="contact-form" class="space-y-4">
+        
+        <!-- Name Field -->
+        <div class="space-y-1">
+          <label for="contact-name" class="block font-bold text-[var(--text-primary)]">YOUR NAME / ORGANIZATION *</label>
+          <input 
+            type="text" 
+            id="contact-name" 
+            required 
+            placeholder="e.g. Sarah Jenkins (Enterprise Tech)"
+            class="w-full px-3.5 py-2.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] focus:border-emerald-500 focus:outline-none transition-colors"
+          />
+        </div>
+
+        <!-- Email Field -->
+        <div class="space-y-1">
+          <label for="contact-email" class="block font-bold text-[var(--text-primary)]">EMAIL ADDRESS *</label>
+          <input 
+            type="email" 
+            id="contact-email" 
+            required 
+            placeholder="e.g. sarah@enterprise.com"
+            class="w-full px-3.5 py-2.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] focus:border-emerald-500 focus:outline-none transition-colors"
+          />
+        </div>
+
+        <!-- Topic Dropdown -->
+        <div class="space-y-1">
+          <label for="contact-topic" class="block font-bold text-[var(--text-primary)]">ENGAGEMENT SCOPE</label>
+          <select 
+            id="contact-topic"
+            class="w-full px-3.5 py-2.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] focus:border-emerald-500 focus:outline-none transition-colors"
+          >
+            <option value="Fintech Architecture Audit">Fintech Architecture Audit</option>
+            <option value="PCI-DSS / Mobile Security Audit">PCI-DSS / Mobile Security Audit</option>
+            <option value="Offline-First Engine Implementation">Offline-First Engine Implementation</option>
+            <option value="Senior Leadership / Advisory">Senior Leadership / Advisory</option>
+            <option value="General Inquiry">General Inquiry</option>
+          </select>
+        </div>
+
+        <!-- Message Field -->
+        <div class="space-y-1">
+          <label for="contact-message" class="block font-bold text-[var(--text-primary)]">PROJECT DETAILS / MESSAGE *</label>
+          <textarea 
+            id="contact-message" 
+            required 
+            rows="4" 
+            placeholder="Outline your technical requirements, timeline, or scope..."
+            class="w-full px-3.5 py-2.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] focus:border-emerald-500 focus:outline-none transition-colors"
+          ></textarea>
+        </div>
+
+        <!-- Form Status Message -->
+        <div id="contact-status-msg" class="hidden p-3 rounded-lg text-xs font-bold border"></div>
+
+        <!-- Action Buttons -->
+        <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <button 
+            type="submit" 
+            id="submit-contact-btn"
+            class="w-full sm:w-auto px-6 py-2.5 rounded-lg font-mono text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-md shadow-emerald-600/20 transition-all cursor-pointer flex items-center justify-center space-x-2"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
+            <span>SEND MESSAGE</span>
+          </button>
+
+          <span class="text-[11px] text-[var(--text-muted)]">
+            Or email directly: <a href="mailto:e.moniruzzaman@gmail.com" class="text-emerald-500 font-bold hover:underline">e.moniruzzaman@gmail.com</a>
+          </span>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Contact Modal Toggle Logic
+  const contactModal = document.getElementById('contact-modal');
+  const closeContactBtn = document.getElementById('close-contact-modal');
+  const contactForm = document.getElementById('contact-form') as HTMLFormElement;
+  const statusMsg = document.getElementById('contact-status-msg');
+  const submitBtn = document.getElementById('submit-contact-btn');
+
+  // Global triggers to open contact modal
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    const trigger = target.closest('[data-open-contact]');
+    if (trigger) {
+      e.preventDefault();
+      contactModal?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  closeContactBtn?.addEventListener('click', () => {
+    contactModal?.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  });
+
+  contactModal?.addEventListener('click', (e) => {
+    if (e.target === contactModal) {
+      contactModal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Handle Form Submission
+  contactForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!statusMsg || !submitBtn) return;
+
+    submitBtn.setAttribute('disabled', 'true');
+    submitBtn.innerHTML = `<span>SENDING MESSAGE...</span>`;
+
+    setTimeout(() => {
+      statusMsg.classList.remove('hidden', 'bg-red-500/10', 'text-red-400', 'border-red-500/30');
+      statusMsg.classList.add('bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/30');
+      statusMsg.textContent = '✓ Message dispatched! Md Moniruzzaman will respond within 24 hours.';
+      
+      submitBtn.removeAttribute('disabled');
+      submitBtn.innerHTML = `
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+        </svg>
+        <span>SEND MESSAGE</span>
+      `;
+
+      contactForm.reset();
+
+      setTimeout(() => {
+        contactModal?.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+        statusMsg.classList.add('hidden');
+      }, 2500);
+    }, 800);
+  });
+</script>

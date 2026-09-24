@@ -1,0 +1,223 @@
+---
+import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE } from '../data/portfolioData';
+---
+
+<div class="space-y-6">
+  
+  <!-- Header Title -->
+  <div class="border-b border-[var(--border-color)] pb-4">
+    <div class="flex items-center space-x-2 text-xs font-mono text-cyan-500 font-bold mb-1">
+      <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+      <span>TECHNICAL CAPABILITIES & CAREER TRAJECTORY</span>
+    </div>
+    <h2 class="text-3xl font-extrabold text-[var(--text-primary)] font-mono">
+      SKILLS MATRIX, OPEN SOURCE & LEADERSHIP
+    </h2>
+    <p class="text-sm text-[var(--text-muted)] font-mono mt-1">
+      Comprehensive breakdown of mobile engineering competencies, open-source packages, professional career timeline, and contact CTA.
+    </p>
+  </div>
+
+  <!-- 1. Technical Skills Matrix Grid -->
+  <div class="space-y-4">
+    <h3 class="text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
+      <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+      </svg>
+      <span>Technical Skills Matrix</span>
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {SKILLS_MATRIX.map((cat) => (
+        <div class="terminal-card p-6 space-y-4 border border-[var(--border-color)]">
+          <div class="flex items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono">
+            <h4 class="text-base font-bold text-emerald-500">{cat.category}</h4>
+            <span class="text-xs text-[var(--text-muted)]">CORE SPECS</span>
+          </div>
+
+          <div class="space-y-3 font-mono text-xs">
+            {cat.skills.map((skill) => (
+              <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)] space-y-1">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-[var(--text-primary)] flex items-center">
+                    {skill.isCore && <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></span>}
+                    {skill.name}
+                  </span>
+                  <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">
+                    {skill.level}
+                  </span>
+                </div>
+                <p class="text-[11px] text-[var(--text-muted)]">{skill.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- 2. Open Source & Pub.dev Ecosystem -->
+  <div class="space-y-4">
+    <h3 class="text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
+      <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+      </svg>
+      <span>Open Source & Pub.dev Ecosystem</span>
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {OPEN_SOURCE_PACKAGES.map((pkg) => (
+        <div class="terminal-card p-5 space-y-3 border border-[var(--border-color)] flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between font-mono text-xs mb-2">
+              <span class="text-cyan-400 font-bold">{pkg.platform}</span>
+              <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 font-semibold">{pkg.downloads}</span>
+            </div>
+
+            <h4 class="text-lg font-bold text-[var(--text-primary)] font-mono mb-2">{pkg.name}</h4>
+            <p class="text-xs text-[var(--text-secondary)] font-mono leading-relaxed">{pkg.description}</p>
+          </div>
+
+          <div class="pt-3 border-t border-[var(--border-color)] flex justify-between items-center font-mono text-xs">
+            <span class="text-emerald-500 font-bold">{pkg.stars}</span>
+            <a 
+              href={pkg.link} 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-cyan-400 hover:text-cyan-300 font-bold flex items-center space-x-1"
+            >
+              <span>View Package</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- 3. Professional Timeline & Leadership Impact -->
+  <div class="space-y-4">
+    <h3 class="text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
+      <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+      </svg>
+      <span>Professional Timeline & Leadership Impact</span>
+    </h3>
+
+    <div class="space-y-6">
+      {WORK_TIMELINE.map((item) => (
+        <div class="terminal-card p-6 border-l-4 border-l-emerald-500 border-[var(--border-color)] space-y-4">
+          <div class="flex flex-col md:flex-row md:items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono">
+            <div>
+              <h4 class="text-xl font-bold text-[var(--text-primary)]">{item.role}</h4>
+              <p class="text-xs text-emerald-400 font-semibold">{item.company} • {item.location}</p>
+            </div>
+            <div class="mt-2 md:mt-0">
+              <span class="px-3 py-1 rounded bg-[var(--bg-main)] text-[var(--text-primary)] border border-[var(--border-color)] text-xs font-bold">
+                {item.period}
+              </span>
+            </div>
+          </div>
+
+          <ul class="space-y-2 font-mono text-xs text-[var(--text-secondary)]">
+            {item.achievements.map((ach) => (
+              <li class="flex items-start space-x-2">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>{ach}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="pt-3 border-t border-[var(--border-color)] flex flex-wrap justify-between items-center gap-2 font-mono text-xs">
+            <div class="flex flex-wrap gap-1.5">
+              {item.skillsUsed.map((s) => (
+                <span class="px-2 py-0.5 rounded bg-[var(--bg-main)] text-[var(--text-muted)] border border-[var(--border-color)] text-[11px]">
+                  {s}
+                </span>
+              ))}
+            </div>
+            <span class="text-emerald-400 font-bold text-xs">{item.metrics}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- 4. Education & Certifications -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-xs">
+    
+    <!-- Education Card -->
+    <div class="terminal-card p-6 space-y-3 border border-[var(--border-color)]">
+      <h4 class="text-base font-bold text-emerald-500 border-b border-[var(--border-color)] pb-2 uppercase">
+        Education & Academic Foundation
+      </h4>
+      <div class="space-y-2">
+        <div class="font-bold text-[var(--text-primary)] text-sm">B.Sc. in Computer Science & Engineering (CSE)</div>
+        <p class="text-[var(--text-muted)]">Chittagong University of Engineering & Technology (CUET)</p>
+        <p class="text-[11px] text-[var(--text-secondary)]">Graduated with distinction. Major coursework in Distributed Algorithms, Compiler Design, Database Management Systems, and Cryptography.</p>
+      </div>
+    </div>
+
+    <!-- Certifications & Awards Card -->
+    <div class="terminal-card p-6 space-y-3 border border-[var(--border-color)]">
+      <h4 class="text-base font-bold text-cyan-400 border-b border-[var(--border-color)] pb-2 uppercase">
+        Honours & Specialized Certifications
+      </h4>
+      <div class="space-y-2">
+        <div class="flex justify-between items-center">
+          <span class="font-bold text-[var(--text-primary)]">Govt. of Bangladesh Mobile App Award</span>
+          <span class="text-emerald-400">1st Place</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="font-bold text-[var(--text-primary)]">PMP / Agile Project Management</span>
+          <span class="text-cyan-400">Certified</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="font-bold text-[var(--text-primary)]">Deep Learning & Computer Vision Specialization</span>
+          <span class="text-indigo-400">Verified</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 5. Initiate Strategic Collaboration Box -->
+  <div class="p-8 rounded-2xl bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 text-white border border-emerald-500/30 space-y-6 shadow-2xl">
+    <div class="max-w-2xl space-y-2 font-mono">
+      <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider">● OPEN FOR CONSULTING & TECHNICAL LEADERSHIP</span>
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Initiate Strategic Collaboration</h3>
+      <p class="text-xs sm:text-sm text-slate-300">
+        Interested in contracting Md Moniruzzaman for mobile system audits, zero-trust fintech architecture, PCI-DSS compliance, or high-concurrency offline sync engines?
+      </p>
+    </div>
+
+    <!-- Contact Details & Direct Form Launcher -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+      <button 
+        data-open-contact
+        class="p-4 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-emerald-500/20 text-emerald-400 font-bold flex flex-col justify-between text-left transition-all cursor-pointer"
+      >
+        <span class="text-[10px] text-slate-400 uppercase">SEND DIRECT MESSAGE</span>
+        <span class="text-sm truncate">e.moniruzzaman@gmail.com</span>
+      </button>
+
+      <a 
+        href="https://linkedin.com" 
+        target="_blank"
+        rel="noopener noreferrer"
+        class="p-4 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-cyan-500/20 text-cyan-400 font-bold flex flex-col justify-between transition-all"
+      >
+        <span class="text-[10px] text-slate-400">LINKEDIN NETWORK</span>
+        <span class="text-sm">linkedin.com/in/moniruzzaman</span>
+      </a>
+
+      <div class="p-4 rounded-xl bg-slate-900/80 border border-indigo-500/20 text-indigo-300 font-bold flex flex-col justify-between">
+        <span class="text-[10px] text-slate-400">LOCATION & AVAILABILITY</span>
+        <span class="text-sm">Dhaka, BD (Remote Worldwide)</span>
+      </div>
+    </div>
+  </div>
+
+</div>

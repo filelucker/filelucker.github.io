@@ -1,0 +1,97 @@
+---
+import Header from '../components/Header.astro';
+import HeroOverview from '../components/HeroOverview.astro';
+import FlagshipProjectsOverview from '../components/FlagshipProjectsOverview.astro';
+import CleanArchitectureDiagram from '../components/CleanArchitectureDiagram.astro';
+import FlagshipDeepDives from '../components/FlagshipDeepDives.astro';
+import SkillsAndTimeline from '../components/SkillsAndTimeline.astro';
+import SystemDeepDives from '../components/SystemDeepDives.astro';
+import ResumeModal from '../components/ResumeModal.astro';
+import ContactModal from '../components/ContactModal.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const title = "Md Moniruzzaman | Senior Mobile Engineer & Systems Architect | Fintech Specialist";
+const description = "Portfolio & System Architecture Playbook of Md Moniruzzaman. Architecting high-concurrency mobile fintech engines, PCI-DSS payment platforms, and offline-first mobile runtimes serving 50M+ users.";
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#090d16" />
+
+    <!-- SEO & OpenGraph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/profile.jpg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Theme Initialization Script to prevent flicker -->
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('color-theme')) {
+          return localStorage.getItem('color-theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'dark';
+      })();
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+
+  <body class="min-h-screen flex flex-col cyber-grid relative selection:bg-emerald-500 selection:text-white">
+
+    <!-- Top Navigation Header -->
+    <Header />
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
+      
+      <!-- Tab 01: Overview & Architecture Viewport -->
+      <div id="overview-tab" class="tab-content space-y-4">
+        <HeroOverview />
+        <FlagshipProjectsOverview />
+        <CleanArchitectureDiagram />
+      </div>
+
+      <!-- Tab 02: Flagship Production Projects Deep Dive -->
+      <div id="flagship-tab" class="tab-content hidden">
+        <FlagshipDeepDives />
+      </div>
+
+      <!-- Tab 03: Skills Matrix, Open Source & Leadership Timeline -->
+      <div id="skills-tab" class="tab-content hidden">
+        <SkillsAndTimeline />
+      </div>
+
+      <!-- Tab 04: System Deep Dives & Playbook -->
+      <div id="playbook-tab" class="tab-content hidden">
+        <SystemDeepDives />
+      </div>
+
+    </main>
+
+    <!-- Modals -->
+    <ResumeModal />
+    <ContactModal />
+
+    <!-- Footer Component -->
+    <Footer />
+
+  </body>
+</html>

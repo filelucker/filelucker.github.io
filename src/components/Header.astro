@@ -1,0 +1,199 @@
+---
+---
+
+<header class="sticky top-0 z-50 glass-panel border-b border-[var(--border-color)] transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Brand & Title -->
+      <div class="flex items-center">
+        <div>
+          <div class="flex items-center space-x-2.5">
+            <span class="font-extrabold text-base sm:text-lg lg:text-xl tracking-tight text-[var(--text-primary)]">Md Moniruzzaman</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 font-semibold">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 pulse-dot"></span>
+              ACTIVE FOR CONSULTING
+            </span>
+          </div>
+          <p class="text-xs text-[var(--text-muted)] font-mono hidden md:block">
+            Senior Mobile Engineer & Systems Architect | Fintech Engine Specialist
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Controls & Navigation -->
+      <div class="flex items-center gap-3">
+        <!-- Navigation Tabs (Single-page view switcher) -->
+        <nav class="hidden lg:flex items-center space-x-1 font-mono text-xs bg-[var(--bg-main)] p-1 rounded-lg border border-[var(--border-color)]">
+          <button 
+            data-tab-target="overview-tab"
+            class="tab-btn px-3 py-1.5 rounded-md font-bold transition-all text-emerald-600 dark:text-emerald-400 bg-[var(--bg-card)] shadow-xs border border-[var(--border-color)] cursor-pointer"
+          >
+            01. Overview
+          </button>
+          <button 
+            data-tab-target="flagship-tab"
+            class="tab-btn px-3 py-1.5 rounded-md font-medium transition-all text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-transparent cursor-pointer"
+          >
+            02. Flagship Projects
+          </button>
+          <button 
+            data-tab-target="skills-tab"
+            class="tab-btn px-3 py-1.5 rounded-md font-medium transition-all text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-transparent cursor-pointer"
+          >
+            03. Skills & Timeline
+          </button>
+          <button 
+            data-tab-target="playbook-tab"
+            class="tab-btn px-3 py-1.5 rounded-md font-medium transition-all text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-transparent cursor-pointer"
+          >
+            04. System Deep Dives
+          </button>
+        </nav>
+
+        <!-- Theme Toggle Button -->
+        <button 
+          id="theme-toggle" 
+          type="button" 
+          aria-label="Toggle Theme"
+          class="w-10 h-10 flex items-center justify-center rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)] transition-colors border border-[var(--border-color)] cursor-pointer shrink-0"
+        >
+          <!-- Sun Icon for Light Mode -->
+          <svg id="theme-toggle-light-icon" class="hidden w-4.5 h-4.5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+          <!-- Moon Icon for Dark Mode -->
+          <svg id="theme-toggle-dark-icon" class="hidden w-4.5 h-4.5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+        </button>
+
+        <!-- Resume Download CTA Modal Trigger -->
+        <button 
+          id="open-resume-modal" 
+          class="hidden sm:inline-flex items-center justify-center space-x-2 w-[210px] h-10 px-4 py-2 rounded-lg font-mono text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-md shadow-emerald-500/20 active:scale-95 cursor-pointer shrink-0"
+        >
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+          <span class="whitespace-nowrap">DOWNLOAD RESUME (PDF)</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile View Selector Dropdown Bar -->
+  <div class="lg:hidden px-4 py-2 border-t border-[var(--border-color)] bg-[var(--bg-main)]">
+    <div class="grid grid-cols-4 gap-1 font-mono text-[11px]">
+      <button data-tab-target="overview-tab" class="mobile-tab-btn py-1 text-center rounded-md font-bold transition-all bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 cursor-pointer">01. Overview</button>
+      <button data-tab-target="flagship-tab" class="mobile-tab-btn py-1 text-center rounded-md font-medium transition-all text-[var(--text-muted)] hover:bg-[var(--bg-card-hover)] border border-transparent cursor-pointer">02. Projects</button>
+      <button data-tab-target="skills-tab" class="mobile-tab-btn py-1 text-center rounded-md font-medium transition-all text-[var(--text-muted)] hover:bg-[var(--bg-card-hover)] border border-transparent cursor-pointer">03. Skills</button>
+      <button data-tab-target="playbook-tab" class="mobile-tab-btn py-1 text-center rounded-md font-medium transition-all text-[var(--text-muted)] hover:bg-[var(--bg-card-hover)] border border-transparent cursor-pointer">04. Deep Dives</button>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Theme Toggle Logic
+  const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+  const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+  const themeToggleBtn = document.getElementById('theme-toggle');
+
+  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+    themeToggleLightIcon?.classList.remove('hidden');
+  } else {
+    document.documentElement.classList.remove('dark');
+    themeToggleDarkIcon?.classList.remove('hidden');
+  }
+
+  themeToggleBtn?.addEventListener('click', () => {
+    themeToggleDarkIcon?.classList.toggle('hidden');
+    themeToggleLightIcon?.classList.toggle('hidden');
+
+    if (localStorage.getItem('color-theme')) {
+      if (localStorage.getItem('color-theme') === 'light') {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      }
+    } else {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    }
+  });
+
+  // Tab Switcher Logic
+  const desktopTabBtns = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+  const mobileTabBtns = document.querySelectorAll<HTMLButtonElement>('.mobile-tab-btn');
+  const allTabBtns = document.querySelectorAll<HTMLButtonElement>('.tab-btn, .mobile-tab-btn');
+  const tabContents = document.querySelectorAll<HTMLElement>('.tab-content');
+
+  function activateTab(targetId: string, updateHash: boolean = true) {
+    if (!targetId) return;
+
+    // Update Desktop Buttons Styling
+    desktopTabBtns.forEach(b => {
+      const isTarget = b.getAttribute('data-tab-target') === targetId;
+      if (isTarget) {
+        b.className = "tab-btn px-3 py-1.5 rounded-md font-bold transition-all text-emerald-600 dark:text-emerald-400 bg-[var(--bg-card)] shadow-xs border border-[var(--border-color)] cursor-pointer";
+      } else {
+        b.className = "tab-btn px-3 py-1.5 rounded-md font-medium transition-all text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-transparent cursor-pointer";
+      }
+    });
+
+    // Update Mobile Buttons Styling
+    mobileTabBtns.forEach(b => {
+      const isTarget = b.getAttribute('data-tab-target') === targetId;
+      if (isTarget) {
+        b.className = "mobile-tab-btn py-1 text-center rounded-md font-bold transition-all bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 cursor-pointer";
+      } else {
+        b.className = "mobile-tab-btn py-1 text-center rounded-md font-medium transition-all text-[var(--text-muted)] hover:bg-[var(--bg-card-hover)] border border-transparent cursor-pointer";
+      }
+    });
+
+    // Toggle Content Sections
+    tabContents.forEach(content => {
+      if (content.id === targetId) {
+        content.classList.remove('hidden');
+        content.classList.add('animate-fadeIn');
+      } else {
+        content.classList.add('hidden');
+      }
+    });
+
+    if (updateHash) {
+      const hash = targetId.replace('-tab', '');
+      history.replaceState(null, '', `#${hash}`);
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  allTabBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = btn.getAttribute('data-tab-target');
+      if (targetId) activateTab(targetId);
+    });
+  });
+
+  // Handle hash navigation on page load
+  window.addEventListener('load', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      const targetId = `${hash}-tab`;
+      if (document.getElementById(targetId)) {
+        activateTab(targetId, false);
+      }
+    }
+  });
+</script>

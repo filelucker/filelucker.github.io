@@ -1,0 +1,112 @@
+---
+---
+
+<section class="py-6 border-b border-[var(--border-color)]">
+  
+  <div class="mb-4">
+    <div class="flex items-center space-x-2 text-xs font-mono text-emerald-500 font-bold mb-1">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+      </svg>
+      <span>ENTERPRISE TOPOLOGY ARCHITECTURE</span>
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight font-mono">
+      PRODUCTION CLEAN ARCHITECTURE & BOUNDARY ENCLAVES
+    </h2>
+    <p class="text-sm text-[var(--text-muted)] mt-1 font-mono">
+      Strict multi-module boundary isolation guaranteeing zero-leak financial data flows, hardware key isolation, and offline fallback queue persistence.
+    </p>
+  </div>
+
+  <!-- 3-Column Architecture Flow Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+    
+    <!-- Layer 1: UI / Core Presentation -->
+    <div class="terminal-card p-5 relative border-l-4 border-l-cyan-500">
+      <div class="flex items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono text-xs mb-4">
+        <span class="font-bold text-cyan-400">01. PRESENTATION LAYER</span>
+        <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 text-[10px]">REACTIVE MVI</span>
+      </div>
+
+      <div class="space-y-3 font-mono text-xs">
+        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+          <div class="font-bold text-[var(--text-primary)] mb-1">Jetpack Compose / Flutter UI</div>
+          <div class="text-[11px] text-[var(--text-muted)]">Declarative UI components with strict state hoisting & zero imperative side-effects.</div>
+        </div>
+
+        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+          <div class="font-bold text-[var(--text-primary)] mb-1">MVI State Machine</div>
+          <div class="text-[11px] text-[var(--text-muted)]">Unidirectional StateFlow & SharedFlow managing immutability during payment checkouts.</div>
+        </div>
+
+        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+          <div class="font-bold text-[var(--text-primary)] mb-1">Coroutines / Isolate Pool</div>
+          <div class="text-[11px] text-[var(--text-muted)]">Asynchronous non-blocking main-thread dispatcher pool preventing UI frame drops.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 2: Payment / Cryptography Enclave -->
+    <div class="terminal-card p-5 relative border-l-4 border-l-emerald-500">
+      <div class="flex items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono text-xs mb-4">
+        <span class="font-bold text-emerald-400">02. SECURITY & CRYPTO ENCLAVE</span>
+        <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px]">PCI-DSS COMPLIANT</span>
+      </div>
+
+      <div class="space-y-3 font-mono text-xs">
+        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+          <div class="font-bold text-emerald-400 mb-1">Hardware Keystore Vault</div>
+          <div class="text-[11px] text-[var(--text-muted)]">Android TEE / iOS Secure Enclave AES-256 GCM key generation with hardware attestation.</div>
+        </div>
+
+        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+          <div class="font-bold text-[var(--text-primary)] mb-1">Biometric Authentication Prompt</div>
+          <div class="text-[11px] text-[var(--text-muted)]">Fingerprint & Face biometric validation prior to releasing cryptographic payload signers.</div>
+        </div>
+
+        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+          <div class="font-bold text-[var(--text-primary)] mb-1">Native C++ JNI Bridge</div>
+          <div class="text-[11px] text-[var(--text-muted)]">Obfuscated native payload obfuscation & anti-tampering hook detection.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 3: Data / Offline Persistence Sync -->
+    <div class="terminal-card p-5 relative border-l-4 border-l-indigo-500">
+      <div class="flex items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono text-xs mb-4">
+        <span class="font-bold text-indigo-400">03. DATA & SYNC ENGINE</span>
+        <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 text-[10px]">ZERO-LOSS SYNC</span>
+      </div>
+
+      <div class="space-y-3 font-mono text-xs">
+        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+          <div class="font-bold text-indigo-400 mb-1">SQLite Write-Ahead Log (WAL)</div>
+          <div class="text-[11px] text-[var(--text-muted)]">Transactional local store preventing corruption during abrupt app terminations or power cuts.</div>
+        </div>
+
+        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+          <div class="font-bold text-[var(--text-primary)] mb-1">Protocol Buffers Binary Codec</div>
+          <div class="text-[11px] text-[var(--text-muted)]">Compressed binary serialization saving 40% network bandwidth vs standard JSON payloads.</div>
+        </div>
+
+        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+          <div class="font-bold text-[var(--text-primary)] mb-1">WorkManager Exponential Backoff</div>
+          <div class="text-[11px] text-[var(--text-muted)]">Persistent background sync queue retrying failed transactions with idempotency tokens.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Architecture Summary Bar -->
+  <div class="mt-6 p-4 rounded-xl glass-panel flex flex-col md:flex-row md:items-center justify-between font-mono text-xs border border-[var(--border-color)]">
+    <div class="flex items-center space-x-3 mb-2 md:mb-0">
+      <span class="text-emerald-500 font-bold">SYSTEM BOUNDARY SPECS:</span>
+      <span class="text-[var(--text-secondary)]">Strict Modular Separation • Zero Leak Policy • Multi-Tenant Isolation</span>
+    </div>
+    <div class="flex items-center space-x-2">
+      <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-bold">100% COVERAGE TESTED</span>
+    </div>
+  </div>
+
+</section>
