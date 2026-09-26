@@ -387,7 +387,7 @@ export const OPEN_SOURCE_PACKAGES = [
     stars: "Open Source",
     downloads: "8,500+ Downloads",
     description: "Unified wrapper around Android Keystore and iOS Keychain providing hardware-attested key creation and biometric authentication prompts.",
-    link: "https://github.com/moniruzzaman/flutter_biometric_vault"
+    link: "https://github.com/filelucker/flutter_biometric_vault"
   },
   {
     name: "offline_sync_queue",
@@ -395,7 +395,7 @@ export const OPEN_SOURCE_PACKAGES = [
     stars: "GitHub Enterprise",
     downloads: "Internal Core Component",
     description: "Resilient priority queue for storing transactions locally when offline with exponential backoff sync and crash protection.",
-    link: "https://github.com/moniruzzaman/offline_sync_queue"
+    link: "https://github.com/filelucker/offline_sync_queue"
   },
   {
     name: "pos_esc_thermal_hal",
@@ -403,9 +403,18 @@ export const OPEN_SOURCE_PACKAGES = [
     stars: "Specialized HAL",
     downloads: "Production Component",
     description: "Universal printer abstraction driver providing raw ESC/POS byte streaming and bitmap layout generation for Sunmi, Pax, and BLE thermal printers.",
-    link: "https://github.com/moniruzzaman/pos_esc_thermal_hal"
+    link: "https://github.com/filelucker/pos_esc_thermal_hal"
   }
 ];
+
+export const CONTACT_INFO = {
+  github: "https://github.com/filelucker",
+  email: "m.zaman000@gmail.com",
+  linkedin: "https://www.linkedin.com/in/mon000",
+  phone: "+8801721915013",
+  whatsapp: "https://wa.me/8801721915013",
+  displayPhone: "+8801721915013"
+};
 
 export const WORK_TIMELINE: TimelineItem[] = [
   {

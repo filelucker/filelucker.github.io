@@ -1,14 +1,12 @@
 ---
 import Header from '../components/Header.astro';
 import HeroOverview from '../components/HeroOverview.astro';
-import FintechViewport from '../components/FintechViewport.astro';
 import FlagshipProjectsOverview from '../components/FlagshipProjectsOverview.astro';
 import CleanArchitectureDiagram from '../components/CleanArchitectureDiagram.astro';
 import FlagshipDeepDives from '../components/FlagshipDeepDives.astro';
 import SkillsAndTimeline from '../components/SkillsAndTimeline.astro';
 import SystemDeepDives from '../components/SystemDeepDives.astro';
 import ResumeModal from '../components/ResumeModal.astro';
-import ContactModal from '../components/ContactModal.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
@@ -66,7 +64,6 @@ const description = "Portfolio & System Architecture Playbook of Md Moniruzzaman
       <!-- Tab 01: Overview & Architecture Viewport -->
       <div id="overview-tab" class="tab-content space-y-4">
         <HeroOverview />
-        <FintechViewport />
         <FlagshipProjectsOverview />
         <CleanArchitectureDiagram />
       </div>
@@ -90,7 +87,6 @@ const description = "Portfolio & System Architecture Playbook of Md Moniruzzaman
 
     <!-- Modals -->
     <ResumeModal />
-    <ContactModal />
 
     <!-- Footer Component -->
     <Footer />
