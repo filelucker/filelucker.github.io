@@ -1,5 +1,5 @@
 ---
-import { HERO_METRICS } from '../data/portfolioData';
+import { HERO_METRICS, INDUSTRY_ROLE_PROFILES } from '../data/portfolioData';
 ---
 
 <section class="py-4 lg:py-6 border-b border-[var(--border-color)]">
@@ -8,25 +8,34 @@ import { HERO_METRICS } from '../data/portfolioData';
     <!-- Left Hero Headline & Actions (7 Columns) -->
     <div class="lg:col-span-7 space-y-6">
       
-      <!-- System Architecture Badge -->
-      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 font-mono text-xs font-semibold">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-        </svg>
-        <span>HIGH-CONCURRENCY FINTECH & MOBILE ARCHITECTURE</span>
+      <!-- System Architecture & Role Badges (Merged) -->
+      <div class="flex flex-wrap items-center gap-2">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 font-mono text-xs font-semibold">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+          </svg>
+          <span>HIGH-CONCURRENCY FINTECH & MOBILE ARCHITECTURE</span>
+        </div>
+        <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 pulse-dot"></span>
+          <span>MOBILE AI ENGINEER (TOP RECOMMENDATION)</span>
+        </div>
+        <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-600 dark:text-indigo-400 font-mono text-xs font-semibold">
+          <span>POINT OF SALE (POS) FLEET</span>
+        </div>
       </div>
 
-      <!-- Main Heading -->
+      <!-- Main Heading (Offline-First Mobile AI first + POS glowing gradient) -->
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-primary)] leading-[1.15]">
-        ENGINEERING RESILIENT, HIGH-CONCURRENCY MOBILE SYSTEMS & <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-cyan-500 to-indigo-500 dark:from-emerald-400 dark:via-cyan-400 dark:to-indigo-400">OFFLINE-FIRST</span> FINTECH ARCHITECTURE
+        ENGINEERING <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-cyan-500 to-indigo-500 dark:from-emerald-400 dark:via-cyan-400 dark:to-indigo-400">OFFLINE-FIRST MOBILE AI ARCHITECTURE</span>, <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-cyan-500 to-indigo-500 dark:from-emerald-400 dark:via-cyan-400 dark:to-indigo-400">POINT OF SALE (POS)</span> & RESILIENT, HIGH-CONCURRENCY MOBILE SYSTEMS
       </h1>
 
-      <!-- Subtitle Description -->
+      <!-- Subtitle Description (Merged) -->
       <p class="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed font-normal">
-        Architected Fintech platforms serving <strong class="text-[var(--text-primary)] font-semibold">50M+ active merchants</strong> and <strong class="text-[var(--text-primary)] font-semibold">1M+ consumer downloads</strong> across Bangladesh and high-throughput international enterprise operations. Specializing in zero-trust PCI-DSS payment platforms, hardware-backed biometric verification, native engine bridges, and aggressive crash-mitigation under extreme low-bandwidth networks.
+        Architected Fintech & Point of Sale (POS) platforms serving <strong class="text-[var(--text-primary)] font-semibold">50M+ active merchants</strong> and <strong class="text-[var(--text-primary)] font-semibold">1M+ consumer downloads</strong> across Bangladesh and high-throughput international enterprise operations. Specializing in on-device AI inference (LiteRT, ONNX, CoreML), zero-trust PCI-DSS payment platforms, hardware-backed biometric verification, native engine bridges, and aggressive crash-mitigation under extreme low-bandwidth networks.
       </p>
 
-      <!-- Action Buttons Grid -->
+      <!-- Action Buttons Grid (Original Preserved) -->
       <div class="flex flex-wrap items-center gap-3 pt-2">
         <button 
           id="hero-download-resume"
@@ -76,7 +85,7 @@ import { HERO_METRICS } from '../data/portfolioData';
 
     </div>
 
-    <!-- Right Profile Card (5 Columns) -->
+    <!-- Right Profile Card (5 Columns, Original Preserved) -->
     <div class="lg:col-span-5 flex justify-center lg:justify-end">
       <div class="relative group w-full max-w-sm">
         
@@ -95,7 +104,7 @@ import { HERO_METRICS } from '../data/portfolioData';
             <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-transparent to-transparent opacity-40"></div>
           </div>
 
-          <!-- Quick Bio Tags -->
+          <!-- Quick Bio Tags (Original Preserved) -->
           <div class="space-y-2 font-mono text-xs">
             <div class="flex justify-between items-center pb-2 border-b border-[var(--border-color)]">
               <span class="text-[var(--text-muted)]">CORE FOCUS:</span>
@@ -145,6 +154,79 @@ import { HERO_METRICS } from '../data/portfolioData';
       </div>
     ))}
   </div>
+
+  <!-- Merged Role Specializations & Industry Perception Section -->
+  <div class="mt-8 space-y-4">
+    <div class="flex items-center justify-between border-b border-[var(--border-color)] pb-3 font-mono">
+      <div class="flex items-center space-x-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+        <h3 class="text-sm sm:text-base font-bold text-[var(--text-primary)] tracking-tight uppercase">
+          ENGINEERING PILLARS & INDUSTRY ROLE PERCEPTION
+        </h3>
+      </div>
+      <span class="text-xs text-[var(--text-muted)] hidden sm:inline font-mono">RECRUITER ALIGNMENT</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {INDUSTRY_ROLE_PROFILES.map((profile) => (
+        <div class="terminal-card p-5 rounded-xl border border-[var(--border-color)] flex flex-col justify-between hover:border-emerald-500/40 transition-all group">
+          <div class="space-y-3">
+            <!-- Role Title & Badge (Stacked vertically) -->
+            <div class="space-y-1.5 font-mono">
+              <h4 class="font-bold text-sm sm:text-base text-[var(--text-primary)] group-hover:text-emerald-400 transition-colors leading-snug">
+                {profile.role}
+              </h4>
+              <div>
+                <span class={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold ${
+                  profile.badge.includes('Top') 
+                    ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' 
+                    : profile.badge.includes('Searchable')
+                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
+                    : profile.badge.includes('Hardware')
+                    ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/40'
+                    : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
+                }`}>
+                  {profile.badge}
+                </span>
+              </div>
+            </div>
+
+            <!-- Industry Perception Quote Box -->
+            <div class="p-3 rounded-lg bg-[var(--bg-main)] border-l-2 border-emerald-500/60 font-mono text-xs text-[var(--text-secondary)] space-y-1">
+              <span class="text-[10px] uppercase font-bold text-emerald-500 block">Industry Perception:</span>
+              <p class="italic leading-relaxed">"{profile.industryPerception}"</p>
+            </div>
+
+            <p class="text-xs text-[var(--text-secondary)] leading-relaxed">
+              {profile.summary}
+            </p>
+
+            <!-- Key Capabilities List -->
+            <ul class="space-y-1.5 font-mono text-[11px] text-[var(--text-muted)] pt-1">
+              {profile.highlights.map((item) => (
+                <li class="flex items-start space-x-1.5">
+                  <span class="text-emerald-500 font-bold">▸</span>
+                  <span class="leading-tight">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Tech Pillars Badges -->
+          <div class="pt-4 border-t border-[var(--border-color)] mt-4">
+            <div class="flex flex-wrap gap-1 font-mono text-[10px]">
+              {profile.techPillars.map((tech) => (
+                <span class="px-2 py-0.5 rounded bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-secondary)]">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
 </section>
 
 <script>

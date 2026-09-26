@@ -1,21 +1,43 @@
-# Md Moniruzzaman — Senior Mobile Engineer & Systems Architect Portfolio
+# Md Moniruzzaman — Senior Mobile Engineer & Systems Architect | Mobile AI Engineer & POS Specialist
 
 [![Astro](https://img.shields.io/badge/Astro-v5.3.0-orange.svg)](https://astro.build/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0.9-blue.svg)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-A high-performance, developer-first portfolio website and system architecture playbook for **Md Moniruzzaman** (Senior Mobile Engineer & Systems Architect / Fintech Specialist with 11+ years of production engineering experience).
+A high-performance, developer-first portfolio website and system architecture playbook for **Md Moniruzzaman** (Senior Mobile Engineer & Systems Architect / Mobile AI Engineer / POS & Fintech Specialist with 11+ years of production engineering experience).
 
-Architected using **Astro v5**, **Tailwind CSS v4**, **TypeScript**, and **Vite 6**. Displays high-concurrency fintech engine runtime diagnostics, clean architecture enclave diagrams, flagship production project case studies, open-source packages, and verifiable Architectural Decision Records (ADRs).
+Architected using **Astro v5**, **Tailwind CSS v4**, **TypeScript**, and **Vite 6**. Displays high-concurrency fintech engines, Point of Sale (POS) hardware HAL execution (10K+ terminals), on-device AI inference runtimes (LiteRT, ONNX, CoreML), clean architecture enclave diagrams, flagship production project case studies, open-source packages, and verifiable Architectural Decision Records (ADRs).
+
+---
+
+## ⚡ Core Role Specializations & Industry Perception
+
+- **Mobile AI Engineer (Top Recommendation)**:
+  - *Industry Perception*: A senior software engineer who bridges client applications (Android/iOS/Flutter) with AI capabilities—whether via cloud AI APIs, streaming interfaces, or on-device inference (LiteRT/ONNX/CoreML).
+  - *Engineering Pillars*: On-device quantized model execution (INT8/FP16), Qualcomm Hexagon / Apple Neural Engine acceleration, real-time camera OpenCV preprocessing, Server-Sent Events (SSE) & gRPC token streaming, and client-side agent tool calling.
+
+- **AI Mobile Developer**:
+  - *Industry Perception*: Direct and searchable. Clearly tells recruiters you build mobile apps powered by AI features. Slightly more focused on app development than architecture.
+  - *Engineering Pillars*: High-polish generative UI with real-time typewriter token streaming, multimodal input processing (voice audio, camera viewfinders), and resilient offline edge fallbacks.
+
+- **Point of Sale (POS) Systems Architect & Specialist**:
+  - *Industry Perception*: A specialized systems engineer who architects hardware-integrated Point of Sale (POS) solutions—combining universal hardware abstraction layers (HAL), thermal printing, barcode scanning, EMV/NFC payment processing, and offline-first transactional ledgers.
+  - *Engineering Pillars*: Universal POS HAL for Sunmi, Pax, and Ingenico fleets (10,000+ active terminals); ESC/POS thermal printing over Bluetooth LE/USB OTG; EMVCo QR & NFC contactless card kernels; and sub-second offline SQLite WAL ledger commits.
+
+- **Fintech Systems Architect & DFS Specialist**:
+  - *Industry Perception*: A seasoned fintech systems engineer specializing in bank-grade digital financial services (DFS), zero-trust PCI-DSS security enclaves, high-concurrency payment routing, and offline-resilient transactional store-and-forward engines.
+  - *Engineering Pillars*: Hardware-backed Android Keystore & iOS Secure Enclave AES-GCM 256-bit cryptography with HSM derivation; sub-80ms ISO 8583 & ISO 20022 message parsers; SQLite Write-Ahead Logging (WAL) preventing transaction corruption; and PCI-DSS Level 1 compliance.
 
 ---
 
 ## ⚡ Key Highlights & Features
 
 - **Interactive Runtime Diagnostics Viewport**:
-  - Live **Fintech Engine Simulator** (MYCash 2.0 & DGePay Runtime) with live metric timers: Handshake Cryptography (`43ms`), Local WAL Queue (`12ms`), Data Pack Compression (`21ms`), and Total Execution Time (`76ms`).
-  - Interactive **"Simulate Offline Transaction Execution"** button with real-time state progress & terminal execution logs.
+  - Dual-mode **POS Hardware & Mobile AI Simulator**:
+    - **POS Fleet Mode**: Simulates 384-dot ESC/POS bitmap receipt rasterization, raw byte streaming over Bluetooth/Serial HAL, and sub-320ms transaction cut.
+    - **Mobile AI Mode**: Simulates real-time OpenCV camera frame binarization and on-device INT8 LiteRT NPU neural inference (`14ms`) with real-time terminal output logs.
+  - Dynamic balance masking and live execution duration counters.
 
 - **Single-Page Tabbed Architecture & Hash Navigation**:
   - `01. Overview`: Executive Hero section, impact metrics grid, Fintech Engine Viewport, Flagship summary cards, Clean Architecture Enclave breakdown.

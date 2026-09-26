@@ -14,84 +14,117 @@
       PRODUCTION CLEAN ARCHITECTURE & BOUNDARY ENCLAVES
     </h2>
     <p class="text-sm text-[var(--text-muted)] mt-1 font-mono">
-      Strict multi-module boundary isolation guaranteeing zero-leak financial data flows, hardware key isolation, and offline fallback queue persistence.
+      Strict multi-module boundary isolation guaranteeing zero-leak financial data flows, Mobile AI runtime execution, POS hardware abstractions, and offline fallback queues.
     </p>
   </div>
 
-  <!-- 3-Column Architecture Flow Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+  <!-- 4-Column Architecture Flow Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative">
     
     <!-- Layer 1: UI / Core Presentation -->
-    <div class="terminal-card p-5 relative border-l-4 border-l-cyan-500">
-      <div class="flex items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono text-xs mb-4">
-        <span class="font-bold text-cyan-400">01. PRESENTATION LAYER</span>
-        <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 text-[10px]">REACTIVE MVI</span>
-      </div>
-
-      <div class="space-y-3 font-mono text-xs">
-        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
-          <div class="font-bold text-[var(--text-primary)] mb-1">Jetpack Compose / Flutter UI</div>
-          <div class="text-[11px] text-[var(--text-muted)]">Declarative UI components with strict state hoisting & zero imperative side-effects.</div>
+    <div class="terminal-card p-4 relative border-l-4 border-l-cyan-500 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono text-xs mb-3">
+          <span class="font-bold text-cyan-400">01. PRESENTATION</span>
+          <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 text-[10px]">REACTIVE MVI</span>
         </div>
 
-        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
-          <div class="font-bold text-[var(--text-primary)] mb-1">MVI State Machine</div>
-          <div class="text-[11px] text-[var(--text-muted)]">Unidirectional StateFlow & SharedFlow managing immutability during payment checkouts.</div>
-        </div>
+        <div class="space-y-2.5 font-mono text-xs">
+          <div class="p-2.5 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+            <div class="font-bold text-[var(--text-primary)] mb-1">Jetpack Compose / Flutter</div>
+            <div class="text-[11px] text-[var(--text-muted)]">Declarative UI with strict state hoisting & zero imperative side-effects.</div>
+          </div>
 
-        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
-          <div class="font-bold text-[var(--text-primary)] mb-1">Coroutines / Isolate Pool</div>
-          <div class="text-[11px] text-[var(--text-muted)]">Asynchronous non-blocking main-thread dispatcher pool preventing UI frame drops.</div>
-        </div>
-      </div>
-    </div>
+          <div class="p-2.5 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+            <div class="font-bold text-[var(--text-primary)] mb-1">MVI State Machine</div>
+            <div class="text-[11px] text-[var(--text-muted)]">Unidirectional StateFlow managing immutability during payment checkouts.</div>
+          </div>
 
-    <!-- Layer 2: Payment / Cryptography Enclave -->
-    <div class="terminal-card p-5 relative border-l-4 border-l-emerald-500">
-      <div class="flex items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono text-xs mb-4">
-        <span class="font-bold text-emerald-400">02. SECURITY & CRYPTO ENCLAVE</span>
-        <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px]">PCI-DSS COMPLIANT</span>
-      </div>
-
-      <div class="space-y-3 font-mono text-xs">
-        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
-          <div class="font-bold text-emerald-400 mb-1">Hardware Keystore Vault</div>
-          <div class="text-[11px] text-[var(--text-muted)]">Android TEE / iOS Secure Enclave AES-256 GCM key generation with hardware attestation.</div>
-        </div>
-
-        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
-          <div class="font-bold text-[var(--text-primary)] mb-1">Biometric Authentication Prompt</div>
-          <div class="text-[11px] text-[var(--text-muted)]">Fingerprint & Face biometric validation prior to releasing cryptographic payload signers.</div>
-        </div>
-
-        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
-          <div class="font-bold text-[var(--text-primary)] mb-1">Native C++ JNI Bridge</div>
-          <div class="text-[11px] text-[var(--text-muted)]">Obfuscated native payload obfuscation & anti-tampering hook detection.</div>
+          <div class="p-2.5 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+            <div class="font-bold text-[var(--text-primary)] mb-1">Streaming Generative UI</div>
+            <div class="text-[11px] text-[var(--text-muted)]">Real-time token rendering with typewriter micro-animations.</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Layer 3: Data / Offline Persistence Sync -->
-    <div class="terminal-card p-5 relative border-l-4 border-l-indigo-500">
-      <div class="flex items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono text-xs mb-4">
-        <span class="font-bold text-indigo-400">03. DATA & SYNC ENGINE</span>
-        <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 text-[10px]">ZERO-LOSS SYNC</span>
+    <!-- Layer 2: Mobile AI & On-Device ML Runtime -->
+    <div class="terminal-card p-4 relative border-l-4 border-l-emerald-400 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono text-xs mb-3">
+          <span class="font-bold text-emerald-400">02. MOBILE AI RUNTIME</span>
+          <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px]">SUB-20MS EDGE</span>
+        </div>
+
+        <div class="space-y-2.5 font-mono text-xs">
+          <div class="p-2.5 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+            <div class="font-bold text-emerald-400 mb-1">LiteRT & ONNX Mobile</div>
+            <div class="text-[11px] text-[var(--text-muted)]">INT8 quantized neural inference on mobile NPU / Apple Neural Engine.</div>
+          </div>
+
+          <div class="p-2.5 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+            <div class="font-bold text-[var(--text-primary)] mb-1">Edge Vision & OCR (OpenCV)</div>
+            <div class="text-[11px] text-[var(--text-muted)]">Perspective transform and adaptive binarization for receipt & document capture.</div>
+          </div>
+
+          <div class="p-2.5 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+            <div class="font-bold text-[var(--text-primary)] mb-1">Streaming AI & gRPC Bridge</div>
+            <div class="text-[11px] text-[var(--text-muted)]">SSE / WebSocket bi-directional streaming for low-latency reasoning models.</div>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="space-y-3 font-mono text-xs">
-        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
-          <div class="font-bold text-indigo-400 mb-1">SQLite Write-Ahead Log (WAL)</div>
-          <div class="text-[11px] text-[var(--text-muted)]">Transactional local store preventing corruption during abrupt app terminations or power cuts.</div>
+    <!-- Layer 3: Point of Sale (POS) & Security Enclave -->
+    <div class="terminal-card p-4 relative border-l-4 border-l-amber-500 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono text-xs mb-3">
+          <span class="font-bold text-amber-400">03. POS HAL & SECURITY</span>
+          <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 text-[10px]">PCI-DSS & HAL</span>
         </div>
 
-        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
-          <div class="font-bold text-[var(--text-primary)] mb-1">Protocol Buffers Binary Codec</div>
-          <div class="text-[11px] text-[var(--text-muted)]">Compressed binary serialization saving 40% network bandwidth vs standard JSON payloads.</div>
+        <div class="space-y-2.5 font-mono text-xs">
+          <div class="p-2.5 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+            <div class="font-bold text-amber-400 mb-1">Universal POS HAL</div>
+            <div class="text-[11px] text-[var(--text-muted)]">Drivers for Sunmi, Pax, Ingenico terminals and ESC/POS thermal printers.</div>
+          </div>
+
+          <div class="p-2.5 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+            <div class="font-bold text-[var(--text-primary)] mb-1">Hardware Keystore Vault</div>
+            <div class="text-[11px] text-[var(--text-muted)]">Android TEE / iOS Secure Enclave AES-256 GCM key derivation.</div>
+          </div>
+
+          <div class="p-2.5 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+            <div class="font-bold text-[var(--text-primary)] mb-1">EMVCo QR & NFC Tap</div>
+            <div class="text-[11px] text-[var(--text-muted)]">Instant merchant dynamic QR payload and ISO 14443 contactless kernel.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 4: Data & Offline Persistence Sync -->
+    <div class="terminal-card p-4 relative border-l-4 border-l-indigo-500 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono text-xs mb-3">
+          <span class="font-bold text-indigo-400">04. DATA & SYNC ENGINE</span>
+          <span class="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 text-[10px]">ZERO-LOSS WAL</span>
         </div>
 
-        <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
-          <div class="font-bold text-[var(--text-primary)] mb-1">WorkManager Exponential Backoff</div>
-          <div class="text-[11px] text-[var(--text-muted)]">Persistent background sync queue retrying failed transactions with idempotency tokens.</div>
+        <div class="space-y-2.5 font-mono text-xs">
+          <div class="p-2.5 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+            <div class="font-bold text-indigo-400 mb-1">SQLite Write-Ahead Log</div>
+            <div class="text-[11px] text-[var(--text-muted)]">Guarantees zero corruptions during unexpected power cuts or terminal battery drain.</div>
+          </div>
+
+          <div class="p-2.5 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+            <div class="font-bold text-[var(--text-primary)] mb-1">Protocol Buffers Binary</div>
+            <div class="text-[11px] text-[var(--text-muted)]">Compact serialization reducing network payload overhead by 40% vs JSON.</div>
+          </div>
+
+          <div class="p-2.5 rounded bg-[var(--bg-main)] border border-[var(--border-color)]">
+            <div class="font-bold text-[var(--text-primary)] mb-1">Store-and-Forward Queue</div>
+            <div class="text-[11px] text-[var(--text-muted)]">Idempotent background sync with exponential backoff on flaky 2G networks.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -102,10 +135,10 @@
   <div class="mt-6 p-4 rounded-xl glass-panel flex flex-col md:flex-row md:items-center justify-between font-mono text-xs border border-[var(--border-color)]">
     <div class="flex items-center space-x-3 mb-2 md:mb-0">
       <span class="text-emerald-500 font-bold">SYSTEM BOUNDARY SPECS:</span>
-      <span class="text-[var(--text-secondary)]">Strict Modular Separation • Zero Leak Policy • Multi-Tenant Isolation</span>
+      <span class="text-[var(--text-secondary)]">Strict Modular Separation • On-Device AI Acceleration • POS Hardware HAL • Zero Leak Policy</span>
     </div>
     <div class="flex items-center space-x-2">
-      <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-bold">100% COVERAGE TESTED</span>
+      <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-bold">100% PRODUCTION VERIFIED</span>
     </div>
   </div>
 

@@ -1,112 +1,145 @@
 ---
-import { RUNTIME_CODE_SNIPPET } from '../data/portfolioData';
+import { RUNTIME_CODE_SNIPPET, POS_HAL_CODE_SNIPPET } from '../data/portfolioData';
 ---
 
-<section class="py-10 border-b border-[var(--border-color)]">
+<section class="py-8 border-b border-[var(--border-color)]">
   
   <!-- Section Title -->
-  <div class="flex flex-col md:flex-row md:items-end justify-between mb-6">
-    <div>
-      <div class="flex items-center space-x-2 text-xs font-mono text-emerald-500 font-bold mb-1">
+  <div class="mb-6 space-y-1.5">
+    <div class="flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+      <div class="flex items-center space-x-2 text-emerald-600 dark:text-emerald-400 font-bold">
         <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-dot"></span>
         <span>LIVE RUNTIME DIAGNOSTICS & ENGINE SIMULATOR</span>
       </div>
-  <!-- Section Title -->
-  <div class="flex flex-col md:flex-row md:items-end justify-between mb-6">
-    <div>
-      <div class="flex items-center space-x-2 text-xs font-mono text-emerald-500 font-bold mb-1">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-dot"></span>
-        <span>LIVE RUNTIME DIAGNOSTICS & ENGINE SIMULATOR</span>
+      <div class="flex items-center space-x-2">
+        <span class="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-[var(--bg-card)] text-slate-700 dark:text-[var(--text-muted)] border border-slate-200 dark:border-[var(--border-color)] text-[11px] font-semibold">
+          PCI-DSS ENCLAVE: ACTIVE
+        </span>
+        <span class="px-2.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-semibold border border-emerald-300 dark:border-emerald-500/30 text-[11px]">
+          NPU INFERENCE: 14MS
+        </span>
       </div>
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight font-mono">
-        FINTECH ENGINE VIEWPORT: TRANSACTION RUNTIME
-      </h2>
     </div>
-    <div class="mt-3 md:mt-0 flex items-center space-x-2 font-mono text-xs">
-      <span class="px-2.5 py-1 rounded glass-panel text-[var(--text-muted)] border border-[var(--border-color)]">
-        PCI-DSS ENCLAVE: ACTIVE
-      </span>
-      <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 font-semibold border border-emerald-500/30">
-        OFFLINE BUFFER: ONLINE
-      </span>
-    </div>
+
+    <h2 class="text-base sm:text-xl md:text-2xl lg:text-[1.65rem] font-extrabold text-[var(--text-primary)] tracking-tight font-mono whitespace-nowrap overflow-x-auto sm:overflow-visible">
+      FINTECH, POINT OF SALE (POS) & MOBILE AI RUNTIME VIEWPORT
+    </h2>
+
+    <p class="text-xs sm:text-sm text-slate-600 dark:text-[var(--text-muted)] font-mono">
+      Interactive emulation of high-speed POS hardware drivers, thermal ESC/POS printing, and on-device LiteRT AI inference.
+    </p>
   </div>
 
   <!-- Main Viewport Box (2 Columns) -->
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
     
-    <!-- Left: Interactive Mobile Device Mockup (5 Columns) -->
+    <!-- Left: Interactive Mobile & POS Terminal Mockup (5 Columns) -->
     <div class="lg:col-span-5 flex flex-col">
-      <div class="terminal-card p-5 h-full flex flex-col justify-between relative overflow-hidden bg-gradient-to-b from-[var(--bg-card)] to-[var(--bg-main)]">
+      <div class="terminal-card p-5 h-full flex flex-col justify-between relative overflow-hidden bg-white dark:bg-gradient-to-b dark:from-[var(--bg-card)] dark:to-[var(--bg-main)] border border-slate-200 dark:border-[var(--border-color)] shadow-sm dark:shadow-none transition-all duration-300">
         
-        <!-- Top Device Header -->
-        <div class="flex items-center justify-between pb-4 border-b border-[var(--border-color)] font-mono text-xs">
+        <!-- Top Device Header with Simulator Mode Switcher -->
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-[var(--border-color)] font-mono text-xs transition-colors duration-300">
           <div class="flex items-center space-x-2">
             <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
             <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
             <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
-            <span class="font-bold text-[var(--text-primary)] ml-2">Fintech Core Terminal</span>
+            <span class="font-bold text-slate-800 dark:text-slate-100 ml-1">Terminal HAL Engine</span>
+          </div>
+
+          <!-- Mode Toggle Buttons with High Contrast in Both Themes -->
+          <div class="flex items-center space-x-1 bg-slate-100 dark:bg-[var(--bg-main)] p-1 rounded-md border border-slate-200 dark:border-[var(--border-color)] text-[10px] font-mono transition-colors duration-300">
+            <button 
+              id="mode-pos-btn" 
+              class="px-2.5 py-1 rounded font-bold bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-500/40 cursor-pointer transition-all shadow-xs"
+            >
+              POS Fleet
+            </button>
+            <button 
+              id="mode-ai-btn" 
+              class="px-2.5 py-1 rounded font-medium text-slate-600 dark:text-[var(--text-muted)] hover:text-slate-900 dark:hover:text-[var(--text-primary)] border border-transparent cursor-pointer transition-all"
+            >
+              Mobile AI
+            </button>
           </div>
         </div>
 
-        <!-- Phone Card Viewport -->
-        <div class="my-6 space-y-4">
+        <!-- Terminal Display Card Viewport (Structured to eliminate empty vertical gaps) -->
+        <div class="my-4 space-y-3.5 flex-1 flex flex-col justify-center">
           
-          <!-- Balance Display Card -->
-          <div class="p-5 rounded-xl bg-gradient-to-br from-slate-900 to-emerald-950 text-white shadow-xl border border-emerald-500/30">
-            <div class="flex justify-between items-center text-xs font-mono text-emerald-400/80 mb-2">
-              <span>MERCHANT LIQUIDITY POOL</span>
-              <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">ISO-20022</span>
+          <!-- Balance & Hardware Display Screen (High-Tech Smart Terminal Card) -->
+          <div class="p-4 rounded-xl bg-gradient-to-br from-emerald-50/90 via-slate-50 to-teal-50/70 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-900 dark:text-white shadow-sm dark:shadow-md border border-emerald-200 dark:border-emerald-500/30 transition-all duration-300">
+            <div class="flex justify-between items-center text-xs font-mono mb-1.5">
+              <span id="terminal-device-title" class="font-bold tracking-wide text-emerald-800 dark:text-emerald-400">SUNMI V2 PRO / 10K+ FLEET</span>
+              <span class="px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-[10px] font-bold border border-emerald-300 dark:border-emerald-500/30">EMVCo / ESC-POS</span>
             </div>
-            <div class="flex items-center justify-between">
-              <div id="demo-balance-text" class="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight text-emerald-400">
+            <div class="flex items-center justify-between py-1">
+              <div id="demo-balance-text" class="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight text-emerald-700 dark:text-emerald-400">
                 ••••••••••••
               </div>
               <button 
                 id="toggle-balance-btn" 
-                class="text-[11px] font-mono px-2 py-1 rounded bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 transition-colors border border-emerald-500/30 cursor-pointer shrink-0 ml-2"
+                class="text-[10px] font-mono px-2.5 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white dark:bg-emerald-500/20 dark:hover:bg-emerald-500/30 dark:text-emerald-300 transition-colors border border-emerald-600 dark:border-emerald-500/40 cursor-pointer shrink-0 ml-2 font-bold shadow-xs"
                 title="Toggle simulated demo balance"
               >
                 UNMASK DEMO
               </button>
             </div>
-            <div class="flex justify-between items-center text-[11px] font-mono text-slate-300 mt-4 pt-3 border-t border-emerald-500/20">
-              <span>Interoperable Merchant Node</span>
-              <span class="text-emerald-400">● 100% SECURE</span>
+            <div class="flex justify-between items-center text-[10px] font-mono text-slate-600 dark:text-slate-300 mt-2.5 pt-2 border-t border-emerald-200/60 dark:border-slate-800 transition-colors duration-300">
+              <span id="terminal-peripheral-status">Thermal Printer: READY (BLE/USB)</span>
+              <span class="text-emerald-700 dark:text-emerald-400 font-bold">● 100% ONLINE</span>
             </div>
           </div>
 
-          <!-- Live Transaction Status Box -->
-          <div class="p-4 rounded-lg glass-panel space-y-2 border border-[var(--border-color)]">
+          <!-- Hardware Telemetry & Transaction Spec Box -->
+          <div class="p-3 rounded-lg bg-slate-100/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 font-mono text-[11px] space-y-1.5 transition-all duration-300">
+            <div class="flex justify-between items-center text-slate-700 dark:text-[var(--text-muted)] text-[10px] pb-1 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+              <span id="telemetry-label-1" class="font-bold text-slate-800 dark:text-slate-300">RECEIPT STREAM: ESC/POS 384-DOT</span>
+              <span id="telemetry-val-1" class="text-emerald-700 dark:text-emerald-400 font-bold">FLOW_CONTROL: OK</span>
+            </div>
+            <div class="flex justify-between text-slate-600 dark:text-slate-300 text-[10px]">
+              <span id="telemetry-sub-1">Items: 3 Line Items Cart</span>
+              <span id="telemetry-sub-2">Tax: 5% (ISO-20022)</span>
+            </div>
+            <div class="flex justify-between text-slate-600 dark:text-slate-300 text-[10px]">
+              <span id="telemetry-sub-3">Payload Hash: SHA-256</span>
+              <span id="telemetry-sub-4" class="text-cyan-700 dark:text-cyan-400 font-bold">NFC: 106 kbps</span>
+            </div>
+          </div>
+
+          <!-- Live Engine Pipeline Status Box (Crisp High-Contrast in Light & Dark Mode) -->
+          <div class="p-3.5 rounded-lg bg-slate-100/70 dark:bg-slate-900/80 space-y-2 border border-slate-200 dark:border-slate-800 shadow-xs transition-all duration-300">
             <div class="flex justify-between items-center text-xs font-mono">
-              <span class="text-[var(--text-muted)]">INBOUND TRANSACTIONS:</span>
-              <span id="sim-status" class="text-emerald-400 font-bold">QUEUED & SIGNED</span>
+              <span class="text-slate-700 dark:text-[var(--text-muted)] font-bold">PIPELINE STATUS:</span>
+              <span id="sim-status" class="text-emerald-700 dark:text-emerald-400 font-bold tracking-tight">READY (IDLE)</span>
             </div>
-            <div class="w-full bg-[var(--bg-main)] h-2 rounded-full overflow-hidden border border-[var(--border-color)]">
-              <div id="sim-progress-bar" class="bg-gradient-to-r from-emerald-500 to-cyan-500 h-full w-3/4 transition-all duration-500"></div>
+            <div class="w-full bg-slate-200 dark:bg-[var(--bg-main)] h-2 rounded-full overflow-hidden border border-slate-300 dark:border-[var(--border-color)]">
+              <div id="sim-progress-bar" class="bg-gradient-to-r from-emerald-500 to-cyan-500 h-full w-0 transition-all duration-300"></div>
             </div>
-            <div class="flex justify-between items-center text-[10px] font-mono text-[var(--text-muted)] pt-1">
-              <span>LOCAL WAL: COMMIT_OK</span>
-              <span>PAYLOAD CRC: 0x9F4A2B</span>
+            <div class="flex justify-between items-center text-[10px] font-mono text-slate-600 dark:text-[var(--text-muted)] pt-0.5">
+              <span id="sim-sub-info">HAL DRIVER: ATTACHED</span>
+              <span id="sim-crc-info">PAYLOAD CRC: 0x9F4A2B</span>
             </div>
           </div>
 
-          <!-- Interactive Test Action Trigger -->
-          <button 
-            id="run-sim-btn" 
-            class="w-full py-3 rounded-lg font-mono text-xs font-bold bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white transition-all shadow-lg shadow-emerald-500/20 cursor-pointer flex items-center justify-center space-x-2"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <span>SIMULATE OFFLINE TRANSACTION EXECUTION</span>
-          </button>
+          <!-- Action Button -->
+          <div>
+            <button 
+              id="run-sim-btn" 
+              class="w-full py-2.5 rounded-lg font-mono text-xs font-bold bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white transition-all shadow-md shadow-emerald-600/20 hover:shadow-lg hover:-translate-y-0.5 cursor-pointer flex items-center justify-center space-x-2"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span id="sim-btn-label">SIMULATE POS CHECKOUT & THERMAL PRINT</span>
+            </button>
+          </div>
+
         </div>
 
         <!-- System Architecture Footnote -->
-        <div class="pt-3 border-t border-[var(--border-color)] font-mono text-[11px] text-[var(--text-muted)] flex justify-between">
-          <span>Target Network: 2G / Edge</span>
+        <div class="pt-2.5 border-t border-slate-200 dark:border-[var(--border-color)] font-mono text-[10px] text-slate-500 dark:text-[var(--text-muted)] flex justify-between transition-colors duration-300">
+          <span id="sim-target-network">Target: Multi-Vendor POS Hardware</span>
           <span>Zero Data Loss Policy</span>
         </div>
 
@@ -115,57 +148,57 @@ import { RUNTIME_CODE_SNIPPET } from '../data/portfolioData';
 
     <!-- Right: Code Viewport & Real-time Metrics (7 Columns) -->
     <div class="lg:col-span-7 flex flex-col">
-      <div class="code-viewport rounded-xl overflow-hidden h-full flex flex-col justify-between shadow-2xl border border-[var(--border-color)]">
+      <div class="rounded-xl overflow-hidden h-full flex flex-col justify-between shadow-md dark:shadow-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 font-mono transition-all duration-300">
         
         <!-- Code File Header -->
-        <div class="flex items-center justify-between px-4 py-3 bg-slate-900 border-b border-slate-800 font-mono text-xs">
-          <div class="flex items-center space-x-2 text-slate-300">
-            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="flex items-center justify-between px-4 py-3 bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 text-xs transition-colors duration-300">
+          <div class="flex items-center space-x-2 text-slate-700 dark:text-slate-300">
+            <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
             </svg>
-            <span class="font-bold">OfflinePaymentEngine.kt</span>
-            <span class="text-slate-500">| Core Security Enclave</span>
+            <span id="code-file-name" class="font-bold text-slate-900 dark:text-white">PosHardwareHAL.kt</span>
+            <span id="code-file-sub" class="text-slate-500 dark:text-slate-400">| POS Terminal & Printer Driver</span>
           </div>
           <button 
             id="copy-code-btn" 
-            class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors text-[11px]"
+            class="px-2.5 py-1 rounded bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors text-[11px] cursor-pointer border border-slate-300 dark:border-slate-700 font-semibold shadow-xs"
           >
             Copy Code
           </button>
         </div>
 
-        <!-- Real-Time Metrics Bar (Matching image 1 design) -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-slate-950 border-b border-slate-800/80 font-mono text-[11px]">
-          <div class="p-2 rounded bg-slate-900/90 border border-slate-800">
-            <span class="text-slate-400 block text-[10px]">HANDSHAKE CRYPTO</span>
-            <span id="metric-handshake" class="font-bold text-cyan-400">43ms</span>
+        <!-- Real-Time Metrics Bar -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800/80 text-[11px] transition-colors duration-300">
+          <div class="p-2 rounded bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-xs transition-all duration-300">
+            <span id="lbl-metric-1" class="text-slate-500 dark:text-slate-400 block text-[10px] font-semibold">ON-DEVICE AI (NPU)</span>
+            <span id="metric-1" class="font-bold text-cyan-700 dark:text-cyan-400">14ms</span>
           </div>
-          <div class="p-2 rounded bg-slate-900/90 border border-slate-800">
-            <span class="text-slate-400 block text-[10px]">OFFLINE QUEUE STORAGE</span>
-            <span id="metric-storage" class="font-bold text-emerald-400">12ms</span>
+          <div class="p-2 rounded bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-xs transition-all duration-300">
+            <span id="lbl-metric-2" class="text-slate-500 dark:text-slate-400 block text-[10px] font-semibold">LOCAL WAL COMMIT</span>
+            <span id="metric-2" class="font-bold text-emerald-700 dark:text-emerald-400">12ms</span>
           </div>
-          <div class="p-2 rounded bg-slate-900/90 border border-slate-800">
-            <span class="text-slate-400 block text-[10px]">DATA PACK COMPRESSION</span>
-            <span id="metric-compression" class="font-bold text-indigo-400">21ms</span>
+          <div class="p-2 rounded bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-xs transition-all duration-300">
+            <span id="lbl-metric-3" class="text-slate-500 dark:text-slate-400 block text-[10px] font-semibold">ESC/POS BYTE RASTER</span>
+            <span id="metric-3" class="font-bold text-indigo-700 dark:text-indigo-400">24ms</span>
           </div>
-          <div class="p-2 rounded bg-slate-900/90 border border-slate-800">
-            <span class="text-slate-400 block text-[10px]">TOTAL DURATION (TTC)</span>
-            <span id="metric-total" class="font-bold text-emerald-400">76ms</span>
+          <div class="p-2 rounded bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-xs transition-all duration-300">
+            <span id="lbl-metric-4" class="text-slate-500 dark:text-slate-400 block text-[10px] font-semibold">TOTAL EXECUTION (TTC)</span>
+            <span id="metric-4" class="font-bold text-emerald-700 dark:text-emerald-400">50ms</span>
           </div>
         </div>
 
         <!-- Code Block Content -->
-        <div class="p-4 overflow-x-auto text-xs leading-relaxed font-mono text-slate-200 bg-[#060911] flex-1">
-          <pre class="whitespace-pre"><code>{RUNTIME_CODE_SNIPPET}</code></pre>
+        <div class="p-4 overflow-x-auto text-xs leading-relaxed text-slate-800 dark:text-slate-200 bg-slate-50/60 dark:bg-[#060911] flex-1 font-mono transition-colors duration-300">
+          <pre id="code-display" class="whitespace-pre"><code>{POS_HAL_CODE_SNIPPET}</code></pre>
         </div>
 
         <!-- Live Output Terminal Log Bar -->
-        <div id="sim-terminal-log" class="p-3 bg-slate-950 border-t border-slate-800 font-mono text-[11px] text-emerald-400/90 flex items-center justify-between">
+        <div id="sim-terminal-log" class="p-3 bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 text-[11px] text-emerald-700 dark:text-emerald-400 font-medium flex items-center justify-between transition-colors duration-300">
           <div class="flex items-center space-x-2">
-            <span class="text-slate-500">&gt;</span>
-            <span id="log-text">System initialized. Ready for offline transaction payload stream.</span>
+            <span class="text-slate-400 dark:text-slate-500">&gt;</span>
+            <span id="log-text">POS Hardware HAL initialized. Ready for transaction & receipt stream.</span>
           </div>
-          <span class="text-slate-500 hidden sm:inline">LATENCY_OK</span>
+          <span class="text-slate-500 hidden sm:inline font-semibold">HAL_OK</span>
         </div>
 
       </div>
@@ -175,63 +208,179 @@ import { RUNTIME_CODE_SNIPPET } from '../data/portfolioData';
 
 </section>
 
-<script>
-  // Simulation Interactivity Logic
+<script is:inline define:vars={{ POS_HAL_CODE_SNIPPET, RUNTIME_CODE_SNIPPET }}>
+  let currentMode = 'pos'; // 'pos' or 'ai'
+
+  const modePosBtn = document.getElementById('mode-pos-btn');
+  const modeAiBtn = document.getElementById('mode-ai-btn');
+  const terminalDeviceTitle = document.getElementById('terminal-device-title');
+  const terminalPeripheralStatus = document.getElementById('terminal-peripheral-status');
+  const simBtnLabel = document.getElementById('sim-btn-label');
+  const simTargetNetwork = document.getElementById('sim-target-network');
+  const codeFileName = document.getElementById('code-file-name');
+  const codeFileSub = document.getElementById('code-file-sub');
+  const codeDisplay = document.getElementById('code-display');
+  const logText = document.getElementById('log-text');
+  
+  const telemetryLabel1 = document.getElementById('telemetry-label-1');
+  const telemetryVal1 = document.getElementById('telemetry-val-1');
+  const telemetrySub1 = document.getElementById('telemetry-sub-1');
+  const telemetrySub2 = document.getElementById('telemetry-sub-2');
+  const telemetrySub3 = document.getElementById('telemetry-sub-3');
+  const telemetrySub4 = document.getElementById('telemetry-sub-4');
+
+  const lblMetric1 = document.getElementById('lbl-metric-1');
+  const lblMetric2 = document.getElementById('lbl-metric-2');
+  const lblMetric3 = document.getElementById('lbl-metric-3');
+  const lblMetric4 = document.getElementById('lbl-metric-4');
+
+  const metric1 = document.getElementById('metric-1');
+  const metric2 = document.getElementById('metric-2');
+  const metric3 = document.getElementById('metric-3');
+  const metric4 = document.getElementById('metric-4');
+
   const runSimBtn = document.getElementById('run-sim-btn');
   const simStatus = document.getElementById('sim-status');
   const simProgressBar = document.getElementById('sim-progress-bar');
-  const logText = document.getElementById('log-text');
-  const metricHandshake = document.getElementById('metric-handshake');
-  const metricStorage = document.getElementById('metric-storage');
-  const metricCompression = document.getElementById('metric-compression');
-  const metricTotal = document.getElementById('metric-total');
+  const simSubInfo = document.getElementById('sim-sub-info');
+  const simCrcInfo = document.getElementById('sim-crc-info');
 
+  function setMode(mode) {
+    currentMode = mode;
+    if (mode === 'pos') {
+      modePosBtn.className = 'px-2.5 py-1 rounded font-bold bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-500/40 cursor-pointer transition-all shadow-xs';
+      modeAiBtn.className = 'px-2.5 py-1 rounded font-medium text-slate-600 dark:text-[var(--text-muted)] hover:text-slate-900 dark:hover:text-[var(--text-primary)] border border-transparent cursor-pointer transition-all';
+      terminalDeviceTitle.textContent = 'SUNMI V2 PRO / 10K+ FLEET';
+      terminalPeripheralStatus.textContent = 'Thermal Printer: READY (BLE/USB)';
+      simBtnLabel.textContent = 'SIMULATE POS CHECKOUT & THERMAL PRINT';
+      simTargetNetwork.textContent = 'Target: Multi-Vendor POS Hardware';
+      codeFileName.textContent = 'PosHardwareHAL.kt';
+      codeFileSub.textContent = '| POS Terminal & Printer Driver';
+      codeDisplay.textContent = POS_HAL_CODE_SNIPPET;
+      logText.textContent = 'POS Hardware HAL ready. Ready for transaction & receipt stream.';
+      
+      telemetryLabel1.textContent = 'RECEIPT STREAM: ESC/POS 384-DOT';
+      telemetryVal1.textContent = 'FLOW_CONTROL: OK';
+      telemetryVal1.className = 'text-emerald-700 dark:text-emerald-400 font-bold';
+      telemetrySub1.textContent = 'Items: 3 Line Items Cart';
+      telemetrySub2.textContent = 'Tax: 5% (ISO-20022)';
+      telemetrySub3.textContent = 'Payload Hash: SHA-256';
+      telemetrySub4.textContent = 'NFC: 106 kbps';
+      telemetrySub4.className = 'text-cyan-700 dark:text-cyan-400 font-bold';
+
+      lblMetric1.textContent = 'ON-DEVICE AI (NPU)';
+      lblMetric2.textContent = 'LOCAL WAL COMMIT';
+      lblMetric3.textContent = 'ESC/POS BYTE RASTER';
+      lblMetric4.textContent = 'TOTAL EXECUTION (TTC)';
+      metric1.textContent = '14ms';
+      metric2.textContent = '12ms';
+      metric3.textContent = '24ms';
+      metric4.textContent = '50ms';
+    } else {
+      modeAiBtn.className = 'px-2.5 py-1 rounded font-bold bg-cyan-100 dark:bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 border border-cyan-300 dark:border-cyan-500/40 cursor-pointer transition-all shadow-xs';
+      modePosBtn.className = 'px-2.5 py-1 rounded font-medium text-slate-600 dark:text-[var(--text-muted)] hover:text-slate-900 dark:hover:text-[var(--text-primary)] border border-transparent cursor-pointer transition-all';
+      terminalDeviceTitle.textContent = 'LITERT EDGE AI & VISION RUNTIME';
+      terminalPeripheralStatus.textContent = 'Model: INT8 Quantized MobileNet-OCR';
+      simBtnLabel.textContent = 'SIMULATE ON-DEVICE AI RECEIPT OCR';
+      simTargetNetwork.textContent = 'Target: Neural Processing Unit (NPU)';
+      codeFileName.textContent = 'OfflinePaymentEngine.kt';
+      codeFileSub.textContent = '| Core Security Enclave';
+      codeDisplay.textContent = RUNTIME_CODE_SNIPPET;
+      logText.textContent = 'LiteRT runtime loaded into mobile NPU memory. Awaiting camera frame.';
+
+      telemetryLabel1.textContent = 'VISION TENSOR: 224x224 INT8';
+      telemetryVal1.textContent = 'DELEGATE: HEXAGON NPU';
+      telemetryVal1.className = 'text-cyan-700 dark:text-cyan-400 font-bold';
+      telemetrySub1.textContent = 'FPS: 60 FPS Viewfinder';
+      telemetrySub2.textContent = 'Quantization: INT8 Sym';
+      telemetrySub3.textContent = 'OpenCV: Binarized Warp';
+      telemetrySub4.textContent = 'Confidence: 99.4%';
+      telemetrySub4.className = 'text-emerald-700 dark:text-emerald-400 font-bold';
+
+      lblMetric1.textContent = 'LITERT INFERENCE';
+      lblMetric2.textContent = 'OPENCV BINARIZATION';
+      lblMetric3.textContent = 'TOKEN STREAMING';
+      lblMetric4.textContent = 'END-TO-END LATENCY';
+      metric1.textContent = '14ms';
+      metric2.textContent = '8ms';
+      metric3.textContent = '16ms';
+      metric4.textContent = '38ms';
+    }
+  }
+
+  modePosBtn?.addEventListener('click', () => setMode('pos'));
+  modeAiBtn?.addEventListener('click', () => setMode('ai'));
+
+  // Simulation execution logic with high-contrast text in light and dark modes
   runSimBtn?.addEventListener('click', () => {
     if (!runSimBtn || !simStatus || !simProgressBar || !logText) return;
 
     runSimBtn.setAttribute('disabled', 'true');
-    simStatus.textContent = 'EXECUTING CRYPTO HANDSHAKE...';
-    simStatus.className = 'text-cyan-400 font-bold';
-    logText.textContent = '[00:01.02] Generating AES-256 GCM ephemeral nonce in Hardware Keystore...';
-    simProgressBar.style.width = '25%';
+    simProgressBar.style.width = '30%';
 
-    setTimeout(() => {
-      simStatus.textContent = 'COMMITTING TO LOCAL WAL DATABASE...';
-      simStatus.className = 'text-yellow-400 font-bold';
-      logText.textContent = '[00:01.04] Writing signed envelope to SQLite Write-Ahead Log (WAL)...';
-      simProgressBar.style.width = '60%';
-    }, 400);
+    if (currentMode === 'pos') {
+      simStatus.textContent = 'RASTERIZING ESC/POS RECEIPT...';
+      simStatus.className = 'text-amber-600 dark:text-amber-400 font-bold tracking-tight';
+      logText.textContent = '[00:00.12] Converting cart payload to 384-dot ESC/POS bitmap buffer...';
 
-    setTimeout(() => {
-      const randHandshake = Math.floor(Math.random() * 10) + 38;
-      const randStorage = Math.floor(Math.random() * 5) + 10;
-      const randCompression = Math.floor(Math.random() * 8) + 18;
-      const total = randHandshake + randStorage + randCompression;
+      setTimeout(() => {
+        simStatus.textContent = 'STREAMING TO BLUETOOTH / SERIAL PRINTER...';
+        simStatus.className = 'text-cyan-600 dark:text-cyan-400 font-bold tracking-tight';
+        logText.textContent = '[00:00.28] Dispatching raw bytes over POS HAL serial bridge with hardware flow control...';
+        simProgressBar.style.width = '70%';
+      }, 350);
 
-      if (metricHandshake) metricHandshake.textContent = `${randHandshake}ms`;
-      if (metricStorage) metricStorage.textContent = `${randStorage}ms`;
-      if (metricCompression) metricCompression.textContent = `${randCompression}ms`;
-      if (metricTotal) metricTotal.textContent = `${total}ms`;
+      setTimeout(() => {
+        const randPrint = Math.floor(Math.random() * 20) + 290;
+        metric3.textContent = `${randPrint}ms`;
+        metric4.textContent = `${randPrint + 26}ms`;
 
-      simStatus.textContent = 'QUEUED & SIGNED (SUB-100MS SUCCESS)';
-      simStatus.className = 'text-emerald-400 font-bold';
-      logText.textContent = `[00:01.07] Tx committed successfully! Total execution time: ${total}ms.`;
-      simProgressBar.style.width = '100%';
-      runSimBtn.removeAttribute('disabled');
-    }, 900);
+        simStatus.textContent = 'PRINT COMPLETE & COMMITTED';
+        simStatus.className = 'text-emerald-600 dark:text-emerald-400 font-bold tracking-tight';
+        logText.textContent = `[00:00.52] Thermal cut finished! Total POS turnaround: ${randPrint + 26}ms.`;
+        simProgressBar.style.width = '100%';
+        runSimBtn.removeAttribute('disabled');
+      }, 750);
+
+    } else {
+      simStatus.textContent = 'PREPROCESSING CAMERA FRAME (OPENCV)...';
+      simStatus.className = 'text-cyan-600 dark:text-cyan-400 font-bold tracking-tight';
+      logText.textContent = '[00:00.08] Applying adaptive thresholding and perspective warping...';
+
+      setTimeout(() => {
+        simStatus.textContent = 'EXECUTING ON-DEVICE LITERT NPU INFERENCE...';
+        simStatus.className = 'text-amber-600 dark:text-amber-400 font-bold tracking-tight';
+        logText.textContent = '[00:00.18] Feeding 224x224 INT8 tensor into Qualcomm Hexagon NPU delegate...';
+        simProgressBar.style.width = '75%';
+      }, 300);
+
+      setTimeout(() => {
+        const randInf = Math.floor(Math.random() * 4) + 12;
+        metric1.textContent = `${randInf}ms`;
+        metric4.textContent = `${randInf + 22}ms`;
+
+        simStatus.textContent = 'AI OCR PARSED (100% CONFIDENCE)';
+        simStatus.className = 'text-emerald-600 dark:text-emerald-400 font-bold tracking-tight';
+        logText.textContent = `[00:00.32] Extracted amount: $42.50, Merchant: DGePay Node, NPU time: ${randInf}ms.`;
+        simProgressBar.style.width = '100%';
+        runSimBtn.removeAttribute('disabled');
+      }, 700);
+    }
   });
 
   // Copy Code Button
   const copyCodeBtn = document.getElementById('copy-code-btn');
   copyCodeBtn?.addEventListener('click', () => {
-    const codeText = `package com.mycash.fintech.engine.security...`;
-    navigator.clipboard.writeText(codeText).then(() => {
-      copyCodeBtn.textContent = 'Copied!';
-      setTimeout(() => { copyCodeBtn.textContent = 'Copy Code'; }, 2000);
-    });
+    const code = codeDisplay ? codeDisplay.textContent : '';
+    if (code) {
+      navigator.clipboard.writeText(code).then(() => {
+        copyCodeBtn.textContent = 'Copied!';
+        setTimeout(() => { copyCodeBtn.textContent = 'Copy Code'; }, 2000);
+      });
+    }
   });
 
-  // Balance unmask toggle logic
+  // Demo balance unmask toggle
   const toggleBalanceBtn = document.getElementById('toggle-balance-btn');
   const demoBalanceText = document.getElementById('demo-balance-text');
   let isUnmasked = false;

@@ -6,6 +6,16 @@ export interface MetricItem {
   icon?: string;
 }
 
+export interface IndustryRoleProfile {
+  id: string;
+  role: string;
+  badge: string;
+  industryPerception: string;
+  summary: string;
+  highlights: string[];
+  techPillars: string[];
+}
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -79,6 +89,65 @@ export const HERO_METRICS: MetricItem[] = [
   }
 ];
 
+export const INDUSTRY_ROLE_PROFILES: IndustryRoleProfile[] = [
+  {
+    id: "mobile-ai-engineer",
+    role: "Mobile AI Engineer",
+    badge: "Top Recommendation",
+    industryPerception: "A senior software engineer who bridges client applications (Android/iOS/Flutter) with AI capabilities—whether via cloud AI APIs, streaming interfaces, or on-device inference (LiteRT/ONNX/CoreML).",
+    summary: "Architecting high-throughput mobile runtimes that seamlessly orchestrate edge machine learning models, streaming cloud LLM/VLM tokens, and hardware-accelerated on-device neural engines (NPU/Metal/NNAPI).",
+    highlights: [
+      "On-device inference pipeline engineering with LiteRT (TFLite), ONNX Runtime Mobile, and Apple CoreML",
+      "Low-latency streaming interfaces using Server-Sent Events (SSE), WebSockets, and gRPC token streams",
+      "Edge Computer Vision preprocessing, optical receipt & document OCR, and biometric verification",
+      "Client-side AI agent orchestration, mobile function calling, and local vector search caching"
+    ],
+    techPillars: ["LiteRT / TFLite", "ONNX Mobile", "CoreML", "Cloud AI APIs", "SSE / gRPC", "OpenCV", "Kotlin / Swift / Flutter"]
+  },
+  {
+    id: "ai-mobile-developer",
+    role: "AI Mobile Developer",
+    badge: "Direct & Searchable",
+    industryPerception: "Direct and searchable. Clearly tells recruiters you build mobile apps powered by AI features. Slightly more focused on app development than architecture.",
+    summary: "Delivering user-centric, high-polish mobile applications directly empowered by intelligent AI features—from generative streaming chat interfaces to real-time image recognition.",
+    highlights: [
+      "Intuitive streaming generative UI with Markdown rendering, markdown tables, and typewriter animations",
+      "In-app multimodal processing: real-time camera viewfinder analysis and voice audio streaming",
+      "Resilient edge fallbacks: gracefully degrading AI capabilities when devices lose internet connectivity",
+      "Non-blocking background coroutines and thread isolates ensuring steady 60-120 FPS UI response"
+    ],
+    techPillars: ["Flutter", "Jetpack Compose", "SwiftUI", "Streaming UX", "ML Kit", "Gemini / OpenAI APIs"]
+  },
+  {
+    id: "pos-systems-architect",
+    role: "Point of Sale (POS) Systems Architect",
+    badge: "Enterprise Hardware Specialist",
+    industryPerception: "A specialized systems engineer who architects hardware-integrated Point of Sale (POS) solutions—combining universal hardware abstraction layers (HAL), thermal printing, barcode scanning, EMV/NFC payment processing, and offline-first transactional ledgers.",
+    summary: "Engineered interoperable merchant Point of Sale (POS) terminal fleets powering 10,000+ active devices across retail, restaurant, and distribution counters with sub-second checkout speeds.",
+    highlights: [
+      "Universal Hardware Abstraction Layer (HAL) for multi-vendor POS hardware (Sunmi, Pax, Ingenico, Telpo)",
+      "ESC/POS thermal printer driver integration over Bluetooth LE, USB OTG, and Serial RS232",
+      "EMVCo QR parsing, dynamic customer-facing mirror displays, and high-speed laser/camera barcode decoding",
+      "Guaranteed zero-loss offline store-and-forward transaction queue with SQLite Write-Ahead Logging (WAL)"
+    ],
+    techPillars: ["Android POS HAL", "ESC/POS Thermal Engine", "EMVCo QR", "BLE / Serial RS232", "SQLite WAL", "PCI-DSS"]
+  },
+  {
+    id: "fintech-systems-architect",
+    role: "Fintech Systems Architect",
+    badge: "DFS & Core Banking Specialist",
+    industryPerception: "A seasoned fintech systems engineer specializing in bank-grade digital financial services (DFS), zero-trust PCI-DSS security enclaves, high-concurrency payment routing, and offline-resilient transactional store-and-forward engines.",
+    summary: "Architecting high-concurrency mobile banking and payment engines (such as MYCash DFS serving 1M+ active consumers and 650K+ daily transactions) with hardware-backed key derivation and zero financial record loss.",
+    highlights: [
+      "Hardware-backed Android Keystore & iOS Secure Enclave AES-GCM 256-bit cryptography with HSM derivation",
+      "High-throughput ISO 8583 & ISO 20022 financial message parsers delivering sub-80ms transaction turnaround",
+      "Tamper-proof local Write-Ahead Logging (WAL) preventing financial ledger corruption during network drops",
+      "Full adherence to PCI-DSS Level 1, OWASP Mobile Security, and central bank financial compliance audits"
+    ],
+    techPillars: ["PCI-DSS Enclave", "Hardware Keystore / TEE", "ISO 8583 / ISO 20022", "Biometric Vault", "SQLite WAL", "Coroutines"]
+  }
+];
+
 export const RUNTIME_CODE_SNIPPET = `// OfflinePaymentEngine.kt - Core PCI-DSS Encrypted Store & Forward Engine
 package com.mycash.fintech.engine.security
 
@@ -108,6 +177,32 @@ class OfflinePaymentEngine(
     }
 }`;
 
+export const POS_HAL_CODE_SNIPPET = `// PosHardwareHAL.kt - Universal POS Terminal & Thermal Printer Bridge
+package com.dgepay.pos.hardware.hal
+
+import com.dgepay.pos.driver.PrinterProtocol
+import com.dgepay.pos.driver.BarcodeScannerService
+
+class PosHardwareHAL(
+    private val driverRegistry: PosDriverRegistry,
+    private val cryptoVault: HardwareKeyEnclave
+) {
+    suspend fun printReceiptAndDispatch(
+        cartPayload: CartEnvelope,
+        printerType: PrinterProtocol = PrinterProtocol.ESC_POS
+    ): PrintResult {
+        // Build optimized bitmap byte-buffer for high-speed thermal head
+        val rasterBytes = EscPosBuilder.rasterizeReceipt(
+            items = cartPayload.lineItems,
+            qrPayload = cartPayload.emvCoQrData,
+            signature = cryptoVault.signPayload(cartPayload.hash)
+        )
+        
+        // Execute low-level serial/BLE hardware stream with flow control
+        return driverRegistry.getPrinterDriver(printerType).writeBytesDirect(rasterBytes)
+    }
+}`;
+
 export const FLAGSHIP_PROJECTS: ProjectItem[] = [
   {
     id: "mycash",
@@ -132,22 +227,23 @@ export const FLAGSHIP_PROJECTS: ProjectItem[] = [
   },
   {
     id: "dgepay",
-    title: "DGePay Interoperable Merchant Platform",
-    category: "Merchant & Payment Gateway",
-    badgeText: "10K+ Terminals",
+    title: "DGePay Interoperable Merchant Platform & POS Fleet",
+    category: "Merchant & Point of Sale (POS) Systems",
+    badgeText: "10K+ POS Terminals",
     description: "Next-gen interoperable merchant ecosystem powering 10K+ point-of-sale terminals with ultra-fast QR scanning, sub-second transaction routing, and settlement ledger.",
-    fullDescription: "Built unified merchant ecosystem comprising Tektiti and Saudagor apps. Integrates multi-bank QR standards (EMVCo QR), Bluetooth POS printer hardware abstraction, and merchant real-time settlement dashboard.",
+    fullDescription: "Built unified merchant ecosystem comprising Tektiti and Saudagor apps. Integrates multi-bank QR standards (EMVCo QR), Bluetooth POS printer hardware abstraction, universal POS terminal fleet management (Sunmi, Pax, Ingenico 45+ models), ESC/POS thermal printing, and merchant real-time settlement dashboard.",
     impactMetrics: [
-      { label: "Active Merchants", value: "10,000+" },
+      { label: "Active POS Terminals", value: "10,000+" },
       { label: "QR Decode Time", value: "60ms" },
       { label: "Settlement Speed", value: "<1.2s" },
       { label: "Hardware Support", value: "45+ POS Models" }
     ],
-    tags: ["Flutter", "Dart", "C++ Native", "EMVCo QR", "BLE Protocol", "REST/gRPC"],
+    tags: ["Flutter", "Dart", "C++ Native", "Point of Sale (POS)", "ESC/POS Printing", "EMVCo QR", "BLE Protocol", "REST/gRPC"],
     architectureHighlights: [
-      "Hardware abstraction layer (HAL) for universal thermal printers and barcode scanners",
+      "Hardware abstraction layer (HAL) for universal thermal printers and barcode scanners across 45+ POS hardware models",
       "Native C++ QR decoding engine delivering sub-60ms recognition speeds",
-      "Local audit ledger with cryptographic signature chaining for tamper detection"
+      "Local audit ledger with cryptographic signature chaining and SQLite Write-Ahead Logging (WAL) for zero-loss offline sales",
+      "Dual-display customer mirror support and direct ESC/POS byte streaming via Bluetooth LE & USB OTG"
     ]
   },
   {
@@ -189,6 +285,27 @@ export const FLAGSHIP_PROJECTS: ProjectItem[] = [
       "Background sync engine capable of queuing 50,000 records without dropping frames",
       "Ultra-low RAM optimization ensuring smooth operation on entry-level $50 smartphones"
     ]
+  },
+  {
+    id: "mobile-edge-ai",
+    title: "Mobile Edge AI & Intelligent Vision Suite",
+    category: "Mobile AI & On-Device ML Engineering",
+    badgeText: "LiteRT & ONNX Runtime",
+    description: "On-device intelligence runtime bridging camera feeds and sensor inputs with quantized machine learning models (LiteRT, ONNX, CoreML) and streaming cloud AI interfaces.",
+    fullDescription: "Designed high-performance Mobile AI execution engine running real-time optical character recognition (OCR), document perspective correction, biometric liveness verification, and streaming conversational AI interfaces over low-latency SSE/gRPC bridges.",
+    impactMetrics: [
+      { label: "On-Device Inference", value: "14ms" },
+      { label: "Model Size (Quantized)", value: "3.2MB" },
+      { label: "Camera Vision FPS", value: "60 FPS" },
+      { label: "Cloud Fallback Latency", value: "<180ms" }
+    ],
+    tags: ["LiteRT (TFLite)", "ONNX Mobile", "CoreML", "Android NDK", "OpenCV", "SSE Streaming", "Function Calling"],
+    architectureHighlights: [
+      "INT8 quantized neural model execution running directly on mobile NPU / Apple Neural Engine",
+      "Streaming token response rendering pipeline with typewriter micro-animations and zero thread stalling",
+      "Edge preprocessing pipeline using OpenCV C++ with SIMD vectorization for camera frame binarization",
+      "Hybrid fallback architecture seamlessly toggling between on-device LiteRT inference and streaming cloud AI APIs"
+    ]
   }
 ];
 
@@ -203,6 +320,27 @@ export const SKILLS_MATRIX: SkillCategory[] = [
       { name: "Swift & iOS Runtime", level: "Proficient", detail: "SwiftUI, Objective-C FFI, iOS Keystore, BackgroundTasks", isCore: false },
       { name: "C / C++ Native (NDK)", level: "Senior", detail: "JNI Bridges, Cryptographic Primitives, Image Processing", isCore: true },
       { name: "Rust (FFI)", level: "Advanced", detail: "Memory-safe native cores for cross-platform crypto & math", isCore: false }
+    ]
+  },
+  {
+    category: "Mobile AI & On-Device ML Engineering",
+    icon: "cpu",
+    skills: [
+      { name: "LiteRT (TFLite) & ONNX Mobile", level: "Expert", detail: "INT8/FP16 quantized model inference, NPU & GPU hardware acceleration", isCore: true },
+      { name: "Cloud AI Streaming & APIs", level: "Specialist", detail: "Server-Sent Events (SSE), WebSockets, gRPC token streaming, structured JSON generation", isCore: true },
+      { name: "Apple CoreML & Metal", level: "Proficient", detail: "Neural Engine optimization, Vision framework, background audio transcription", isCore: false },
+      { name: "Edge Vision & Document OCR", level: "Senior", detail: "OpenCV C++ preprocessing, adaptive binarization, perspective correction, receipt parsing", isCore: true },
+      { name: "Client-Side AI Agent Orchestration", level: "Senior", detail: "Mobile tool use, function calling, offline semantic vector embeddings (sqlite-vec)", isCore: false }
+    ]
+  },
+  {
+    category: "Point of Sale (POS) Systems & Hardware HAL",
+    icon: "terminal",
+    skills: [
+      { name: "Universal POS Hardware HAL", level: "Architect", detail: "Sunmi, Pax, Ingenico, Verifone, Telpo Android POS SDKs and native driver bridges", isCore: true },
+      { name: "ESC/POS Thermal Printing", level: "Expert", detail: "Bluetooth LE, USB OTG, Serial RS232 raw byte streams, bitmap graphics rasterization", isCore: true },
+      { name: "EMVCo QR & NFC Tap-to-Pay", level: "Specialist", detail: "Dynamic/Static EMVCo QR generators, ISO/IEC 14443 contactless card handling", isCore: true },
+      { name: "Dual-Display & Peripherals", level: "Senior", detail: "Merchant + customer mirror displays, 1D/2D laser scanners, electronic cash drawers", isCore: false }
     ]
   },
   {
@@ -258,6 +396,14 @@ export const OPEN_SOURCE_PACKAGES = [
     downloads: "Internal Core Component",
     description: "Resilient priority queue for storing transactions locally when offline with exponential backoff sync and crash protection.",
     link: "https://github.com/moniruzzaman/offline_sync_queue"
+  },
+  {
+    name: "pos_esc_thermal_hal",
+    platform: "Kotlin Multiplatform / Android",
+    stars: "Specialized HAL",
+    downloads: "Production Component",
+    description: "Universal printer abstraction driver providing raw ESC/POS byte streaming and bitmap layout generation for Sunmi, Pax, and BLE thermal printers.",
+    link: "https://github.com/moniruzzaman/pos_esc_thermal_hal"
   }
 ];
 
@@ -269,12 +415,13 @@ export const WORK_TIMELINE: TimelineItem[] = [
     location: "Dhaka, Bangladesh",
     achievements: [
       "Leading mobile architecture team designing enterprise applications for UNICEF, Government of Bangladesh (CPTU), and national fintech providers.",
-      "Architected MYCash DFS and DGePay interoperable payment merchant engine serving 1M+ consumers and 10K+ merchants.",
+      "Architected MYCash DFS and DGePay interoperable payment merchant & Point of Sale (POS) engine serving 1M+ consumers and 10K+ merchant terminals.",
       "Engineered offline-first sync pipelines reducing network drop failures by 98% in remote low-bandwidth deployment areas.",
+      "Integrated on-device LiteRT and computer vision preprocessing for instant offline receipt parsing and biometric verification.",
       "Introduced automated Fastlane CI/CD pipelines, reducing app release cycle duration from 3 days to 25 minutes."
     ],
-    skillsUsed: ["Kotlin", "Flutter", "Clean Architecture", "PCI-DSS", "CI/CD", "Team Leadership"],
-    metrics: "1M+ Users Impacted • 99.98% Stability"
+    skillsUsed: ["Kotlin", "Flutter", "Clean Architecture", "PCI-DSS", "Point of Sale (POS)", "Mobile AI", "CI/CD", "Team Leadership"],
+    metrics: "1M+ Users Impacted • 10K+ POS Terminals • 99.98% Stability"
   },
   {
     role: "Senior Android Developer",
@@ -308,7 +455,9 @@ export const BENCHMARKS: SystemBenchmark[] = [
   { title: "Hardware Keystore Sign", value: "21ms", comparison: "-65% latency vs cloud auth", detail: "Hardware-attested ECDSA secp256r1 signature generation on-chip." },
   { title: "Cold App Launch Time", value: "22ms", comparison: "99th percentile speed", detail: "Lazy module loading + Baseline Profiles + App Startup library." },
   { title: "Idle Memory Footprint", value: "18MB", comparison: "-50% vs typical Flutter apps", detail: "Custom native memory allocators and image cache boundary management." },
-  { title: "Offline Sync Reliability", value: "99.8%", comparison: "Zero lost financial records", detail: "Write-Ahead Log (WAL) transaction log with CRC checksum verification." }
+  { title: "Offline Sync Reliability", value: "99.8%", comparison: "Zero lost financial records", detail: "Write-Ahead Log (WAL) transaction log with CRC checksum verification." },
+  { title: "On-Device AI Inference", value: "14ms", comparison: "Sub-20ms edge latency", detail: "INT8 quantized LiteRT model running on mobile NPU / Qualcomm Hexagon delegate." },
+  { title: "POS Print & Cut Latency", value: "320ms", comparison: "3x faster than vendor SDK", detail: "Direct ESC/POS byte streaming via Bluetooth LE/USB OTG with hardware flow control." }
 ];
 
 export const ARCHITECTURAL_DECISION_RECORDS: ADR[] = [
@@ -344,6 +493,18 @@ export const ARCHITECTURAL_DECISION_RECORDS: ADR[] = [
     consequences: [
       "Frame rate maintained at steady 60 FPS during heavy processing",
       "Reduced CPU thermal throttling during continuous barcode scanning"
+    ]
+  },
+  {
+    id: "ADR-04",
+    title: "Hybrid On-Device (LiteRT/ONNX) vs Streaming Cloud AI for Mobile & POS Workflows",
+    status: "ACCEPTED",
+    context: "Real-time merchant scanning and user authentication require immediate latency (<50ms) and must function offline, while complex reasoning queries require deep cloud LLM knowledge.",
+    decision: "Deployed dual-tier AI topology: on-device LiteRT / ONNX models handle instant OCR, barcode parsing, and biometric verification locally; cloud AI streaming (SSE / gRPC) is invoked asynchronously for intelligent analytics and summaries.",
+    consequences: [
+      "Instant sub-20ms feedback on edge camera viewfinders with zero network dependency",
+      "Graceful offline operation on low-connectivity POS terminals",
+      "Zero unnecessary cloud API costs for basic vision and classification tasks"
     ]
   }
 ];

@@ -115,23 +115,29 @@ import { FLAGSHIP_PROJECTS } from '../data/portfolioData';
       <span class="text-xs text-[var(--text-muted)]">SPECIALIZED SDKs</span>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
       <div class="p-4 rounded-lg bg-[var(--bg-main)] border border-[var(--border-color)] space-y-2">
-        <span class="text-emerald-500 font-bold text-sm block">BioRegister SDK (HAL)</span>
-        <p class="text-[var(--text-muted)] text-[11px]">Hardware abstraction layer for Android finger scanners and optical sensors used in government biometric voter verification.</p>
-        <span class="inline-block text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400">C++ Native NDK</span>
+        <span class="text-cyan-400 font-bold text-sm block">Point-of-Sale (POS) HAL</span>
+        <p class="text-[var(--text-muted)] text-[11px]">Serial port, USB OTG & Bluetooth printer driver stack enabling thermal receipt printing & barcode scanning across 45+ POS devices.</p>
+        <span class="inline-block text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400">ESC/POS & C++ HAL</span>
       </div>
 
       <div class="p-4 rounded-lg bg-[var(--bg-main)] border border-[var(--border-color)] space-y-2">
-        <span class="text-cyan-400 font-bold text-sm block">Point-of-Sale Terminal HAL</span>
-        <p class="text-[var(--text-muted)] text-[11px]">Serial port & Bluetooth printer protocol stack enabling seamless thermal receipt printing across 45+ POS devices.</p>
-        <span class="inline-block text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400">Dart FFI & C</span>
+        <span class="text-emerald-400 font-bold text-sm block">Mobile AI & Vision Runtime</span>
+        <p class="text-[var(--text-muted)] text-[11px]">On-device INT8 LiteRT & ONNX execution with OpenCV image binarization for instant edge receipt OCR and facial liveness.</p>
+        <span class="inline-block text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400">LiteRT / NPU delegate</span>
       </div>
 
       <div class="p-4 rounded-lg bg-[var(--bg-main)] border border-[var(--border-color)] space-y-2">
-        <span class="text-indigo-400 font-bold text-sm block">Utility Bill Pay Enclave</span>
+        <span class="text-indigo-400 font-bold text-sm block">BioRegister SDK (HAL)</span>
+        <p class="text-[var(--text-muted)] text-[11px]">Hardware abstraction layer for Android optical fingerprint scanners used in national biometric verification.</p>
+        <span class="inline-block text-[10px] px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400">C++ Native NDK</span>
+      </div>
+
+      <div class="p-4 rounded-lg bg-[var(--bg-main)] border border-[var(--border-color)] space-y-2">
+        <span class="text-amber-400 font-bold text-sm block">Utility Bill Pay Enclave</span>
         <p class="text-[var(--text-muted)] text-[11px]">Encrypted batch bill payment dispatcher handling national electricity and gas utility invoice settlements.</p>
-        <span class="inline-block text-[10px] px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400">Kotlin Coroutines</span>
+        <span class="inline-block text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-400">Kotlin Coroutines</span>
       </div>
     </div>
   </div>
