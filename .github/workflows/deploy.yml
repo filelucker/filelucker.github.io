@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger the workflow on pushes to either astra or main branch
+  # Trigger the workflow on push to astra branch
   push:
-    branches: [ "astra", "main" ]
+    branches: [ "astra" ]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
