@@ -248,10 +248,10 @@ export const FLAGSHIP_PROJECTS: ProjectItem[] = [
   },
   {
     id: "cptu",
-    title: "CPTU e-GP National Procurement System",
+    title: "Sarkari Kroy Dorpon (CPTU e-GP)",
     category: "Government Enterprise Systems",
     badgeText: "National Scale",
-    description: "Bangladesh Central Procurement Technical Unit e-GP mobile application enabling secure tender bidding, encrypted document vaults, and live audit workflows.",
+    description: "Bangladesh Central Procurement Technical Unit (CPTU) e-GP mobile application ('Sarkari Kroy Dorpon') enabling secure tender bidding, encrypted document vaults, and live audit workflows.",
     fullDescription: "Engineered secure mobile client for Bangladesh government's central e-procurement portal. Handles tens of thousands of simultaneous government contractors bidding on multi-million dollar public contracts.",
     impactMetrics: [
       { label: "Active Bidders", value: "100,000+" },
@@ -374,36 +374,36 @@ export const SKILLS_MATRIX: SkillCategory[] = [
 
 export const OPEN_SOURCE_PACKAGES = [
   {
-    name: "dge_radio_button",
+    name: "chip_radio_button",
     platform: "Pub.dev (Flutter / Dart)",
-    stars: "Featured",
-    downloads: "15,000+ Downloads",
-    description: "Highly customizable, ultra-fluid animated radio button and toggle selection engine built for high-end Fintech and e-commerce mobile interfaces.",
-    link: "https://pub.dev/packages/dge_radio_button"
+    stars: "v1.1.3 • MIT",
+    downloads: "Pub.dev Package",
+    description: "Flutter UI package providing an alternative, modern chip-based presentation for radio button selections with support for horizontal/vertical layouts and unselected/null states.",
+    link: "https://pub.dev/packages/chip_radio_button"
   },
   {
-    name: "flutter_biometric_vault",
-    platform: "Pub.dev / GitHub",
-    stars: "Open Source",
-    downloads: "8,500+ Downloads",
-    description: "Unified wrapper around Android Keystore and iOS Keychain providing hardware-attested key creation and biometric authentication prompts.",
-    link: "https://github.com/filelucker/flutter_biometric_vault"
+    name: "dgepay",
+    platform: "Pub.dev (Flutter / Dart)",
+    stars: "v1.0.0 • Licensed PSO",
+    downloads: "Official Fintech SDK",
+    description: "Official merchant payment integration SDK for DGePay—the first licensed Payment System Operator (PSO) in Bangladesh from Bangladesh Bank for White Label Merchant Acquiring (WLMA).",
+    link: "https://pub.dev/packages/dgepay"
   },
   {
-    name: "offline_sync_queue",
-    platform: "Kotlin Multiplatform / Android",
-    stars: "GitHub Enterprise",
-    downloads: "Internal Core Component",
-    description: "Resilient priority queue for storing transactions locally when offline with exponential backoff sync and crash protection.",
-    link: "https://github.com/filelucker/offline_sync_queue"
+    name: "english-date-to-bangla-date",
+    platform: "Android (Java / JitPack)",
+    stars: "JitPack • Open Source",
+    downloads: "Calendar Library",
+    description: "Reliable and efficient date conversion library translating Gregorian / English calendar dates to the Bengali calendar system with accurate astronomical calculation and leap year handling.",
+    link: "https://github.com/filelucker/english-date-to-bangla-date"
   },
   {
-    name: "pos_esc_thermal_hal",
-    platform: "Kotlin Multiplatform / Android",
-    stars: "Specialized HAL",
-    downloads: "Production Component",
-    description: "Universal printer abstraction driver providing raw ESC/POS byte streaming and bitmap layout generation for Sunmi, Pax, and BLE thermal printers.",
-    link: "https://github.com/filelucker/pos_esc_thermal_hal"
+    name: "sp-plugin-android",
+    platform: "Android (Kotlin / JitPack)",
+    stars: "shurjoMukhi Ltd • Open Source",
+    downloads: "Payment Gateway Plugin",
+    description: "Official shurjoPay Android plugin enabling seamless payment gateway connectivity for merchants, managing automated token acquisition, checkout lifecycle, and transaction verification.",
+    link: "https://github.com/shurjopay-plugins/sp-plugin-android"
   }
 ];
 

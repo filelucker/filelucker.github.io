@@ -41,8 +41,8 @@ Architected using **Astro v5**, **Tailwind CSS v4**, **TypeScript**, and **Vite 
 
 - **Single-Page Tabbed Architecture & Hash Navigation**:
   - `01. Overview`: Executive Hero section, impact metrics grid, Fintech Engine Viewport, Flagship summary cards, Clean Architecture Enclave breakdown.
-  - `02. Flagship Projects`: Deep-dive production case studies (MYCash DFS 1M+ active users, DGePay 10K+ POS fleet, CPTU National Procurement 100K+ bidders, UNICEF Field Tech 25K+ workers) and Hardware HAL utilities.
-  - `03. Skills & Timeline`: Technical Skills Matrix (Android NDK, Flutter/Dart, Swift/Secure Enclave, Rust), Pub.dev Open Source packages (`dge_radio_button`, `flutter_biometric_vault`), work timeline, and strategic collaboration CTA.
+  - `02. Flagship Projects`: Deep-dive production case studies (MYCash DFS 1M+ active users, DGePay 10K+ POS fleet, Sarkari Kroy Dorpon (CPTU e-GP) 100K+ bidders, UNICEF Field Tech 25K+ workers) and Hardware HAL utilities.
+  - `03. Skills & Timeline`: Technical Skills Matrix (Android NDK, Flutter/Dart, Swift/Secure Enclave, Rust), Pub.dev & GitHub Open Source packages (`chip_radio_button`, `dgepay`, `sp-plugin-android`, `english-date-to-bangla-date`), work timeline, and strategic collaboration CTA.
   - `04. System Deep Dives`: Zero-trust offline relay topologies, Swift/iOS Secure Enclave code viewports, empirical production benchmarks, and Architectural Decision Records (ADRs).
 
 - **Theme Engine & Sleek Design Tokens**:

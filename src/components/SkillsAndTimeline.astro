@@ -65,9 +65,9 @@ import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE } from '../data/port
       <span>Open Source & Pub.dev Ecosystem</span>
     </h3>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {OPEN_SOURCE_PACKAGES.map((pkg) => (
-        <div class="terminal-card p-5 space-y-3 border border-[var(--border-color)] flex flex-col justify-between">
+        <div class="terminal-card p-5 space-y-3 border border-[var(--border-color)] flex flex-col justify-between hover:border-cyan-500/40 transition-colors">
           <div>
             <div class="flex items-center justify-between font-mono text-xs mb-2">
               <span class="text-cyan-400 font-bold">{pkg.platform}</span>
@@ -86,7 +86,7 @@ import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE } from '../data/port
               rel="noopener noreferrer"
               class="text-cyan-400 hover:text-cyan-300 font-bold flex items-center space-x-1"
             >
-              <span>View Package</span>
+              <span>{pkg.link.includes('github.com') ? 'View Repository' : 'View on Pub.dev'}</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
               </svg>
