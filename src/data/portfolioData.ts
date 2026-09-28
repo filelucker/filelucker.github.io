@@ -16,6 +16,12 @@ export interface IndustryRoleProfile {
   techPillars: string[];
 }
 
+export interface ProjectAppLink {
+  type: 'playstore' | 'appstore' | 'website' | 'github' | 'apk' | 'drive';
+  url: string;
+  label: string;
+}
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -28,6 +34,17 @@ export interface ProjectItem {
   codeSnippet?: { title: string; lang: string; code: string };
   badgeText: string;
   link?: string;
+  appLinks?: ProjectAppLink[];
+}
+
+export interface ProductionAppItem {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  appLinks: ProjectAppLink[];
+  tags: string[];
+  badge?: string;
 }
 
 export interface SkillCategory {
@@ -60,6 +77,14 @@ export interface ADR {
   context: string;
   decision: string;
   consequences: string[];
+}
+
+export interface CertificationItem {
+  title: string;
+  institute: string;
+  year: string;
+  topicsCovered: string;
+  badge?: string;
 }
 
 export const HERO_METRICS: MetricItem[] = [
@@ -223,6 +248,10 @@ export const FLAGSHIP_PROJECTS: ProjectItem[] = [
       "Custom off-line transaction queue with multi-tier retries & idempotency check",
       "High-speed ISO 8583 message parser optimized for mobile runtime",
       "Dynamic background sync fallback to SMS payload relay when data network drops"
+    ],
+    appLinks: [
+      { type: 'playstore', url: 'https://play.google.com/store/apps/details?id=com.mycash', label: 'Google Play' },
+      { type: 'appstore', url: 'https://apps.apple.com/us/app/mycash/id1658736258', label: 'App Store' }
     ]
   },
   {
@@ -231,7 +260,7 @@ export const FLAGSHIP_PROJECTS: ProjectItem[] = [
     category: "Merchant & Point of Sale (POS) Systems",
     badgeText: "10K+ POS Terminals",
     description: "Next-gen interoperable merchant ecosystem powering 10K+ point-of-sale terminals with ultra-fast QR scanning, sub-second transaction routing, and settlement ledger.",
-    fullDescription: "Built unified merchant ecosystem comprising Tektiti and Saudagor apps. Integrates multi-bank QR standards (EMVCo QR), Bluetooth POS printer hardware abstraction, universal POS terminal fleet management (Sunmi, Pax, Ingenico 45+ models), ESC/POS thermal printing, and merchant real-time settlement dashboard.",
+    fullDescription: "Built unified merchant ecosystem comprising DGePay (Consumer) and Bebsayi (Merchant) apps. Integrates multi-bank QR standards (EMVCo QR), Bluetooth POS printer hardware abstraction, universal POS terminal fleet management (Sunmi, Pax, Ingenico 45+ models), ESC/POS thermal printing, and merchant real-time settlement dashboard.",
     impactMetrics: [
       { label: "Active POS Terminals", value: "10,000+" },
       { label: "QR Decode Time", value: "60ms" },
@@ -244,6 +273,13 @@ export const FLAGSHIP_PROJECTS: ProjectItem[] = [
       "Native C++ QR decoding engine delivering sub-60ms recognition speeds",
       "Local audit ledger with cryptographic signature chaining and SQLite Write-Ahead Logging (WAL) for zero-loss offline sales",
       "Dual-display customer mirror support and direct ESC/POS byte streaming via Bluetooth LE & USB OTG"
+    ],
+    appLinks: [
+      { type: 'playstore', url: 'https://play.google.com/store/apps/details?id=com.dgepaycustomer', label: 'DGePay (Play Store)' },
+      { type: 'appstore', url: 'https://apps.apple.com/us/app/dgepay-bekti/id6456410767', label: 'DGePay (App Store)' },
+      { type: 'playstore', url: 'https://play.google.com/store/apps/details?id=com.dgepaymerchant', label: 'Bebsayi (Play Store)' },
+      { type: 'appstore', url: 'https://apps.apple.com/us/app/dgepay-saudagor/id6456410810', label: 'Bebsayi (App Store)' },
+      { type: 'github', url: 'https://github.com/filelucker/dgepay_library_flutter', label: 'Flutter SDK' }
     ]
   },
   {
@@ -264,6 +300,9 @@ export const FLAGSHIP_PROJECTS: ProjectItem[] = [
       "Zero-trust document storage vault with AES-256 local encryption",
       "Delta sync engine saving 40% bandwidth on large procurement document downloads",
       "Multi-factor biometric approval workflows for high-value tender submissions"
+    ],
+    appLinks: [
+      { type: 'playstore', url: 'https://play.google.com/store/apps/details?id=com.cptu', label: 'Google Play' }
     ]
   },
   {
@@ -284,30 +323,83 @@ export const FLAGSHIP_PROJECTS: ProjectItem[] = [
       "Protocol Buffers binary payload compression reducing field transmission times",
       "Background sync engine capable of queuing 50,000 records without dropping frames",
       "Ultra-low RAM optimization ensuring smooth operation on entry-level $50 smartphones"
+    ],
+    appLinks: [
+      { type: 'playstore', url: 'https://play.google.com/store/apps/details?id=com.dnet.unicef.adolescent', label: 'Adolescent (Play Store)' },
+      { type: 'appstore', url: 'https://apps.apple.com/us/app/adolescent-health/id1569604494', label: 'Adolescent (App Store)' }
     ]
   },
   {
-    id: "mobile-edge-ai",
-    title: "Mobile Edge AI & Intelligent Vision Suite",
-    category: "Mobile AI & On-Device ML Engineering",
-    badgeText: "LiteRT & ONNX Runtime",
-    description: "On-device intelligence runtime bridging camera feeds and sensor inputs with quantized machine learning models (LiteRT, ONNX, CoreML) and streaming cloud AI interfaces.",
-    fullDescription: "Designed high-performance Mobile AI execution engine running real-time optical character recognition (OCR), document perspective correction, biometric liveness verification, and streaming conversational AI interfaces over low-latency SSE/gRPC bridges.",
+    id: "visual-compliance",
+    title: "Descartes Visual Compliance (Aviation Security)",
+    category: "Enterprise Aviation & Regulatory Security",
+    badgeText: "Aviation Security",
+    description: "Canadian enterprise cross-platform mobile suite for airline personnel compliance screening, regulatory clearance, and offense monitoring.",
+    fullDescription: "High-security airline compliance client serving confidential aviation personnel. Manages strict flight regulatory clearance, international aircrew authorization, and real-time security restriction lookups.",
     impactMetrics: [
-      { label: "On-Device Inference", value: "14ms" },
-      { label: "Model Size (Quantized)", value: "3.2MB" },
-      { label: "Camera Vision FPS", value: "60 FPS" },
-      { label: "Cloud Fallback Latency", value: "<180ms" }
+      { label: "Security Level", value: "Confidential" },
+      { label: "Platforms", value: "iOS & Android" },
+      { label: "Regulatory Target", value: "Aviation Standard" },
+      { label: "Audit Stability", value: "100%" }
     ],
-    tags: ["LiteRT (TFLite)", "ONNX Mobile", "CoreML", "Android NDK", "OpenCV", "SSE Streaming", "Function Calling"],
+    tags: ["Cross-Platform", "iOS", "Android", "Aviation Security", "Zero-Trust", "Enterprise Auth"],
     architectureHighlights: [
-      "INT8 quantized neural model execution running directly on mobile NPU / Apple Neural Engine",
-      "Streaming token response rendering pipeline with typewriter micro-animations and zero thread stalling",
-      "Edge preprocessing pipeline using OpenCV C++ with SIMD vectorization for camera frame binarization",
-      "Hybrid fallback architecture seamlessly toggling between on-device LiteRT inference and streaming cloud AI APIs"
+      "Hardware-protected secure storage isolating sensitive flight and crew compliance data",
+      "Dynamic policy engine verifying restricted personnel credentials against international airline watchlists",
+      "Zero-trust network layer with mutual TLS encryption across all flight operations endpoints"
+    ],
+    appLinks: [
+      { type: 'appstore', url: 'https://apps.apple.com/us/app/descartes-visual-compliance/id1573783267', label: 'App Store' },
+      { type: 'playstore', url: 'https://play.google.com/store/apps/details?id=com.descartes.VisualCompliance', label: 'Google Play' }
+    ]
+  },
+  {
+    id: "pranisheba",
+    title: "praniSheba IoT & Cattle Vision AI Platform",
+    category: "AgriTech, IoT & Computer Vision",
+    badgeText: "IoT & Edge AI",
+    description: "Digital livestock platform leveraging IoT sensors, RFID readers, and on-device camera vision to estimate cattle weight and manage micro-lending insurance.",
+    fullDescription: "Comprehensive AgriTech ecosystem operating across rural Bangladesh. Features AI computer vision for accurate cattle weight approximations from camera photos, RFID identification for livestock insurance, and a central portal for micro-finance loan management.",
+    impactMetrics: [
+      { label: "Rural Footprint", value: "Nationwide" },
+      { label: "Weight AI Model", value: "Computer Vision" },
+      { label: "Technology", value: "IoT + RFID" },
+      { label: "Impact", value: "Precision Agri" }
+    ],
+    tags: ["Android", "Flutter", "Computer Vision", "IoT Sensors", "RFID", "Agri-Lending"],
+    architectureHighlights: [
+      "Camera vision model analyzing cattle contours and perspective geometry for weight estimation",
+      "Handheld Bluetooth RFID reader drivers recording cattle lineage and insurance tags",
+      "Merchant loan monitoring and livestock micro-finance portfolio tracking engine"
+    ],
+    appLinks: []
+  },
+  {
+    id: "probashi-ovijog",
+    title: "Probashi Ovijog - প্রবাসী অভিযোগ",
+    category: "Migrant Rights & Grievance (ILO)",
+    badgeText: "ILO & BMET",
+    description: "Interactive complaint registration, inquiry, and case resolution tracking platform for Bangladeshi migrant workers initiated with ILO.",
+    fullDescription: "Complaint mechanisms for migrant workers provide an effective and interactive complaint mechanism. This application is an initiative that grows with an aim to help migrant workers of Bangladesh. They can easily raise their complaints, ask queries, and track their case status in real time through an intuitive mobile complaint system.",
+    impactMetrics: [
+      { label: "Target Beneficiaries", value: "Migrant Workers" },
+      { label: "Initiative Partner", value: "ILO & BMET" },
+      { label: "Resolution Status", value: "Real-time" },
+      { label: "Complaint Privacy", value: "100% Encrypted" }
+    ],
+    tags: ["Android", "Java / Kotlin", "ILO Grievance", "Migrant Welfare", "Secure REST API"],
+    architectureHighlights: [
+      "Secure ticket and grievance dispatch pipeline with end-to-end user data privacy",
+      "Offline form caching allowing migrant workers to draft complaints without cellular coverage",
+      "Real-time case tracking notifications and interactive help desk query routing"
+    ],
+    appLinks: [
+      { type: 'apk', url: 'https://m.apkpure.com/bn/probashi-ovijog-%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%AC%E0%A6%BE%E0%A6%B8%E0%A7%80-%E0%A6%85%E0%A6%AD%E0%A6%BF%E0%A6%AF%E0%A7%8B%E0%A6%97/bd.org.ilo.probashikallyan', label: 'APKPure' }
     ]
   }
 ];
+
+export const ADDITIONAL_PRODUCTION_APPS: ProductionAppItem[] = [];
 
 export const SKILLS_MATRIX: SkillCategory[] = [
   {
@@ -418,44 +510,71 @@ export const CONTACT_INFO = {
 
 export const WORK_TIMELINE: TimelineItem[] = [
   {
-    role: "Lead Software Developer / Mobile Architect",
-    company: "DNET (Social Enterprise & Tech Solutions)",
-    period: "2021 — PRESENT",
+    role: "Senior App Developer",
+    company: "DG INFOTECH LTD",
+    period: "2025 — PRESENT",
     location: "Dhaka, Bangladesh",
     achievements: [
-      "Leading mobile architecture team designing enterprise applications for UNICEF, Government of Bangladesh (CPTU), and national fintech providers.",
-      "Architected MYCash DFS and DGePay interoperable payment merchant & Point of Sale (POS) engine serving 1M+ consumers and 10K+ merchant terminals.",
-      "Engineered offline-first sync pipelines reducing network drop failures by 98% in remote low-bandwidth deployment areas.",
-      "Integrated on-device LiteRT and computer vision preprocessing for instant offline receipt parsing and biometric verification.",
-      "Introduced automated Fastlane CI/CD pipelines, reducing app release cycle duration from 3 days to 25 minutes."
+      "Led end-to-end development of DGePay Bekti & Saudagor/Bebshayi mobile apps, serving 10,000+ merchants and 5,000+ active customers.",
+      "Managed client relationships and key enterprise rollouts, accelerating merchant platform adoption by 25% within 6 months.",
+      "Ensured PCI-DSS v4.0.1 compliant payment operations with 99.9% uptime across national White Label Merchant Acquiring network."
     ],
-    skillsUsed: ["Kotlin", "Flutter", "Clean Architecture", "PCI-DSS", "Point of Sale (POS)", "Mobile AI", "CI/CD", "Team Leadership"],
-    metrics: "1M+ Users Impacted • 10K+ POS Terminals • 99.98% Stability"
+    skillsUsed: ["Flutter", "Dart", "Android", "iOS", "PCI-DSS v4.0.1", "FinTech & POS", "Project Management"],
+    metrics: "10K+ Merchants • 5K+ Customers • 99.9% Uptime"
   },
   {
-    role: "Senior Android Developer",
-    company: "Teletalk Bangladesh Ltd. / Enterprise Solutions",
-    period: "2018 — 2021",
+    role: "App Developer",
+    company: "DG INFOTECH LTD",
+    period: "2023 — 2024",
     location: "Dhaka, Bangladesh",
     achievements: [
-      "Developed high-traffic telecom services, customer self-care portals, and digital billing systems.",
-      "Spearheaded migration of legacy Java codebase to modular Kotlin Architecture with 100% Jetpack Coroutines & Flow.",
-      "Optimized app memory footprint by 45% using strict LeakCanary inspections and heap dump audits."
+      "Helped 1,000+ restaurants and retail outlets digitize sales transactions and POS workflows.",
+      "Facilitated multi-channel interoperable payment acquiring (Dynamic QR, digital wallet, bank transfer) through intuitive one-tap solutions.",
+      "Reduced app crash rate by 30% through improved QA processes, proactive debugging, and clean architectural refactoring."
     ],
-    skillsUsed: ["Kotlin", "Java", "Coroutines", "Jetpack", "Retrofit", "Room DB"],
-    metrics: "45% RAM Optimization • 3M+ TeleTalk Subscribers"
+    skillsUsed: ["Flutter", "Kotlin", "Java", "Mobile POS", "Interoperable QR", "Clean Architecture"],
+    metrics: "1,000+ Retailers Digitized • -30% Crash Rate"
+  },
+  {
+    role: "Sr. Software Engineer",
+    company: "shurjoMukhi Limited",
+    period: "2022 — 2023",
+    location: "Dhaka, Bangladesh",
+    achievements: [
+      "Architected, developed, and maintained shurjoPay payment gateway applications across Android, iOS, Web, and Desktop.",
+      "Enforced strict engineering best practices and coding standards, securing 95% on-time delivery across sprint goals.",
+      "Mentored a team of 5+ developers in cross-platform mobile patterns, API reliability, and modern reactive state management.",
+      "Optimized application performance, slashing startup/screen load time by 20% and reducing manual reporting time by 40% through automation."
+    ],
+    skillsUsed: ["Android (Kotlin / Java)", "Flutter", "iOS", "Payment Gateway Plugins", "Performance Optimization", "Team Leadership"],
+    metrics: "95% Sprint Delivery • 20% Faster Load Time • 5+ Developers Mentored"
   },
   {
     role: "Software Engineer",
-    company: "Inovace Technologies & Tech Pioneers",
-    period: "2015 — 2018",
+    company: "Dnet - A Social Enterprise",
+    period: "2021 — 2022",
     location: "Dhaka, Bangladesh",
     achievements: [
-      "Built IoT device controller applications, Bluetooth LE hardware integration, and Smart Home Android interfaces.",
-      "Implemented real-time sensor charts and custom canvas rendering engine running at smooth 60 FPS."
+      "Developed UNICEF’s Adolescent Health & Kala-azar nationwide epidemic tracking mobile applications.",
+      "Delivered resilient mobile solutions supporting 100,000+ users and healthcare workers nationwide.",
+      "Engineered offline-first functionality, ensuring uninterrupted data capture and record persistence in remote areas without internet.",
+      "Improved bug resolution cycle by 40% through rigorous proactive QA and clear technical communication with international stakeholders."
     ],
-    skillsUsed: ["Android SDK", "Java", "Bluetooth LE", "Custom Views", "SQLite"],
-    metrics: "15+ Production Apps Delivered"
+    skillsUsed: ["Android SDK", "Room DB", "Offline-First Sync", "UNICEF HealthTech", "Dart / Flutter", "REST APIs"],
+    metrics: "100K+ Users Nationwide • 100% Offline Integrity • 40% Faster QA Cycle"
+  },
+  {
+    role: "Software Engineer",
+    company: "Hal Technologies",
+    period: "2018 — 2020",
+    location: "Bangladesh",
+    achievements: [
+      "Improved transaction processing time by 30% through optimized API communication and caching strategies.",
+      "Enhanced security features and cryptographic integrity checks, reducing failed transaction occurrences by 25%.",
+      "Collaborated on diverse fintech & healthcare systems, integrating with ATMs, CDMs, and ESC/POS physical thermal printers to cut invoice generation turnaround by 60%."
+    ],
+    skillsUsed: ["Android SDK", "Java", "Hardware HAL (ATM/CDM)", "ESC/POS Thermal Printing", "Fintech APIs", "SQLite"],
+    metrics: "-30% Processing Latency • -25% Failed Txns • 60% Faster Invoicing"
   }
 ];
 
@@ -517,3 +636,83 @@ export const ARCHITECTURAL_DECISION_RECORDS: ADR[] = [
     ]
   }
 ];
+
+export const CERTIFICATIONS: CertificationItem[] = [
+  {
+    title: "Android App Development",
+    institute: "RR Foundation, Dhaka",
+    year: "2015",
+    topicsCovered: "Android SDK, Java OOP, SQLite Database, Intents, Threads, Basic UI design, Android Components, Performance Optimization, App Testing and Debugging",
+    badge: "Specialized"
+  },
+  {
+    title: "Project Management Fundamentals",
+    institute: "VUMI Bangladesh Ltd. Dhaka",
+    year: "2023",
+    topicsCovered: "Process Groups, Cost Management, Risk Management, Task Management, Project Constraints, Project Communication Management, Change Management",
+    badge: "Leadership"
+  },
+  {
+    title: "CCNA Routing And Switching",
+    institute: "New Horizon Computer Learning Center Of Bangladesh, Dhaka",
+    year: "2014",
+    topicsCovered: "Network Fundamentals, Network Services, LAN Switching, Access Control, Router Configuration, WAN Technologies, Network Device Security",
+    badge: "Networking"
+  },
+  {
+    title: "Claude 101: LLM & AI Agents",
+    institute: "Anthropic (Credential ID: zhe8r9pm56o9)",
+    year: "2026",
+    topicsCovered: "Prompt Engineering, Agentic Workflows, Tool Use, Evaluation & Production Alignment",
+    badge: "AI Agentic"
+  },
+  {
+    title: "PCI-DSS v4.0.1 Compliance",
+    institute: "DGePay Services Ltd / EIC Limited",
+    year: "2025",
+    topicsCovered: "Payment Security Standards, Cardholder Data Protection, Zero-Trust Architecture, Vulnerability Management",
+    badge: "Fintech Security"
+  },
+  {
+    title: "C Programming Language",
+    institute: "National Academy For Computer Training And Research (NACTAR), Bogra",
+    year: "2020",
+    topicsCovered: "Functions, Variables, Statements & Expressions, Structures, Recursion",
+    badge: "Core Systems"
+  },
+  {
+    title: "Computer ICT",
+    institute: "Sunshine Institute Of IT, Bogra",
+    year: "2013",
+    topicsCovered: "Operating Systems, Basic Computer Troubleshooting, Email and Internet, Office Application Handling, IT Project Management, Information Systems",
+    badge: "Foundational"
+  },
+  {
+    title: "Digital Marketing",
+    institute: "Creative IT Institute, Dhaka",
+    year: "2016",
+    topicsCovered: "Content Strategy, Facebook Marketing, YouTube Marketing, Campaign Creation",
+    badge: "Marketing"
+  },
+  {
+    title: "Affiliate Marketing",
+    institute: "BITM, SEIP Project BASIS, Dhaka",
+    year: "2016",
+    topicsCovered: "SEO, Email Marketing, Market Place Analysis, Digital Marketing Techniques",
+    badge: "Growth & SEO"
+  }
+];
+
+export const ADDITIONAL_TRAININGS: string[] = [
+  "Artificial Intelligence Beginners Guide",
+  "Machine Learning using Python",
+  "Amazon Simple Storage Service (Amazon S3) Storage Classes",
+  "AWS EC2 and Lambda: Beginner's guide to cloud architect",
+  "Introduction to Kali Linux Basics",
+  "Introduction to PHP",
+  "C Programming Language",
+  "CCNA Routing & Switching",
+  "Digital Marketing",
+  "Affiliate Marketing"
+];
+

@@ -1,4 +1,15 @@
 ---
+interface Props {
+  activeTab?: string;
+}
+
+const { activeTab = 'overview-tab' } = Astro.props;
+
+const desktopActiveClass = "tab-btn px-3 py-1.5 rounded-md font-bold transition-all text-emerald-600 dark:text-emerald-400 bg-[var(--bg-card)] shadow-xs border border-[var(--border-color)] cursor-pointer";
+const desktopInactiveClass = "tab-btn px-3 py-1.5 rounded-md font-medium transition-all text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-transparent cursor-pointer";
+
+const mobileActiveClass = "mobile-tab-btn py-1 text-center rounded-md font-bold transition-all bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 cursor-pointer";
+const mobileInactiveClass = "mobile-tab-btn py-1 text-center rounded-md font-medium transition-all text-[var(--text-muted)] hover:bg-[var(--bg-card-hover)] border border-transparent cursor-pointer";
 ---
 
 <header class="sticky top-0 z-50 glass-panel border-b border-[var(--border-color)] transition-colors duration-300">
@@ -9,7 +20,9 @@
       <div class="flex items-center">
         <div>
           <div class="flex items-center space-x-2.5">
-            <span class="font-extrabold text-base sm:text-lg lg:text-xl tracking-tight text-[var(--text-primary)]">Md Moniruzzaman</span>
+            <a href="/" class="font-extrabold text-base sm:text-lg lg:text-xl tracking-tight text-[var(--text-primary)] hover:text-emerald-500 transition-colors">
+              Md Moniruzzaman
+            </a>
             <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 font-semibold">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 pulse-dot"></span>
               ACTIVE FOR CONSULTING
@@ -23,29 +36,29 @@
 
       <!-- Right Controls & Navigation -->
       <div class="flex items-center gap-3">
-        <!-- Navigation Tabs (Single-page view switcher) -->
+        <!-- Navigation Tabs (Clean-URL view switcher) -->
         <nav class="hidden lg:flex items-center space-x-1 font-mono text-xs bg-[var(--bg-main)] p-1 rounded-lg border border-[var(--border-color)]">
           <button 
             data-tab-target="overview-tab"
-            class="tab-btn px-3 py-1.5 rounded-md font-bold transition-all text-emerald-600 dark:text-emerald-400 bg-[var(--bg-card)] shadow-xs border border-[var(--border-color)] cursor-pointer"
+            class={activeTab === 'overview-tab' ? desktopActiveClass : desktopInactiveClass}
           >
             01. Overview
           </button>
           <button 
             data-tab-target="flagship-tab"
-            class="tab-btn px-3 py-1.5 rounded-md font-medium transition-all text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-transparent cursor-pointer"
+            class={activeTab === 'flagship-tab' ? desktopActiveClass : desktopInactiveClass}
           >
             02. Flagship Projects
           </button>
           <button 
             data-tab-target="skills-tab"
-            class="tab-btn px-3 py-1.5 rounded-md font-medium transition-all text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-transparent cursor-pointer"
+            class={activeTab === 'skills-tab' ? desktopActiveClass : desktopInactiveClass}
           >
             03. Skills & Timeline
           </button>
           <button 
             data-tab-target="playbook-tab"
-            class="tab-btn px-3 py-1.5 rounded-md font-medium transition-all text-[var(--text-muted)] hover:text-[var(--text-primary)] border border-transparent cursor-pointer"
+            class={activeTab === 'playbook-tab' ? desktopActiveClass : desktopInactiveClass}
           >
             04. System Deep Dives
           </button>
@@ -86,10 +99,10 @@
   <!-- Mobile View Selector Dropdown Bar -->
   <div class="lg:hidden px-4 py-2 border-t border-[var(--border-color)] bg-[var(--bg-main)]">
     <div class="grid grid-cols-4 gap-1 font-mono text-[11px]">
-      <button data-tab-target="overview-tab" class="mobile-tab-btn py-1 text-center rounded-md font-bold transition-all bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 cursor-pointer">01. Overview</button>
-      <button data-tab-target="flagship-tab" class="mobile-tab-btn py-1 text-center rounded-md font-medium transition-all text-[var(--text-muted)] hover:bg-[var(--bg-card-hover)] border border-transparent cursor-pointer">02. Projects</button>
-      <button data-tab-target="skills-tab" class="mobile-tab-btn py-1 text-center rounded-md font-medium transition-all text-[var(--text-muted)] hover:bg-[var(--bg-card-hover)] border border-transparent cursor-pointer">03. Skills</button>
-      <button data-tab-target="playbook-tab" class="mobile-tab-btn py-1 text-center rounded-md font-medium transition-all text-[var(--text-muted)] hover:bg-[var(--bg-card-hover)] border border-transparent cursor-pointer">04. Deep Dives</button>
+      <button data-tab-target="overview-tab" class={activeTab === 'overview-tab' ? mobileActiveClass : mobileInactiveClass}>01. Overview</button>
+      <button data-tab-target="flagship-tab" class={activeTab === 'flagship-tab' ? mobileActiveClass : mobileInactiveClass}>02. Projects</button>
+      <button data-tab-target="skills-tab" class={activeTab === 'skills-tab' ? mobileActiveClass : mobileInactiveClass}>03. Skills</button>
+      <button data-tab-target="playbook-tab" class={activeTab === 'playbook-tab' ? mobileActiveClass : mobileInactiveClass}>04. Deep Dives</button>
     </div>
   </div>
 </header>
@@ -131,13 +144,31 @@
     }
   });
 
-  // Tab Switcher Logic
+  // Tab & Clean URL Switcher Logic
   const desktopTabBtns = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
   const mobileTabBtns = document.querySelectorAll<HTMLButtonElement>('.mobile-tab-btn');
   const allTabBtns = document.querySelectorAll<HTMLButtonElement>('.tab-btn, .mobile-tab-btn');
   const tabContents = document.querySelectorAll<HTMLElement>('.tab-content');
 
-  function activateTab(targetId: string, updateHash: boolean = true) {
+  const SLUG_TO_TAB: Record<string, string> = {
+    '': 'overview-tab',
+    'overview': 'overview-tab',
+    'flagship': 'flagship-tab',
+    'projects': 'flagship-tab',
+    'skills': 'skills-tab',
+    'timeline': 'skills-tab',
+    'playbook': 'playbook-tab',
+    'deep-dives': 'playbook-tab'
+  };
+
+  const TAB_TO_SLUG: Record<string, string> = {
+    'overview-tab': '',
+    'flagship-tab': 'flagship',
+    'skills-tab': 'skills',
+    'playbook-tab': 'playbook'
+  };
+
+  function activateTab(targetId: string, updateUrl: boolean = true, pushState: boolean = true) {
     if (!targetId) return;
 
     // Update Desktop Buttons Styling
@@ -170,9 +201,19 @@
       }
     });
 
-    if (updateHash) {
-      const hash = targetId.replace('-tab', '');
-      history.replaceState(null, '', `#${hash}`);
+    if (updateUrl) {
+      const slug = TAB_TO_SLUG[targetId] ?? '';
+      const newPath = slug ? `/${slug}` : '/';
+      const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+      const targetCleanPath = newPath.replace(/\/$/, '') || '/';
+      
+      if (currentPath !== targetCleanPath || window.location.hash) {
+        if (pushState) {
+          history.pushState({ targetId }, '', newPath);
+        } else {
+          history.replaceState({ targetId }, '', newPath);
+        }
+      }
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -182,15 +223,36 @@
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = btn.getAttribute('data-tab-target');
-      if (targetId) activateTab(targetId);
+      if (targetId) activateTab(targetId, true, true);
     });
   });
 
-  // Handle hash navigation on page load
+  // Handle Browser Back / Forward buttons
+  window.addEventListener('popstate', (e) => {
+    if (e.state && e.state.targetId) {
+      activateTab(e.state.targetId, false);
+    } else {
+      const cleanPath = window.location.pathname.replace(/^\/|\/$/g, '');
+      const targetId = SLUG_TO_TAB[cleanPath] || 'overview-tab';
+      activateTab(targetId, false);
+    }
+  });
+
+  // Handle initial page load & upgrade legacy hash links
   window.addEventListener('load', () => {
-    const hash = window.location.hash.replace('#', '');
-    if (hash) {
-      const targetId = `${hash}-tab`;
+    if (window.location.hash) {
+      const rawHash = window.location.hash.replace('#', '');
+      const mappedTab = SLUG_TO_TAB[rawHash] || `${rawHash}-tab`;
+      if (document.getElementById(mappedTab)) {
+        // Upgrade legacy hash link to clean URL without #
+        activateTab(mappedTab, true, false);
+        return;
+      }
+    }
+
+    const cleanPath = window.location.pathname.replace(/^\/|\/$/g, '');
+    if (cleanPath && SLUG_TO_TAB[cleanPath]) {
+      const targetId = SLUG_TO_TAB[cleanPath];
       if (document.getElementById(targetId)) {
         activateTab(targetId, false);
       }

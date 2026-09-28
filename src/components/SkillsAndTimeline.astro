@@ -1,5 +1,5 @@
 ---
-import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE } from '../data/portfolioData';
+import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE, CERTIFICATIONS, ADDITIONAL_TRAININGS } from '../data/portfolioData';
 ---
 
 <div class="space-y-6">
@@ -145,42 +145,102 @@ import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE } from '../data/port
     </div>
   </div>
 
-  <!-- 4. Education & Certifications -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-xs">
-    
-    <!-- Education Card -->
-    <div class="terminal-card p-6 space-y-3 border border-[var(--border-color)]">
-      <h4 class="text-base font-bold text-emerald-500 border-b border-[var(--border-color)] pb-2 uppercase">
-        Education & Academic Foundation
-      </h4>
-      <div class="space-y-2">
-        <div class="font-bold text-[var(--text-primary)] text-sm">B.Sc. in Computer Science & Engineering (CSE)</div>
-        <p class="text-[var(--text-muted)]">Chittagong University of Engineering & Technology (CUET)</p>
-        <p class="text-[11px] text-[var(--text-secondary)]">Graduated with distinction. Major coursework in Distributed Algorithms, Compiler Design, Database Management Systems, and Cryptography.</p>
-      </div>
-    </div>
+  <!-- 4. Education & Academic Foundation -->
+  <div class="space-y-4">
+    <h3 class="text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
+      <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+      </svg>
+      <span>Education & Academic Foundation</span>
+    </h3>
 
-    <!-- Certifications & Awards Card -->
-    <div class="terminal-card p-6 space-y-3 border border-[var(--border-color)]">
-      <h4 class="text-base font-bold text-cyan-400 border-b border-[var(--border-color)] pb-2 uppercase">
-        Honours & Specialized Certifications
-      </h4>
-      <div class="space-y-2">
-        <div class="flex justify-between items-center">
-          <span class="font-bold text-[var(--text-primary)]">Govt. of Bangladesh Mobile App Award</span>
-          <span class="text-emerald-400">1st Place</span>
-        </div>
-        <div class="flex justify-between items-center">
-          <span class="font-bold text-[var(--text-primary)]">PMP / Agile Project Management</span>
-          <span class="text-cyan-400">Certified</span>
-        </div>
-        <div class="flex justify-between items-center">
-          <span class="font-bold text-[var(--text-primary)]">Deep Learning & Computer Vision Specialization</span>
-          <span class="text-indigo-400">Verified</span>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-xs">
+      <div class="terminal-card p-6 space-y-3 border border-[var(--border-color)] flex flex-col justify-between">
+        <div class="space-y-2">
+          <div class="flex justify-between items-start">
+            <span class="font-bold text-[var(--text-primary)] text-sm sm:text-base">B.Sc. in Computer Science Engineering</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold text-xs">2016 – 2018</span>
+          </div>
+          <p class="text-emerald-400 font-semibold text-xs">Daffodil International University (DIU)</p>
+          <p class="text-[11px] text-[var(--text-secondary)] leading-relaxed">
+            Major coursework in Software Engineering, Object-Oriented Programming (Java/OOP), Algorithms, Operating Systems, Database Management Systems, and Distributed Computing.
+          </p>
         </div>
       </div>
+
+      <div class="terminal-card p-6 space-y-3 border border-[var(--border-color)] flex flex-col justify-between">
+        <div class="space-y-2">
+          <div class="flex justify-between items-start">
+            <span class="font-bold text-[var(--text-primary)] text-sm sm:text-base">Diploma in Engineering (Computer Technology)</span>
+            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold text-xs">2011 – 2015</span>
+          </div>
+          <p class="text-emerald-400 font-semibold text-xs">Bogura Polytechnic Institute, Bogura</p>
+          <p class="text-[11px] text-[var(--text-secondary)] leading-relaxed">
+            Rigorous 4-year technical foundation in computer engineering technology, microprocessors, electronic circuitry, hardware-software interfacing, and embedded systems.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Professional Certifications & Accreditations -->
+  <div class="space-y-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border-color)] pb-3">
+      <h3 class="text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
+        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+        </svg>
+        <span>Certifications & Professional Accreditations</span>
+      </h3>
+      <span class="text-xs font-mono text-[var(--text-muted)]">Verified Industry & Technical Credentials</span>
     </div>
 
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {CERTIFICATIONS.map((cert) => (
+        <div class="terminal-card p-4 space-y-2.5 border border-[var(--border-color)] flex flex-col justify-between hover:border-cyan-500/40 transition-colors">
+          <div>
+            <div class="flex items-center justify-between font-mono text-[11px] mb-1.5">
+              <span class="text-cyan-400 font-bold">{cert.year}</span>
+              {cert.badge && (
+                <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 font-semibold text-[10px]">
+                  {cert.badge}
+                </span>
+              )}
+            </div>
+            <h4 class="text-sm font-bold text-[var(--text-primary)] font-mono">{cert.title}</h4>
+            <p class="text-xs text-emerald-400 font-mono mt-0.5">{cert.institute}</p>
+          </div>
+
+          <div class="pt-2 border-t border-[var(--border-color)] space-y-1">
+            <span class="text-[10px] uppercase tracking-wider text-[var(--text-muted)] font-mono font-bold block">Topics Covered:</span>
+            <p class="text-[11px] text-[var(--text-secondary)] font-mono leading-relaxed line-clamp-3">
+              {cert.topicsCovered}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- 6. Additional Technical Trainings & Cloud Modules -->
+  <div class="terminal-card p-5 space-y-3 border border-[var(--border-color)]">
+    <div class="flex items-center space-x-2">
+      <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+      <h4 class="text-xs sm:text-sm font-bold text-[var(--text-primary)] font-mono uppercase tracking-wider">
+        Additional Specialized Trainings & Cloud Certifications
+      </h4>
+    </div>
+    <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+      {ADDITIONAL_TRAININGS.map((item) => (
+        <span class="px-3 py-1.5 rounded-lg bg-[var(--bg-main)] text-[var(--text-secondary)] border border-[var(--border-color)] hover:border-emerald-500/50 hover:text-[var(--text-primary)] transition-colors flex items-center space-x-1.5">
+          <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span>{item}</span>
+        </span>
+      ))}
+    </div>
   </div>
 
   <!-- 5. Initiate Strategic Collaboration Box (Highlighted Theme Support) -->

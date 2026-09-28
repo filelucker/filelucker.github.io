@@ -1,0 +1,31 @@
+---
+import PortfolioLayout from '../layouts/PortfolioLayout.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { tab: 'overview' } },
+    { params: { tab: 'flagship' } },
+    { params: { tab: 'projects' } },
+    { params: { tab: 'skills' } },
+    { params: { tab: 'timeline' } },
+    { params: { tab: 'playbook' } },
+    { params: { tab: 'deep-dives' } },
+  ];
+}
+
+const { tab } = Astro.params;
+
+const tabMapping: Record<string, string> = {
+  overview: 'overview-tab',
+  flagship: 'flagship-tab',
+  projects: 'flagship-tab',
+  skills: 'skills-tab',
+  timeline: 'skills-tab',
+  playbook: 'playbook-tab',
+  'deep-dives': 'playbook-tab',
+};
+
+const initialTab = tabMapping[tab || 'overview'] || 'overview-tab';
+---
+
+<PortfolioLayout initialTab={initialTab} currentSlug={tab} />

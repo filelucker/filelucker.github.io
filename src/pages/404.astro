@@ -1,0 +1,51 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found | Md Moniruzzaman</title>
+    <meta name="theme-color" content="#090d16" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <script is:inline>
+      // Single-Page Application (SPA) redirect helper for GitHub Pages
+      const path = window.location.pathname.replace(/^\/|\/$/g, '');
+      const validTabs = ['overview', 'flagship', 'projects', 'skills', 'timeline', 'playbook', 'deep-dives'];
+      if (validTabs.includes(path)) {
+        window.location.replace('/' + path);
+      }
+    </script>
+  </head>
+
+  <body class="min-h-screen flex flex-col cyber-grid relative selection:bg-emerald-500 selection:text-white">
+    <Header activeTab="overview-tab" />
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col items-center justify-center text-center space-y-6">
+      <div class="terminal-card p-10 max-w-lg border border-[var(--border-color)] space-y-4">
+        <div class="text-6xl font-bold font-mono text-emerald-500">404</div>
+        <h1 class="text-2xl font-bold font-mono text-[var(--text-primary)]">ROUTE NOT FOUND</h1>
+        <p class="text-xs font-mono text-[var(--text-secondary)] leading-relaxed">
+          The requested system route does not exist or has been decommissioned.
+        </p>
+        <div class="pt-4">
+          <a 
+            href="/"
+            class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-lg font-mono text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-md shadow-emerald-500/20"
+          >
+            <span>RETURN TO OVERVIEW</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>
