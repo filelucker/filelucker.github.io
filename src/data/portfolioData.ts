@@ -510,7 +510,7 @@ export const CONTACT_INFO = {
 export const WORK_TIMELINE: TimelineItem[] = [
   {
     role: "Senior App Developer",
-    company: "DG INFOTECH LTD",
+    company: "DG INFOTECH LTD (DGePay, Concern of Dipon Group)",
     period: "2025 — PRESENT",
     location: "Dhaka, Bangladesh",
     achievements: [
@@ -523,7 +523,7 @@ export const WORK_TIMELINE: TimelineItem[] = [
   },
   {
     role: "App Developer",
-    company: "DG INFOTECH LTD",
+    company: "DG INFOTECH LTD (DGePay, Concern of Dipon Group)",
     period: "2023 — 2024",
     location: "Dhaka, Bangladesh",
     achievements: [
