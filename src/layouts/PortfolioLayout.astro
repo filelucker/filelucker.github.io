@@ -18,6 +18,8 @@ interface Props {
 
 const { initialTab = 'overview-tab', currentSlug = '' } = Astro.props;
 
+const siteUrl = "https://filelucker.github.io";
+
 const titlesByTab: Record<string, string> = {
   'overview-tab': 'Md Moniruzzaman | Senior Mobile Engineer & Systems Architect | Mobile AI Engineer & POS Specialist',
   'flagship-tab': 'Flagship Projects & Production Architectures | Md Moniruzzaman',
@@ -25,8 +27,88 @@ const titlesByTab: Record<string, string> = {
   'playbook-tab': 'System Architecture Playbook & Benchmarks | Md Moniruzzaman'
 };
 
+const descriptionsByTab: Record<string, string> = {
+  'overview-tab': 'Portfolio & System Architecture Playbook of Md Moniruzzaman. Senior Mobile Engineer, Mobile AI Engineer & Systems Architect specializing in on-device inference (LiteRT, ONNX, CoreML), Point of Sale (POS) hardware fleets, and high-concurrency fintech platforms serving 50M+ users.',
+  'flagship-tab': 'Flagship production mobile architectures by Md Moniruzzaman: DGePay (10K+ POS terminals), Sarkari Kroy Dorpon (CPTU e-GP), UNICEF Adolescent Health, and praniSheba IoT.',
+  'skills-tab': 'Technical skills matrix, open-source packages, verified certifications (PCI-DSS, Claude AI, CCNA), and 7+ years engineering timeline of Md Moniruzzaman.',
+  'playbook-tab': 'System Architecture Playbook: Architectural Decision Records (ADRs), system latency benchmarks, hardware abstraction layers, and offline-first SQLite WAL patterns.'
+};
+
 const pageTitle = titlesByTab[initialTab] || titlesByTab['overview-tab'];
-const description = "Portfolio & System Architecture Playbook of Md Moniruzzaman. Senior Mobile Engineer, Mobile AI Engineer & Systems Architect specializing in on-device inference (LiteRT, ONNX, CoreML), Point of Sale (POS) hardware fleets, and high-concurrency fintech platforms serving 50M+ users.";
+const description = descriptionsByTab[initialTab] || descriptionsByTab['overview-tab'];
+
+const slugPath = currentSlug ? `/${currentSlug}` : '';
+const canonicalUrl = `${siteUrl}${slugPath}`;
+const ogImageUrl = `${siteUrl}/profile.jpg`;
+
+// JSON-LD Structured Data Schema
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#person`,
+      "name": "Md Moniruzzaman",
+      "alternateName": "filelucker",
+      "url": siteUrl,
+      "image": ogImageUrl,
+      "jobTitle": "Senior Mobile Engineer & Systems Architect",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "DG INFOTECH LTD (Dipon Group)"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Daffodil International University"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Bogura Polytechnic Institute"
+        }
+      ],
+      "sameAs": [
+        "https://github.com/filelucker",
+        "https://www.linkedin.com/in/mon000"
+      ],
+      "knowsAbout": [
+        "Mobile Systems Architecture",
+        "Android Development (Kotlin, Java, NDK)",
+        "iOS Development (Swift, SwiftUI)",
+        "Cross-Platform (Flutter, Dart)",
+        "On-Device AI Inference (LiteRT, ONNX, CoreML)",
+        "Point of Sale (POS) Hardware Fleets & ESC/POS",
+        "PCI-DSS v4.0.1 FinTech Compliance",
+        "Offline-First Architecture & SQLite WAL",
+        "High-Concurrency Payment Systems"
+      ],
+      "award": "Awarded by Bogura DC Office (Govt. of Bangladesh) for Mobile App Development (2015)"
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "url": siteUrl,
+      "name": "Md Moniruzzaman Portfolio & System Playbook",
+      "description": description,
+      "publisher": {
+        "@id": `${siteUrl}/#person`
+      }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": canonicalUrl,
+      "url": canonicalUrl,
+      "name": pageTitle,
+      "isPartOf": {
+        "@id": `${siteUrl}/#website`
+      },
+      "mainEntity": {
+        "@id": `${siteUrl}/#person`
+      },
+      "description": description
+    }
+  ]
+};
 ---
 
 <!DOCTYPE html>
@@ -36,13 +118,42 @@ const description = "Portfolio & System Architecture Playbook of Md Moniruzzaman
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
     <meta name="theme-color" content="#090d16" />
 
-    <!-- SEO & OpenGraph -->
+    <!-- Crawlers & Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- Author & Entity Metadata -->
+    <meta name="author" content="Md Moniruzzaman" />
+    <meta name="creator" content="Md Moniruzzaman" />
+    <meta name="publisher" content="Md Moniruzzaman" />
+    <meta name="keywords" content="Md Moniruzzaman, Senior Mobile Engineer, Mobile AI Engineer, Systems Architect, Android Architect, Flutter Specialist, Point of Sale POS, PCI-DSS, Offline-First Architecture, LiteRT, ONNX, High Concurrency, Bangladesh Software Engineer" />
+    <meta name="geo.region" content="BD" />
+    <meta name="geo.placename" content="Dhaka" />
+
+    <!-- OpenGraph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Md Moniruzzaman Portfolio" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/profile.jpg" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Md Moniruzzaman - Senior Mobile Engineer & Systems Architect" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content="Md Moniruzzaman - Senior Mobile Engineer & Systems Architect" />
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <!-- Favicon & App Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
