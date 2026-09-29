@@ -9,43 +9,44 @@ import { HERO_METRICS, INDUSTRY_ROLE_PROFILES, CONTACT_INFO } from '../data/port
     <div class="lg:col-span-7 space-y-6">
       
       <!-- System Architecture & Role Badges (Merged) -->
-      <div class="flex flex-wrap items-center gap-2">
-        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 font-mono text-xs font-semibold">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+        <div class="inline-flex items-center space-x-1.5 sm:space-x-2 px-2.5 sm:px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 font-mono text-[10px] sm:text-xs font-semibold">
+          <svg class="w-3 sm:w-3.5 h-3 sm:h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
           </svg>
           <span>HIGH-CONCURRENCY FINTECH & MOBILE ARCHITECTURE</span>
         </div>
-        <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-semibold">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 pulse-dot"></span>
+        <div class="inline-flex items-center space-x-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-mono text-[10px] sm:text-xs font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 pulse-dot shrink-0"></span>
           <span>MOBILE AI ENGINEER (TOP RECOMMENDATION)</span>
         </div>
-        <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-600 dark:text-indigo-400 font-mono text-xs font-semibold">
+        <div class="inline-flex items-center space-x-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-600 dark:text-indigo-400 font-mono text-[10px] sm:text-xs font-semibold">
           <span>POINT OF SALE (POS) FLEET</span>
         </div>
       </div>
 
       <!-- Main Heading (Offline-First Mobile AI first + POS glowing gradient) -->
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-primary)] leading-[1.15]">
+      <h1 class="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-primary)] leading-[1.18] sm:leading-[1.15] break-words">
         ENGINEERING <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-cyan-500 to-indigo-500 dark:from-emerald-400 dark:via-cyan-400 dark:to-indigo-400">OFFLINE-FIRST MOBILE AI ARCHITECTURE</span>, <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-cyan-500 to-indigo-500 dark:from-emerald-400 dark:via-cyan-400 dark:to-indigo-400">POINT OF SALE (POS)</span> & RESILIENT, HIGH-CONCURRENCY MOBILE SYSTEMS
       </h1>
 
       <!-- Subtitle Description (Merged) -->
-      <p class="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed font-normal">
+      <p class="text-sm sm:text-base lg:text-lg text-[var(--text-secondary)] leading-relaxed font-normal">
         Architected Fintech & Point of Sale (POS) platforms serving <strong class="text-[var(--text-primary)] font-semibold">50M+ active merchants</strong> and <strong class="text-[var(--text-primary)] font-semibold">1M+ consumer downloads</strong> across Bangladesh and high-throughput international enterprise operations. Specializing in on-device AI inference (LiteRT, ONNX, CoreML), zero-trust PCI-DSS payment platforms, hardware-backed biometric verification, native engine bridges, and aggressive crash-mitigation under extreme low-bandwidth networks.
       </p>
 
-      <!-- Action Buttons Grid (Original Preserved) -->
-      <div class="flex flex-wrap items-center gap-3 pt-2">
-        <button 
+        <!-- Hero Direct Resume Download CTA -->
+        <a 
           id="hero-download-resume"
+          href="/Md_Moniruzzaman_Senior_Mobile_Engineer_Resume.pdf"
+          download="Md_Moniruzzaman_Senior_Mobile_Engineer_Resume.pdf"
           class="w-full sm:w-[210px] h-10 inline-flex items-center justify-center space-x-2 px-4 py-2 rounded-lg font-mono text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/25 transition-all cursor-pointer hover:-translate-y-0.5 shrink-0"
         >
           <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
           </svg>
           <span class="whitespace-nowrap">DOWNLOAD RESUME (PDF)</span>
-        </button>
+        </a>
 
         <!-- Tab Switcher Trigger for Flagship Projects -->
         <button 
@@ -100,13 +101,13 @@ import { HERO_METRICS, INDUSTRY_ROLE_PROFILES, CONTACT_INFO } from '../data/port
         <!-- Copy Email Button -->
         <button 
           id="copy-email-btn"
-          class="inline-flex items-center space-x-1.5 px-3 py-2.5 rounded-lg font-mono text-xs text-[var(--text-muted)] hover:text-emerald-500 transition-colors cursor-pointer"
+          class="inline-flex items-center space-x-1.5 px-3 py-2.5 rounded-lg font-mono text-xs text-[var(--text-muted)] hover:text-emerald-500 transition-colors cursor-pointer max-w-full"
           title="Click to copy email address"
         >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
           </svg>
-          <span id="email-text">{CONTACT_INFO.email}</span>
+          <span id="email-text" class="truncate">{CONTACT_INFO.email}</span>
         </button>
       </div>
 
@@ -154,18 +155,18 @@ import { HERO_METRICS, INDUSTRY_ROLE_PROFILES, CONTACT_INFO } from '../data/port
   </div>
 
   <!-- Key Metrics Row (4 Card Grid matching original UI board) -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-6">
     {HERO_METRICS.map((metric) => (
-      <div class="terminal-card p-5 relative overflow-hidden group">
+      <div class="terminal-card p-4 sm:p-5 relative overflow-hidden group">
         <!-- Top accent line -->
         <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-cyan-500 opacity-60 group-hover:opacity-100 transition-opacity"></div>
         
         <div class="flex items-baseline justify-between mb-1">
-          <div class="text-3xl lg:text-4xl font-extrabold font-mono text-[var(--text-primary)] group-hover:text-emerald-500 transition-colors">
+          <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-mono text-[var(--text-primary)] group-hover:text-emerald-500 transition-colors">
             {metric.value}
           </div>
           {metric.trend && (
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold shrink-0">
               {metric.trend}
             </span>
           )}
@@ -186,17 +187,17 @@ import { HERO_METRICS, INDUSTRY_ROLE_PROFILES, CONTACT_INFO } from '../data/port
   <div class="mt-8 space-y-4">
     <div class="flex items-center justify-between border-b border-[var(--border-color)] pb-3 font-mono">
       <div class="flex items-center space-x-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
-        <h3 class="text-sm sm:text-base font-bold text-[var(--text-primary)] tracking-tight uppercase">
+        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 shrink-0"></span>
+        <h3 class="text-xs sm:text-sm md:text-base font-bold text-[var(--text-primary)] tracking-tight uppercase">
           ENGINEERING PILLARS & INDUSTRY ROLE PERCEPTION
         </h3>
       </div>
       <span class="text-xs text-[var(--text-muted)] hidden sm:inline font-mono">RECRUITER ALIGNMENT</span>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {INDUSTRY_ROLE_PROFILES.map((profile) => (
-        <div class="terminal-card p-5 rounded-xl border border-[var(--border-color)] flex flex-col justify-between hover:border-emerald-500/40 transition-all group">
+        <div class="terminal-card p-4 sm:p-5 rounded-xl border border-[var(--border-color)] flex flex-col justify-between hover:border-emerald-500/40 transition-all group">
           <div class="space-y-3">
             <!-- Role Title & Badge (Stacked vertically) -->
             <div class="space-y-1.5 font-mono">

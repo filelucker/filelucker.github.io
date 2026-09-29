@@ -278,8 +278,7 @@ export const FLAGSHIP_PROJECTS: ProjectItem[] = [
       { type: 'playstore', url: 'https://play.google.com/store/apps/details?id=com.dgepaycustomer', label: 'DGePay (Play Store)' },
       { type: 'appstore', url: 'https://apps.apple.com/us/app/dgepay-bekti/id6456410767', label: 'DGePay (App Store)' },
       { type: 'playstore', url: 'https://play.google.com/store/apps/details?id=com.dgepaymerchant', label: 'Bebsayi (Play Store)' },
-      { type: 'appstore', url: 'https://apps.apple.com/us/app/dgepay-saudagor/id6456410810', label: 'Bebsayi (App Store)' },
-      { type: 'github', url: 'https://github.com/filelucker/dgepay_library_flutter', label: 'Flutter SDK' }
+      { type: 'appstore', url: 'https://apps.apple.com/us/app/dgepay-saudagor/id6456410810', label: 'Bebsayi (App Store)' }
     ]
   },
   {
@@ -714,5 +713,45 @@ export const ADDITIONAL_TRAININGS: string[] = [
   "CCNA Routing & Switching",
   "Digital Marketing",
   "Affiliate Marketing"
+];
+
+export interface RecognitionItem {
+  title: string;
+  organization: string;
+  year: string;
+  category: string;
+  description: string;
+  badge?: string;
+}
+
+export interface VolunteerItem {
+  role: string;
+  event: string;
+  year: string;
+  location: string;
+  description: string;
+  badge?: string;
+}
+
+export const RECOGNITIONS: RecognitionItem[] = [
+  {
+    title: "Awarded for Mobile App Development",
+    organization: "Bogura DC Office (Govt. of Bangladesh)",
+    year: "2015",
+    category: "Government Recognition & Award",
+    description: "Honored by the Deputy Commissioner's (DC) Office, Bogura (Government of the People's Republic of Bangladesh) for exceptional mobile application engineering and technological innovation.",
+    badge: "Government Award"
+  }
+];
+
+export const VOLUNTEER_WORK: VolunteerItem[] = [
+  {
+    role: "Technical Advisor & Contributor",
+    event: "Digital Innovation Fair 2015",
+    year: "2015",
+    location: "Bangladesh",
+    description: "Served as Technical Advisor and technology contributor at the Digital Innovation Fair 2015, supporting national digital initiatives, evaluating student software projects, and advising on mobile solutions.",
+    badge: "Civic & Tech Advisory"
+  }
 ];
 

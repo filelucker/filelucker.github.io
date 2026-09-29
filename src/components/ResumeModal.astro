@@ -1,29 +1,30 @@
 ---
 ---
 
-<div id="resume-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+<div id="resume-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-2 sm:p-4">
   
-  <div class="relative w-full max-w-4xl glass-panel rounded-2xl border border-[var(--border-color)] shadow-2xl overflow-hidden animate-fadeIn my-8">
+  <div class="relative w-full max-w-4xl glass-panel rounded-2xl border border-[var(--border-color)] shadow-2xl overflow-hidden animate-fadeIn my-2 sm:my-8">
     
     <!-- Modal Top Bar -->
-    <div class="flex items-center justify-between px-6 py-4 bg-[var(--bg-card)] border-b border-[var(--border-color)] font-mono">
-      <div class="flex items-center space-x-2">
-        <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-        <h3 class="font-bold text-sm sm:text-base text-[var(--text-primary)]">
+    <div class="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 bg-[var(--bg-card)] border-b border-[var(--border-color)] font-mono gap-2">
+      <div class="flex items-center space-x-2 min-w-0">
+        <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500 shrink-0"></span>
+        <h3 class="font-bold text-xs sm:text-base text-[var(--text-primary)] truncate max-w-[150px] xs:max-w-[240px] sm:max-w-none">
           Md_Moniruzzaman_Senior_Mobile_Engineer_Resume.pdf
         </h3>
       </div>
 
-      <div class="flex items-center space-x-3">
+      <div class="flex items-center space-x-2 sm:space-x-3 shrink-0">
         <a 
           href="/Md_Moniruzzaman_Senior_Mobile_Engineer_Resume.pdf" 
           download
-          class="px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-bold transition-all shadow-md flex items-center space-x-1.5"
+          class="px-2.5 sm:px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-bold transition-all shadow-md flex items-center space-x-1.5 cursor-pointer"
         >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
           </svg>
-          <span>DOWNLOAD FILE</span>
+          <span class="hidden xs:inline">DOWNLOAD FILE</span>
+          <span class="xs:hidden">PDF</span>
         </a>
 
         <button 
@@ -31,7 +32,7 @@
           class="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)] transition-colors cursor-pointer"
           aria-label="Close modal"
         >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
@@ -39,13 +40,13 @@
     </div>
 
     <!-- Resume Document Viewport Container -->
-    <div class="p-6 sm:p-8 space-y-6 max-h-[75vh] overflow-y-auto font-mono text-xs text-[var(--text-secondary)] bg-[var(--bg-main)]">
+    <div class="p-4 sm:p-6 md:p-8 space-y-6 max-h-[80vh] sm:max-h-[75vh] overflow-y-auto font-mono text-xs text-[var(--text-secondary)] bg-[var(--bg-main)]">
       
       <!-- Document Header -->
       <div class="border-b border-[var(--border-color)] pb-4 space-y-1">
-        <h1 class="text-2xl font-extrabold text-[var(--text-primary)]">Md Moniruzzaman</h1>
-        <p class="text-emerald-500 font-bold">Senior Mobile Engineer & Systems Architect | Mobile AI Engineer | POS & Fintech Specialist</p>
-        <p class="text-[var(--text-muted)] text-[11px]">
+        <h1 class="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)]">Md Moniruzzaman</h1>
+        <p class="text-emerald-500 font-bold text-xs sm:text-sm">Senior Mobile Engineer & Systems Architect | Mobile AI Engineer | POS & Fintech Specialist</p>
+        <p class="text-[var(--text-muted)] text-[11px] break-words">
           Dhaka, Bangladesh • m.zaman000@gmail.com • +8801721915013 • github.com/filelucker • linkedin.com/in/mon000
         </p>
       </div>
@@ -82,33 +83,33 @@
         </h4>
         
         <div class="space-y-1">
-          <div class="flex justify-between font-bold text-[var(--text-primary)]">
+          <div class="flex flex-col xs:flex-row xs:justify-between xs:items-baseline font-bold text-[var(--text-primary)] gap-0.5">
             <span>Senior App Developer — DG INFOTECH LTD</span>
-            <span class="text-emerald-500">2023 — PRESENT</span>
+            <span class="text-emerald-500 text-[11px] shrink-0">2023 — PRESENT</span>
           </div>
           <p class="text-[11px]">Led development of DGePay & Bebsayi apps serving 10,000+ merchants and 5,000+ customers. Ensured PCI-DSS compliance and 99.9% uptime.</p>
         </div>
 
         <div class="space-y-1">
-          <div class="flex justify-between font-bold text-[var(--text-primary)]">
+          <div class="flex flex-col xs:flex-row xs:justify-between xs:items-baseline font-bold text-[var(--text-primary)] gap-0.5">
             <span>Sr. Software Engineer — shurjoMukhi Limited</span>
-            <span class="text-emerald-500">2022 — 2023</span>
+            <span class="text-emerald-500 text-[11px] shrink-0">2022 — 2023</span>
           </div>
           <p class="text-[11px]">Engineered shurjoPay payment gateway applications across Android, iOS, Web & Desktop. Mentored 5+ developers and slashed load times by 20%.</p>
         </div>
 
         <div class="space-y-1">
-          <div class="flex justify-between font-bold text-[var(--text-primary)]">
+          <div class="flex flex-col xs:flex-row xs:justify-between xs:items-baseline font-bold text-[var(--text-primary)] gap-0.5">
             <span>Software Engineer — Dnet (A Social Enterprise)</span>
-            <span class="text-emerald-500">2021 — 2022</span>
+            <span class="text-emerald-500 text-[11px] shrink-0">2021 — 2022</span>
           </div>
           <p class="text-[11px]">Delivered UNICEF’s Adolescent Health & Kala-azar tracking apps for 100K+ field users with offline-first data sync.</p>
         </div>
 
         <div class="space-y-1">
-          <div class="flex justify-between font-bold text-[var(--text-primary)]">
+          <div class="flex flex-col xs:flex-row xs:justify-between xs:items-baseline font-bold text-[var(--text-primary)] gap-0.5">
             <span>Software Engineer — Hal Technologies</span>
-            <span class="text-emerald-500">2018 — 2020</span>
+            <span class="text-emerald-500 text-[11px] shrink-0">2018 — 2020</span>
           </div>
           <p class="text-[11px]">Integrated ATM/CDM peripherals and thermal printer hardware, reducing transaction processing latency by 30%.</p>
         </div>
@@ -129,14 +130,25 @@
         </div>
       </div>
 
+      <!-- Honors, Awards & Volunteer Contributions -->
+      <div class="space-y-2">
+        <h4 class="font-bold text-[var(--text-primary)] uppercase text-xs tracking-wider border-b border-[var(--border-color)] pb-1">
+          Honors, Recognitions & Volunteer Work
+        </h4>
+        <div class="space-y-1.5 text-[11px]">
+          <div>• <strong>Government Award:</strong> Awarded by Bogura DC Office (Govt. of Bangladesh) for Mobile App Development (2015)</div>
+          <div>• <strong>Volunteer & Advisory:</strong> Digital Innovation Fair 2015, Bangladesh — Technical Advisor & Contributor</div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Modal Footer Actions -->
-    <div class="px-6 py-4 bg-[var(--bg-card)] border-t border-[var(--border-color)] flex justify-between items-center font-mono text-xs">
-      <span class="text-[var(--text-muted)]">Verified Resume Artifact</span>
+    <div class="px-4 sm:px-6 py-3 sm:py-4 bg-[var(--bg-card)] border-t border-[var(--border-color)] flex justify-between items-center font-mono text-xs">
+      <span class="text-[var(--text-muted)] text-[11px]">Verified Resume Artifact</span>
       <button 
         id="modal-close-btn-bottom"
-        class="px-4 py-2 rounded-lg bg-[var(--bg-card-hover)] border border-[var(--border-color)] text-[var(--text-primary)] hover:border-emerald-500/50 transition-colors cursor-pointer"
+        class="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-[var(--bg-card-hover)] border border-[var(--border-color)] text-[var(--text-primary)] hover:border-emerald-500/50 transition-colors cursor-pointer text-xs"
       >
         Close Preview
       </button>
@@ -146,13 +158,14 @@
 </div>
 
 <script>
-  // Modal toggle logic
+  // Modal toggle logic (if preview trigger exists)
   const modal = document.getElementById('resume-modal');
-  const openBtns = document.querySelectorAll('#open-resume-modal, #hero-download-resume');
+  const openBtns = document.querySelectorAll('.open-resume-modal-trigger');
   const closeBtns = document.querySelectorAll('#close-resume-modal, #modal-close-btn-bottom');
 
   openBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       modal?.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     });

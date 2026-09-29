@@ -7,59 +7,59 @@ import { BENCHMARKS, ARCHITECTURAL_DECISION_RECORDS } from '../data/portfolioDat
   <!-- Header Title -->
   <div class="border-b border-[var(--border-color)] pb-4">
     <div class="flex items-center space-x-2 text-xs font-mono text-emerald-500 font-bold mb-1">
-      <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+      <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
       <span>PRODUCTION SPECS & VERIFIABLE PATTERNS</span>
     </div>
-    <h2 class="text-3xl font-extrabold text-[var(--text-primary)] font-mono">
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] font-mono">
       SYSTEM DEEP DIVES & PLAYBOOK
     </h2>
-    <p class="text-sm text-[var(--text-muted)] font-mono mt-1">
+    <p class="text-xs sm:text-sm text-[var(--text-muted)] font-mono mt-1">
       Distributed network topologies, verifiable native code implementations, empirical benchmarks, and Architectural Decision Records (ADRs).
     </p>
   </div>
 
   <!-- 1. Distributed Runtime Topologies -->
   <div class="space-y-4">
-    <h3 class="text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
-      <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <h3 class="text-lg sm:text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
+      <svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
       </svg>
       <span>Distributed Runtime Topologies</span>
     </h3>
 
     <!-- Interactive Topology Flow Diagram Box -->
-    <div class="terminal-card p-6 border border-[var(--border-color)] space-y-6">
-      <div class="flex justify-between items-center font-mono text-xs pb-3 border-b border-[var(--border-color)]">
+    <div class="terminal-card p-4 sm:p-6 border border-[var(--border-color)] space-y-5 sm:space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between font-mono text-xs pb-3 border-b border-[var(--border-color)] gap-1.5">
         <span class="text-emerald-500 font-bold">ZERO-TRUST OFFLINE RELAY FLOW</span>
         <span class="text-[var(--text-muted)]">EMVCo QR & POS ROUTING</span>
       </div>
 
       <!-- Topology Diagram Nodes -->
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 font-mono text-xs text-center">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 font-mono text-xs text-center">
         
         <!-- Node 1 -->
-        <div class="p-4 rounded-xl glass-panel border border-cyan-500/30 space-y-2">
+        <div class="p-3.5 sm:p-4 rounded-xl glass-panel border border-cyan-500/30 space-y-2">
           <div class="w-8 h-8 mx-auto rounded-full bg-cyan-500/10 text-cyan-400 font-bold flex items-center justify-center">1</div>
           <div class="font-bold text-[var(--text-primary)]">Mobile POS Terminal</div>
           <div class="text-[10px] text-[var(--text-muted)]">Encrypted payload generated in TEE Keystore</div>
         </div>
 
         <!-- Node 2 -->
-        <div class="p-4 rounded-xl glass-panel border border-emerald-500/30 space-y-2">
+        <div class="p-3.5 sm:p-4 rounded-xl glass-panel border border-emerald-500/30 space-y-2">
           <div class="w-8 h-8 mx-auto rounded-full bg-emerald-500/10 text-emerald-400 font-bold flex items-center justify-center">2</div>
           <div class="font-bold text-emerald-400">Local WAL Engine</div>
           <div class="text-[10px] text-[var(--text-muted)]">Immediate atomic write to SQLite transaction WAL log</div>
         </div>
 
         <!-- Node 3 -->
-        <div class="p-4 rounded-xl glass-panel border border-indigo-500/30 space-y-2">
+        <div class="p-3.5 sm:p-4 rounded-xl glass-panel border border-indigo-500/30 space-y-2">
           <div class="w-8 h-8 mx-auto rounded-full bg-indigo-500/10 text-indigo-400 font-bold flex items-center justify-center">3</div>
           <div class="font-bold text-[var(--text-primary)]">Background Sync</div>
           <div class="text-[10px] text-[var(--text-muted)]">Protobuf payload stream over TLS 1.3 or SMS fallback</div>
         </div>
 
         <!-- Node 4 -->
-        <div class="p-4 rounded-xl glass-panel border border-emerald-500/30 space-y-2">
+        <div class="p-3.5 sm:p-4 rounded-xl glass-panel border border-emerald-500/30 space-y-2">
           <div class="w-8 h-8 mx-auto rounded-full bg-emerald-500/10 text-emerald-400 font-bold flex items-center justify-center">4</div>
           <div class="font-bold text-emerald-400">Bank Switch Gateway</div>
           <div class="text-[10px] text-[var(--text-muted)]">ISO 8583 settlement & ledger confirmation</div>
@@ -71,8 +71,8 @@ import { BENCHMARKS, ARCHITECTURAL_DECISION_RECORDS } from '../data/portfolioDat
 
   <!-- 2. Verifiable Core Implementations -->
   <div class="space-y-4">
-    <h3 class="text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
-      <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <h3 class="text-lg sm:text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
+      <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
       </svg>
       <span>Verifiable Core Implementations</span>
@@ -80,15 +80,15 @@ import { BENCHMARKS, ARCHITECTURAL_DECISION_RECORDS } from '../data/portfolioDat
 
     <!-- Code Block Viewport -->
     <div class="code-viewport rounded-xl border border-[var(--border-color)] overflow-hidden shadow-lg transition-colors">
-      <div class="flex items-center justify-between px-4 py-3 bg-[var(--bg-card-hover)] border-b border-[var(--border-color)] font-mono text-xs">
-        <div class="flex items-center space-x-3">
-          <span class="font-bold text-emerald-600 dark:text-emerald-400">BiometricKeystoreVault.swift</span>
-          <span class="text-[var(--text-muted)]">| iOS Secure Enclave Implementation</span>
+      <div class="flex items-center justify-between px-3.5 sm:px-4 py-2.5 sm:py-3 bg-[var(--bg-card-hover)] border-b border-[var(--border-color)] font-mono text-xs gap-2">
+        <div class="flex items-center space-x-2 sm:space-x-3 min-w-0">
+          <span class="font-bold text-emerald-600 dark:text-emerald-400 truncate">BiometricKeystoreVault.swift</span>
+          <span class="text-[var(--text-muted)] hidden sm:inline">| iOS Secure Enclave Implementation</span>
         </div>
-        <span class="text-xs text-[var(--text-muted)] font-semibold">SWIFT / SECURE KEYCHAIN</span>
+        <span class="text-[10px] sm:text-xs text-[var(--text-muted)] font-semibold shrink-0">SWIFT / SECURE KEYCHAIN</span>
       </div>
 
-      <div class="p-4 bg-[var(--bg-card)] text-xs font-mono leading-relaxed overflow-x-auto text-[var(--text-primary)] transition-colors">
+      <div class="p-3.5 sm:p-4 bg-[var(--bg-card)] text-[11px] sm:text-xs font-mono leading-relaxed overflow-x-auto text-[var(--text-primary)] transition-colors">
         <pre class="whitespace-pre"><code><span class="text-purple-600 dark:text-purple-400 font-bold">import</span> Foundation
 <span class="text-purple-600 dark:text-purple-400 font-bold">import</span> LocalAuthentication
 <span class="text-purple-600 dark:text-purple-400 font-bold">import</span> Security
@@ -130,18 +130,18 @@ import { BENCHMARKS, ARCHITECTURAL_DECISION_RECORDS } from '../data/portfolioDat
 
   <!-- 3. Empirical Benchmarks (Production Field Data) -->
   <div class="space-y-4">
-    <h3 class="text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
-      <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <h3 class="text-lg sm:text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
+      <svg class="w-5 h-5 text-indigo-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path>
       </svg>
       <span>Empirical Benchmarks (Production Field Data)</span>
     </h3>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 font-mono text-xs">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 font-mono text-xs">
       {BENCHMARKS.map((b) => (
-        <div class="terminal-card p-4 space-y-2 border border-[var(--border-color)]">
+        <div class="terminal-card p-3.5 sm:p-4 space-y-2 border border-[var(--border-color)]">
           <span class="text-[10px] text-[var(--text-muted)] block uppercase">{b.title}</span>
-          <div class="text-3xl font-extrabold text-emerald-400">{b.value}</div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400">{b.value}</div>
           <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-bold block w-fit">
             {b.comparison}
           </span>
@@ -153,8 +153,8 @@ import { BENCHMARKS, ARCHITECTURAL_DECISION_RECORDS } from '../data/portfolioDat
 
   <!-- 4. Architectural Decision Records (ADRs) -->
   <div class="space-y-4">
-    <h3 class="text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
-      <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <h3 class="text-lg sm:text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
+      <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
       </svg>
       <span>Architectural Decision Records (ADRs)</span>
@@ -162,13 +162,13 @@ import { BENCHMARKS, ARCHITECTURAL_DECISION_RECORDS } from '../data/portfolioDat
 
     <div class="space-y-4 font-mono text-xs">
       {ARCHITECTURAL_DECISION_RECORDS.map((adr) => (
-        <div class="terminal-card p-6 border border-[var(--border-color)] space-y-3">
-          <div class="flex justify-between items-center pb-2 border-b border-[var(--border-color)]">
-            <div class="flex items-center space-x-2">
-              <span class="text-emerald-400 font-bold">{adr.id}:</span>
-              <h4 class="text-base font-bold text-[var(--text-primary)]">{adr.title}</h4>
+        <div class="terminal-card p-4 sm:p-6 border border-[var(--border-color)] space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-[var(--border-color)] gap-2">
+            <div class="flex items-center space-x-2 min-w-0">
+              <span class="text-emerald-400 font-bold shrink-0">{adr.id}:</span>
+              <h4 class="text-sm sm:text-base font-bold text-[var(--text-primary)]">{adr.title}</h4>
             </div>
-            <span class="px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold text-[10px]">
+            <span class="px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold text-[10px] shrink-0 self-start sm:self-auto">
               {adr.status}
             </span>
           </div>

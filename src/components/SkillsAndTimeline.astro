@@ -1,5 +1,5 @@
 ---
-import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE, CERTIFICATIONS, ADDITIONAL_TRAININGS } from '../data/portfolioData';
+import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE, CERTIFICATIONS, ADDITIONAL_TRAININGS, RECOGNITIONS, VOLUNTEER_WORK } from '../data/portfolioData';
 ---
 
 <div class="space-y-6">
@@ -7,29 +7,29 @@ import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE, CERTIFICATIONS, ADD
   <!-- Header Title -->
   <div class="border-b border-[var(--border-color)] pb-4">
     <div class="flex items-center space-x-2 text-xs font-mono text-cyan-500 font-bold mb-1">
-      <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+      <span class="w-2 h-2 rounded-full bg-cyan-500 shrink-0"></span>
       <span>TECHNICAL CAPABILITIES & CAREER TRAJECTORY</span>
     </div>
-    <h2 class="text-3xl font-extrabold text-[var(--text-primary)] font-mono">
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] font-mono">
       SKILLS MATRIX, OPEN SOURCE & LEADERSHIP
     </h2>
-    <p class="text-sm text-[var(--text-muted)] font-mono mt-1">
+    <p class="text-xs sm:text-sm text-[var(--text-muted)] font-mono mt-1">
       Comprehensive breakdown of mobile engineering competencies, open-source packages, professional career timeline, and contact CTA.
     </p>
   </div>
 
   <!-- 1. Technical Skills Matrix Grid -->
   <div class="space-y-4">
-    <h3 class="text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
-      <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <h3 class="text-lg sm:text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
+      <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
       </svg>
       <span>Technical Skills Matrix</span>
     </h3>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
       {SKILLS_MATRIX.map((cat) => (
-        <div class="terminal-card p-6 space-y-4 border border-[var(--border-color)]">
+        <div class="terminal-card p-4 sm:p-6 space-y-4 border border-[var(--border-color)]">
           <div class="flex items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono">
             <h4 class="text-base font-bold text-emerald-500">{cat.category}</h4>
             <span class="text-xs text-[var(--text-muted)]">CORE SPECS</span>
@@ -38,12 +38,12 @@ import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE, CERTIFICATIONS, ADD
           <div class="space-y-3 font-mono text-xs">
             {cat.skills.map((skill) => (
               <div class="p-3 rounded bg-[var(--bg-main)] border border-[var(--border-color)] space-y-1">
-                <div class="flex justify-between items-center">
+                <div class="flex flex-wrap justify-between items-baseline gap-1">
                   <span class="font-bold text-[var(--text-primary)] flex items-center">
-                    {skill.isCore && <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></span>}
-                    {skill.name}
+                    {skill.isCore && <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2 shrink-0"></span>}
+                    <span>{skill.name}</span>
                   </span>
-                  <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold">
+                  <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold shrink-0">
                     {skill.level}
                   </span>
                 </div>
@@ -99,23 +99,23 @@ import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE, CERTIFICATIONS, ADD
 
   <!-- 3. Professional Timeline & Leadership Impact -->
   <div class="space-y-4">
-    <h3 class="text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
-      <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <h3 class="text-lg sm:text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
+      <svg class="w-5 h-5 text-indigo-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
       </svg>
       <span>Professional Timeline & Leadership Impact</span>
     </h3>
 
-    <div class="space-y-6">
+    <div class="space-y-4 sm:space-y-6">
       {WORK_TIMELINE.map((item) => (
-        <div class="terminal-card p-6 border-l-4 border-l-emerald-500 border-[var(--border-color)] space-y-4">
-          <div class="flex flex-col md:flex-row md:items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono">
+        <div class="terminal-card p-4 sm:p-6 border-l-4 border-l-emerald-500 border-[var(--border-color)] space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[var(--border-color)] font-mono gap-2">
             <div>
-              <h4 class="text-xl font-bold text-[var(--text-primary)]">{item.role}</h4>
+              <h4 class="text-lg sm:text-xl font-bold text-[var(--text-primary)]">{item.role}</h4>
               <p class="text-xs text-emerald-400 font-semibold">{item.company} • {item.location}</p>
             </div>
-            <div class="mt-2 md:mt-0">
-              <span class="px-3 py-1 rounded bg-[var(--bg-main)] text-[var(--text-primary)] border border-[var(--border-color)] text-xs font-bold">
+            <div class="shrink-0">
+              <span class="px-2.5 sm:px-3 py-1 rounded bg-[var(--bg-main)] text-[var(--text-primary)] border border-[var(--border-color)] text-xs font-bold inline-block">
                 {item.period}
               </span>
             </div>
@@ -243,21 +243,96 @@ import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE, CERTIFICATIONS, ADD
     </div>
   </div>
 
-  <!-- 5. Initiate Strategic Collaboration Box (Highlighted Theme Support) -->
-  <div class="relative group my-8">
+  <!-- 7. Honors, Recognitions & Community Leadership -->
+  <div class="space-y-4">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--border-color)] pb-3">
+      <h3 class="text-xl font-bold text-[var(--text-primary)] font-mono flex items-center space-x-2">
+        <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+        </svg>
+        <span>Honors, Recognitions & Community Leadership</span>
+      </h3>
+      <span class="text-xs font-mono text-[var(--text-muted)]">Government Awards & National Civic Tech Advisory</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* 1. Bogura DC Office Award */}
+      {RECOGNITIONS.map((rec) => (
+        <div class="terminal-card p-5 space-y-3 border border-amber-500/30 bg-gradient-to-br from-amber-500/5 via-[var(--bg-card)] to-[var(--bg-card)] hover:border-amber-500/60 transition-all flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between font-mono text-xs">
+              <span class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-500 dark:text-amber-400 font-bold border border-amber-500/30 text-[11px] flex items-center space-x-1">
+                <span>🏆</span>
+                <span>{rec.badge || "Award"}</span>
+              </span>
+              <span class="text-amber-500 dark:text-amber-400 font-bold">{rec.year}</span>
+            </div>
+
+            <h4 class="text-base font-bold text-[var(--text-primary)] font-mono">
+              {rec.title}
+            </h4>
+            <p class="text-xs text-amber-500 dark:text-amber-400 font-mono font-semibold">
+              {rec.organization}
+            </p>
+            <p class="text-xs text-[var(--text-secondary)] font-mono leading-relaxed pt-1">
+              {rec.description}
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-[var(--border-color)] flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)]">
+            <span class="uppercase font-bold text-amber-600 dark:text-amber-400">Award Category:</span>
+            <span>{rec.category}</span>
+          </div>
+        </div>
+      ))}
+
+      {/* 2. Digital Innovation Fair Volunteer & Technical Advisor */}
+      {VOLUNTEER_WORK.map((vol) => (
+        <div class="terminal-card p-5 space-y-3 border border-cyan-500/30 bg-gradient-to-br from-cyan-500/5 via-[var(--bg-card)] to-[var(--bg-card)] hover:border-cyan-500/60 transition-all flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between font-mono text-xs">
+              <span class="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 font-bold border border-cyan-500/30 text-[11px] flex items-center space-x-1">
+                <span>🤝</span>
+                <span>{vol.badge || "Volunteer"}</span>
+              </span>
+              <span class="text-cyan-600 dark:text-cyan-400 font-bold">{vol.year}</span>
+            </div>
+
+            <h4 class="text-base font-bold text-[var(--text-primary)] font-mono">
+              {vol.role}
+            </h4>
+            <p class="text-xs text-cyan-600 dark:text-cyan-400 font-mono font-semibold">
+              {vol.event} • {vol.location}
+            </p>
+            <p class="text-xs text-[var(--text-secondary)] font-mono leading-relaxed pt-1">
+              {vol.description}
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-[var(--border-color)] flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)]">
+            <span class="uppercase font-bold text-cyan-600 dark:text-cyan-400">Contribution Type:</span>
+            <span>Civic Tech & Mentorship</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- 8. Initiate Strategic Collaboration Box (Highlighted Theme Support) -->
+  <div class="relative group my-6 sm:my-8">
     <!-- Glowing Ambient Backdrop Accent (Highlighted Effect) -->
     <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-indigo-500 opacity-20 dark:opacity-35 blur-xl group-hover:opacity-35 dark:group-hover:opacity-50 transition duration-700 pointer-events-none"></div>
 
     <!-- Main Card Container -->
-    <div class="relative p-6 sm:p-10 rounded-2xl bg-white dark:bg-slate-950/90 border-2 border-emerald-500/40 dark:border-emerald-500/40 shadow-2xl shadow-emerald-500/10 dark:shadow-emerald-950/50 backdrop-blur-xl space-y-8 transition-colors">
+    <div class="relative p-4 sm:p-8 lg:p-10 rounded-2xl bg-white dark:bg-slate-950/90 border-2 border-emerald-500/40 dark:border-emerald-500/40 shadow-2xl shadow-emerald-500/10 dark:shadow-emerald-950/50 backdrop-blur-xl space-y-6 sm:space-y-8 transition-colors">
       
       <!-- Header & Perception -->
       <div class="max-w-2xl space-y-3 font-mono">
-        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-dot"></span>
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-dot shrink-0"></span>
           <span>OPEN FOR CONSULTING & TECHNICAL LEADERSHIP</span>
         </div>
-        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[var(--text-primary)] tracking-tight">
+        <h3 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight">
           Initiate Strategic Collaboration
         </h3>
         <p class="text-xs sm:text-sm text-[var(--text-secondary)] font-mono leading-relaxed">
@@ -308,11 +383,11 @@ import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE, CERTIFICATIONS, ADD
 
       <!-- Direct On-Page Contact Form -->
       <div id="contact-form-container" class="pt-6 border-t border-slate-200 dark:border-emerald-500/20">
-        <div class="p-6 sm:p-8 rounded-xl bg-slate-50/90 dark:bg-slate-900/90 border border-slate-200 dark:border-emerald-500/30 shadow-inner space-y-6">
+        <div class="p-4 sm:p-6 lg:p-8 rounded-xl bg-slate-50/90 dark:bg-slate-900/90 border border-slate-200 dark:border-emerald-500/30 shadow-inner space-y-5 sm:space-y-6">
           <div class="flex items-center justify-between flex-wrap gap-2">
             <div class="flex items-center space-x-2.5 font-mono">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 pulse-dot"></span>
-              <h4 class="font-bold text-sm sm:text-base text-[var(--text-primary)] tracking-wide">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 pulse-dot shrink-0"></span>
+              <h4 class="font-bold text-xs sm:text-sm md:text-base text-[var(--text-primary)] tracking-wide">
                 Direct Transmission / Consultation Request
               </h4>
             </div>
