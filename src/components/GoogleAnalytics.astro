@@ -1,0 +1,53 @@
+---
+interface Props {
+  measurementId?: string;
+}
+
+const { 
+  measurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || '' 
+} = Astro.props;
+
+const isValidId = measurementId && measurementId.startsWith('G-');
+---
+
+{isValidId && (
+  <>
+    <!-- Google Analytics 4 (gtag.js) - Privacy-Preserving & Secure Configuration -->
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
+    <script is:inline define:vars={{ measurementId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+
+      gtag('js', new Date());
+
+      // Best-Practice Security & Privacy Flags
+      gtag('config', measurementId, {
+        anonymize_ip: true,
+        cookie_flags: 'SameSite=None;Secure',
+        send_page_view: true
+      });
+
+      // Track Clean URL Navigation (Tab Switches in Astro Portfolio)
+      let currentPath = window.location.pathname;
+      const observer = new MutationObserver(() => {
+        if (window.location.pathname !== currentPath) {
+          currentPath = window.location.pathname;
+          gtag('event', 'page_view', {
+            page_path: currentPath,
+            page_title: document.title
+          });
+        }
+      });
+
+      observer.observe(document, { subtree: true, childList: true });
+
+      window.addEventListener('popstate', () => {
+        gtag('event', 'page_view', {
+          page_path: window.location.pathname,
+          page_title: document.title
+        });
+      });
+    </script>
+  </>
+)}
