@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://filelucker.github.io/sitemap.xml
+Sitemap: https://moniruz.dev/sitemap.xml

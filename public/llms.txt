@@ -8,7 +8,7 @@
 - Email: contact@moniruz.dev
 - GitHub: https://github.com/filelucker
 - LinkedIn: https://www.linkedin.com/in/mon000
-- Portfolio: https://filelucker.github.io/
+- Portfolio: https://moniruz.dev/
 
 ## Professional Summary
 Seasoned Senior Mobile Application Engineer and Systems Architect with 7+ years of experience in system design and architecture, specializing in scalable mobile systems, on-device AI inference (LiteRT, ONNX, CoreML), biometric hardware integrations, Point of Sale (POS) terminal fleets (10,000+ devices), and high-concurrency fintech platforms serving 50M+ users.
