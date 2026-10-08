@@ -500,7 +500,7 @@ export const OPEN_SOURCE_PACKAGES = [
 
 export const CONTACT_INFO = {
   github: "https://github.com/filelucker",
-  email: "m.zaman000@gmail.com",
+  email: "contact@moniruz.dev",
   linkedin: "https://www.linkedin.com/in/mon000",
   phone: "+8801721915013",
   whatsapp: "https://wa.me/8801721915013",

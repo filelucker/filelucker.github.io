@@ -343,11 +343,11 @@ import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE, CERTIFICATIONS, ADD
       <!-- Contact Details & Quick Links -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
         <a 
-          href="mailto:m.zaman000@gmail.com"
+          href="mailto:contact@moniruz.dev"
           class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/80 hover:bg-emerald-50/60 dark:hover:bg-slate-800 border border-slate-200 dark:border-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold flex flex-col justify-between text-left transition-all shadow-xs hover:shadow-md hover:border-emerald-500/40"
         >
           <span class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">DIRECT EMAIL</span>
-          <span class="text-sm truncate text-slate-900 dark:text-white mt-1">m.zaman000@gmail.com</span>
+          <span class="text-sm truncate text-slate-900 dark:text-white mt-1">contact@moniruz.dev</span>
         </a>
 
         <a 
@@ -493,7 +493,7 @@ import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE, CERTIFICATIONS, ADD
               </button>
 
               <span class="text-[11px] text-slate-600 dark:text-slate-400 text-center sm:text-right font-mono">
-                Or direct: <a href="mailto:m.zaman000@gmail.com" class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">m.zaman000@gmail.com</a> • <a href="https://wa.me/8801721915013" target="_blank" rel="noopener noreferrer" class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">+8801721915013</a>
+                Or direct: <a href="mailto:contact@moniruz.dev" class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">contact@moniruz.dev</a> • <a href="https://wa.me/8801721915013" target="_blank" rel="noopener noreferrer" class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">+8801721915013</a>
               </span>
             </div>
           </form>
@@ -573,7 +573,7 @@ import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE, CERTIFICATIONS, ADD
     const todayStr = new Date().toISOString().slice(0, 10);
     const countData = JSON.parse(localStorage.getItem(STORAGE_KEY_COUNT) || '{"date":"","count":0}');
     if (countData.date === todayStr && countData.count >= 5) {
-      showStatus('warning', '⚠ Daily transmission limit reached. Please contact directly via email (<a href="mailto:m.zaman000@gmail.com" class="underline font-bold">m.zaman000@gmail.com</a>) or <a href="https://wa.me/8801721915013" class="underline font-bold" target="_blank">WhatsApp</a>.');
+      showStatus('warning', '⚠ Daily transmission limit reached. Please contact directly via email (<a href="mailto:contact@moniruz.dev" class="underline font-bold">contact@moniruz.dev</a>) or <a href="https://wa.me/8801721915013" class="underline font-bold" target="_blank">WhatsApp</a>.');
       return;
     }
 
@@ -612,7 +612,7 @@ import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE, CERTIFICATIONS, ADD
 
     try {
       // 6. Direct Operational Dispatch via FormSubmit.co AJAX API
-      const response = await fetch('https://formsubmit.co/ajax/m.zaman000@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/contact@moniruz.dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -647,7 +647,7 @@ import { SKILLS_MATRIX, OPEN_SOURCE_PACKAGES, WORK_TIMELINE, CERTIFICATIONS, ADD
     } catch (err: any) {
       console.error('Contact dispatch error:', err);
       // Fallback assistance with prefilled mailto link
-      const mailtoUrl = `mailto:m.zaman000@gmail.com?subject=${encodeURIComponent('[Inquiry] ' + scope)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
+      const mailtoUrl = `mailto:contact@moniruz.dev?subject=${encodeURIComponent('[Inquiry] ' + scope)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
       showStatus('error', `⚠ Network dispatch timeout. Please <a href="${mailtoUrl}" class="underline font-bold text-white">click here to send via your email client directly</a> or message via <a href="https://wa.me/8801721915013" class="underline font-bold text-white" target="_blank">WhatsApp (+8801721915013)</a>.`);
     } finally {
       directSubmitBtn.removeAttribute('disabled');
