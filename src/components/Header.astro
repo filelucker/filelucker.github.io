@@ -230,7 +230,7 @@ const mobileInactiveClass = "mobile-tab-btn shrink-0 px-3 py-1.5 text-center rou
 
     if (updateUrl) {
       const slug = TAB_TO_SLUG[targetId] ?? '';
-      const newPath = slug ? `/${slug}` : '/';
+      const newPath = slug ? `/${slug}/` : '/';
       const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
       const targetCleanPath = newPath.replace(/\/$/, '') || '/';
       

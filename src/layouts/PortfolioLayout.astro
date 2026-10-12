@@ -38,8 +38,20 @@ const descriptionsByTab: Record<string, string> = {
 const pageTitle = titlesByTab[initialTab] || titlesByTab['overview-tab'];
 const description = descriptionsByTab[initialTab] || descriptionsByTab['overview-tab'];
 
-const slugPath = currentSlug ? `/${currentSlug}` : '';
-const canonicalUrl = `${siteUrl}${slugPath}`;
+const canonicalSlugMap: Record<string, string> = {
+  '': '',
+  'overview': '',
+  'flagship': 'flagship',
+  'projects': 'flagship',
+  'skills': 'skills',
+  'timeline': 'skills',
+  'playbook': 'playbook',
+  'deep-dives': 'playbook',
+};
+
+const canonicalSlug = canonicalSlugMap[currentSlug] ?? currentSlug;
+const canonicalPath = canonicalSlug ? `/${canonicalSlug}/` : '/';
+const canonicalUrl = `${siteUrl}${canonicalPath}`;
 const ogImageUrl = `${siteUrl}/og-image.png`;
 const profileImageUrl = `${siteUrl}/profile.jpg`;
 

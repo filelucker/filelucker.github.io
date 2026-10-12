@@ -33,7 +33,7 @@ import '../styles/global.css';
       const path = window.location.pathname.replace(/^\/|\/$/g, '');
       const validTabs = ['overview', 'flagship', 'projects', 'skills', 'timeline', 'playbook', 'deep-dives'];
       if (validTabs.includes(path)) {
-        window.location.replace('/' + path);
+        window.location.replace('/' + path + '/');
       }
     </script>
   </head>

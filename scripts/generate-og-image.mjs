@@ -125,7 +125,7 @@ async function createOgImage() {
       </g>
 
       <!-- Bottom Domain Watermark -->
-      <text x="70" y="555" fill="#475569" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700">filelucker.github.io</text>
+      <text x="70" y="555" fill="#475569" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700">moniruz.dev</text>
 
       <!-- Photo Frame / Border -->
       <rect x="766" y="131" width="368" height="368" rx="36" fill="none" stroke="url(#borderGrad)" stroke-width="4" stroke-opacity="0.8" />
